@@ -69,15 +69,14 @@ author_professional_certifications:
               cert_date: "March 31, 2025" 
               cert_expiry: "March 31, 2027"
               cert_url: "https://www.credly.com/badges/fdcd9364-266a-4ea3-bc12-c7ef9512faff/public_url"
-              preview_embed: >-
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="fdcd9364-266a-4ea3-bc12-c7ef9512faff" data-share-badge-host="https://www.credly.com"></div>
+              preview_image: gcp-ml.png
               visibility: true
             - cert_name: AWS Certified Solutions Architect
               cert_issuer: Amazon Web Services
               cert_date: "2023-05"
               cert_expiry: "2025-05"
               cert_url: "https://aws.amazon.com/"
-              preview_image: "https://via.placeholder.com/120x120.png?text=AWS+Badge"
+              preview_image: gcp-ml.png
               visibility: true
 
 # Certifications
@@ -87,16 +86,14 @@ author_certifications:
               cert_date: "2023-04"
               cert_expiry: "2026-04"
               cert_url: "https://www.linuxfoundation.org/"
-              preview_embed: >-
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="fdcd9364-266a-4ea3-bc12-c7ef9512faff" data-share-badge-host="https://www.credly.com"></div>
+              preview_image: gcp-ml.png
               visibility: true
             - cert_name: "HashiCorp Certified: Terraform Associate"
               cert_issuer: HashiCorp
               cert_date: "2023-03"
               cert_expiry: "2025-03"
               cert_url: "https://www.hashicorp.com/"
-              preview_embed: >-
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="fdcd9364-266a-4ea3-bc12-c7ef9512faff" data-share-badge-host="https://www.credly.com"></div>
+              preview_image: gcp-ml.png
               visibility: true
 
 # Badges
@@ -106,16 +103,14 @@ author_badges:
               badge_date: "2024-01"
               badge_expiry: "2025-01"
               badge_url: "https://www.credential.net/"
-              preview_embed: >-
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="fdcd9364-266a-4ea3-bc12-c7ef9512faff" data-share-badge-host="https://www.credly.com"></div>
+              preview_image: gcp-ml.png
               visibility: true
             - badge_name: AWS Community Builder
               badge_issuer: Amazon Web Services
               badge_date: "2023-08"
               badge_expiry: "2024-08"
               badge_url: "https://aws.amazon.com/"
-              preview_embed: >-
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="fdcd9364-266a-4ea3-bc12-c7ef9512faff" data-share-badge-host="https://www.credly.com"></div>
+              preview_image: gcp-ml.png
               visibility: true
 
 # social links
