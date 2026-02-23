@@ -18,9 +18,9 @@ urls:
 
 author_logo: profile.png
 author: John Doe
-author_bio: Hi, my name is John Doe. I built this site using devlopr-jekyll :D
+author_bio: Google Cloud Certified Professional Machine Learning Engineer with 6+ years of experience turning raw data into scalable data platforms and ML-powered insights on GCP. I enjoy tackling complex data challenges—from building and evolving production ETL pipelines for Fortune 500 retail analytics to exploring hybrid forecasting models and contributing to product discovery solutions and search relevance improvements for a global luxury ecommerce platform using catalog ingestion and Vertex AI Search for Commerce. My work has delivered measurable impact, including reducing cloud costs by $2K/month and automating data workflows that cut processing time by 85%. I value collaborative problem-solving and delivering reliable data products that stakeholders trust for decision-making.
 author_email: "jamesvasasnth789@gmail.com"
-author_location: India
+author_location: Bangalore, India
 author_website_url: "https://jamesvasanth.com"
 typewrite-text: devlopr is a jekyll framework built for developers. You can edit this in _config.yml file
 hero_cover_img: sample_cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
@@ -67,18 +67,20 @@ author_certifications:
             - cert_name: Google Cloud Professional Data Engineer
               cert_issuer: Google Cloud
               cert_date: "2023-06"
+              cert_expiry: "2023-06"
               cert_url: "https://www.credential.net/"
               visibility: true
             - cert_name: AWS Certified Solutions Architect
               cert_issuer: Amazon Web Services
               cert_date: "2023-05"
+              cert_expiry: "2023-05"
               cert_url: "https://aws.amazon.com/"
               visibility: true
 
 # social links
-twitter_username: xplor4r
-github_username:  sujaykundu777
-instagram_username: xplor4r
+twitter_username: beingjamesvasa1
+github_username:  Jamesvasanth21
+# instagram_username: xplor4r
 # facebook_username: johndoe
 # linkedin_username: johndoe
 # behance_username: johndoe
