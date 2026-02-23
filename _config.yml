@@ -85,7 +85,7 @@ author_certifications:
               cert_expiry: "2026-04"
               cert_url: "https://www.linuxfoundation.org/"
               visibility: true
-            - cert_name: HashiCorp Certified: Terraform Associate
+            - cert_name: "HashiCorp Certified: Terraform Associate"
               cert_issuer: HashiCorp
               cert_date: "2023-03"
               cert_expiry: "2025-03"
