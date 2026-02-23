@@ -64,11 +64,11 @@ author_project_details:
 
 # Professional Certifications
 author_professional_certifications:
-            - cert_name: Google Cloud Professional Data Engineer
+            - cert_name: Google Cloud Professional Machine Learning Engineer
               cert_issuer: Google Cloud
-              cert_date: "2023-06"
-              cert_expiry: "2025-06"
-              cert_url: "https://www.credential.net/"
+              cert_date: "March 31, 2025" 
+              cert_expiry: "March 31, 2027"
+              cert_url: "https://www.credly.com/badges/fdcd9364-266a-4ea3-bc12-c7ef9512faff/public_url"
               visibility: true
             - cert_name: AWS Certified Solutions Architect
               cert_issuer: Amazon Web Services

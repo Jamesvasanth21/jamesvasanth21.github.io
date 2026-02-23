@@ -86,15 +86,44 @@ permalink: /certifications/
   </div>
 
   <div class="col-lg-8">
+    <!-- Summary table -->
+    <div class="card mb-3">
+      <div class="card-body">
+        <table class="table text-center mb-0">
+          <thead>
+            <tr>
+              <th>Professional Certifications</th>
+              <th>Certifications</th>
+              <th>Badges</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ site.author_professional_certifications | size }}</td>
+              <td>{{ site.author_certifications | size }}</td>
+              <td>{{ site.author_badges | size }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <!-- Professional Certifications Section -->
-    <div class="card">
+    <div class="card mb-3">
       <h1 class="card-title">Professional Certifications</h1>
       <br />
       {% if site.author_professional_certifications %}
         {% for cert in site.author_professional_certifications %}
           {% if cert.visibility == true %}
           <div class="row" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0;">
-            <div class="col-md-12">
+            <div class="col-md-2">
+              {% if cert.cert_url %}
+              <img src="https://www.google.com/s2/favicons?sz=128&domain_url={{ cert.cert_url | uri_escape }}" class="img-fluid" alt="preview" />
+              {% else %}
+              <img src="{{site.url}}{{site.baseurl}}/assets/img/profile.png" class="img-fluid" alt="preview" />
+              {% endif %}
+            </div>
+            <div class="col-md-10">
               <h4 class="experience-title">{{ cert.cert_name }}</h4>
               <h6 class="experience-info">{{ cert.cert_issuer }}</h6>
               <p class="experience-desc">Certified: {{ cert.cert_date}} | Expires: {{ cert.cert_expiry }}</p>
@@ -111,14 +140,21 @@ permalink: /certifications/
     </div>
 
     <!-- Certifications Section -->
-    <div class="card">
+    <div class="card mb-3">
       <h1 class="card-title">Certifications</h1>
       <br />
       {% if site.author_certifications %}
         {% for cert in site.author_certifications %}
           {% if cert.visibility == true %}
           <div class="row" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0;">
-            <div class="col-md-12">
+            <div class="col-md-2">
+              {% if cert.cert_url %}
+              <img src="https://www.google.com/s2/favicons?sz=128&domain_url={{ cert.cert_url | uri_escape }}" class="img-fluid" alt="preview" />
+              {% else %}
+              <img src="{{site.url}}{{site.baseurl}}/assets/img/profile.png" class="img-fluid" alt="preview" />
+              {% endif %}
+            </div>
+            <div class="col-md-10">
               <h4 class="experience-title">{{ cert.cert_name }}</h4>
               <h6 class="experience-info">{{ cert.cert_issuer }}</h6>
               <p class="experience-desc">Certified: {{ cert.cert_date}} | Expires: {{ cert.cert_expiry }}</p>
@@ -135,14 +171,21 @@ permalink: /certifications/
     </div>
 
     <!-- Badges Section -->
-    <div class="card">
+    <div class="card mb-3">
       <h1 class="card-title">Badges</h1>
       <br />
       {% if site.author_badges %}
         {% for badge in site.author_badges %}
           {% if badge.visibility == true %}
           <div class="row" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0;">
-            <div class="col-md-12">
+            <div class="col-md-2">
+              {% if badge.badge_url %}
+              <img src="https://www.google.com/s2/favicons?sz=128&domain_url={{ badge.badge_url | uri_escape }}" class="img-fluid" alt="preview" />
+              {% else %}
+              <img src="{{site.url}}{{site.baseurl}}/assets/img/profile.png" class="img-fluid" alt="preview" />
+              {% endif %}
+            </div>
+            <div class="col-md-10">
               <h4 class="experience-title">{{ badge.badge_name }}</h4>
               <h6 class="experience-info">{{ badge.badge_issuer }}</h6>
               <p class="experience-desc">Awarded: {{ badge.badge_date}} | Expires: {{ badge.badge_expiry }}</p>
