@@ -110,50 +110,68 @@ permalink: /certifications/
 
     <!-- Professional Certifications Section -->
     <div class="card mb-3">
-      <h1 class="card-title">Professional Certifications</h1>
-      <br />
-      {% if site.author_professional_certifications %}
+    <h1 class="card-title">Professional Certifications</h1>
+    <br />
+    {% if site.author_professional_certifications %}
         {% for cert in site.author_professional_certifications %}
-          {% if cert.visibility == true %}
-          <div class="row" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0;">
-            <div class="col-md-2">
-              <div class="preview-container" style="width:100%;display:flex;align-items:center;justify-content:center;min-height:96px;">
+        {% if cert.visibility == true %}
+        <div class="row" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0;">
+
+            <!-- PREVIEW COLUMN (wider to prevent squeeze) -->
+            <div class="col-md-4 col-4">
+            <div class="preview-container" style="width:100%;display:flex;align-items:center;justify-content:center;min-height:120px;overflow:hidden;">
+
                 {% if cert.preview_image %}
-                  <img src="{{ cert.preview_image }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
+                <img src="{{ cert.preview_image }}" class="img-fluid rounded" alt="preview" style="max-width:120px;max-height:120px;" />
+
                 {% elsif cert.preview_embed %}
-                  {% assign pe = cert.preview_embed | strip %}
-                  {% if pe contains '<' %}
-                    <div class="embed-wrapper" style="display:flex;align-items:center;justify-content:center;">{{ pe }}</div>
+                {% assign pe = cert.preview_embed | strip %}
+                {% if pe contains '<' %}
+
+                    <!-- SOLUTION 1: SCALE + CONTAIN EMBED -->
+                    <div class="embed-wrapper" style="width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+                    <div style="transform:scale(0.42);transform-origin:top left;">
+                        {{ pe }}
+                    </div>
+                    </div>
+
                     {% if pe contains 'credly' %}{% assign has_credly = true %}{% endif %}
-                  {% elsif pe contains 'http' %}
-                    <img src="{{ pe }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
-                  {% endif %}
-                {% elsif cert.cert_url %}
-                  {% assign url_lower = cert.cert_url | downcase %}
-                  {% if url_lower contains '.png' or url_lower contains '.jpg' or url_lower contains '.jpeg' or url_lower contains '.svg' or url_lower contains '.gif' %}
-                    <img src="{{ cert.cert_url }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
-                  {% else %}
-                    <img src="https://www.google.com/s2/favicons?sz=128&domain_url={{ cert.cert_url | uri_escape }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
-                  {% endif %}
-                {% else %}
-                  <img src="{{site.url}}{{site.baseurl}}/assets/img/profile.png" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
+
+                {% elsif pe contains 'http' %}
+                    <img src="{{ pe }}" class="img-fluid rounded" alt="preview" style="max-width:120px;max-height:120px;" />
                 {% endif %}
-              </div>
+
+                {% elsif cert.cert_url %}
+                {% assign url_lower = cert.cert_url | downcase %}
+                {% if url_lower contains '.png' or url_lower contains '.jpg' or url_lower contains '.jpeg' or url_lower contains '.svg' or url_lower contains '.gif' %}
+                    <img src="{{ cert.cert_url }}" class="img-fluid rounded" alt="preview" style="max-width:120px;max-height:120px;" />
+                {% else %}
+                    <img src="https://www.google.com/s2/favicons?sz=128&domain_url={{ cert.cert_url | uri_escape }}" class="img-fluid rounded" alt="preview" style="max-width:120px;max-height:120px;" />
+                {% endif %}
+
+                {% else %}
+                <img src="{{site.url}}{{site.baseurl}}/assets/img/profile.png" class="img-fluid rounded" alt="preview" style="max-width:120px;max-height:120px;" />
+                {% endif %}
+
             </div>
-            <div class="col-md-10">
-              <h4 class="experience-title">{{ cert.cert_name }}</h4>
-              <h6 class="experience-info">{{ cert.cert_issuer }}</h6>
-              <p class="experience-desc">Certified: {{ cert.cert_date}} | Expires: {{ cert.cert_expiry }}</p>
-              {% if cert.cert_url %}
-              <p><a href="{{cert.cert_url}}" target="_blank">View Credential</a></p>
-              {% endif %}
             </div>
-          </div>
-          {% endif %}
+
+            <!-- TEXT COLUMN -->
+            <div class="col-md-8 col-8">
+            <h4 class="experience-title">{{ cert.cert_name }}</h4>
+            <h6 class="experience-info">{{ cert.cert_issuer }}</h6>
+            <p class="experience-desc">Certified: {{ cert.cert_date}} | Expires: {{ cert.cert_expiry }}</p>
+            {% if cert.cert_url %}
+            <p><a href="{{cert.cert_url}}" target="_blank">View Credential</a></p>
+            {% endif %}
+            </div>
+
+        </div>
+        {% endif %}
         {% endfor %}
-      {% else %}
+    {% else %}
         <p>No professional certifications to display at this time.</p>
-      {% endif %}
+    {% endif %}
     </div>
 
     <!-- Certifications Section -->
