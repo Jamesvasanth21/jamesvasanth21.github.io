@@ -8,10 +8,10 @@ baseurl: "" # the subpath of your site, e.g. /blog
 
 # Navigation
 urls:
-    - text: Home
+    - text: Profile
       url: /
-    - text: About
-      url: /about
+    - text: Certifications
+      url: /certifications
 
 
 # Edit Author details (For multi authors check _data/authors.yml)
@@ -61,6 +61,19 @@ author_project_details:
                 project_description: A Platform built for Hackers and Penetration Testers
                 project_url: https://hack4r.com
                 visibility: true
+
+# Certifications
+author_certifications:
+            - cert_name: Google Cloud Professional Data Engineer
+              cert_issuer: Google Cloud
+              cert_date: "2023-06"
+              cert_url: "https://www.credential.net/"
+              visibility: true
+            - cert_name: AWS Certified Solutions Architect
+              cert_issuer: Amazon Web Services
+              cert_date: "2023-05"
+              cert_url: "https://aws.amazon.com/"
+              visibility: true
 
 # social links
 twitter_username: xplor4r

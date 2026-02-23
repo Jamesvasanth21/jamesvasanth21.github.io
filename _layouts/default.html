@@ -11,39 +11,5 @@ layout: compress
             {{ content }}
         </div>
         {%- include footer.html -%}
-     <script>
-            var options = {
-                classname: 'progressline',
-                id: 'my-id'
-            };
-            var nanobar = new Nanobar( options );
-            nanobar.go( 30 );
-            nanobar.go( 76 );
-            nanobar.go(100);
-        </script>
-        <script>
-            // Route hash to about page content
-            function handleHashRoute() {
-                const hash = window.location.hash.slice(1); // Remove the '#'
-                
-                // If hash is 'about' or empty (on home), stay on current page
-                if (hash === 'about' || hash === '' || hash === '/') {
-                    // Content is already displayed based on current page
-                    return;
-                }
-            }
-            
-            // Handle initial page load
-            window.addEventListener('load', handleHashRoute);
-            
-            // Handle hash changes
-            window.addEventListener('hashchange', handleHashRoute);
-            
-            // Set default hash to empty (home/about)
-            if (!window.location.hash || window.location.hash === '#/') {
-                window.location.hash = '';
-            }
-        </script>
-
   </body>
 </html>
