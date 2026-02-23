@@ -117,32 +117,28 @@ permalink: /certifications/
           {% if cert.visibility == true %}
           <div class="row" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0;">
             <div class="col-md-2">
-              {%- comment -%} Preview handling: prefer explicit image, then embed HTML, then direct image link, then favicon fallback {%- endcomment -%}
-              {% if cert.preview_image %}
-                <img src="{{ cert.preview_image }}" class="img-fluid" alt="preview" />
-              {% elsif cert.preview_embed %}
-                {% assign pe = cert.preview_embed | strip %}
-                {% if pe contains '<' %}
-                  {{ pe }}
-                  {% if pe contains 'credly' %}{% assign has_credly = true %}{% endif %}
-                {% elsif pe contains 'http' %}
-                  {% assign pe_low = pe | downcase %}
-                  {% if pe_low contains '.png' or pe_low contains '.jpg' or pe_low contains '.jpeg' or pe_low contains '.svg' or pe_low contains '.gif' %}
-                    <img src="{{ pe }}" class="img-fluid" alt="preview" />
-                  {% else %}
-                    <img src="{{ pe }}" class="img-fluid" alt="preview" />
+              <div class="preview-container" style="width:100%;display:flex;align-items:center;justify-content:center;min-height:96px;">
+                {% if cert.preview_image %}
+                  <img src="{{ cert.preview_image }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
+                {% elsif cert.preview_embed %}
+                  {% assign pe = cert.preview_embed | strip %}
+                  {% if pe contains '<' %}
+                    <div class="embed-wrapper" style="display:flex;align-items:center;justify-content:center;">{{ pe }}</div>
+                    {% if pe contains 'credly' %}{% assign has_credly = true %}{% endif %}
+                  {% elsif pe contains 'http' %}
+                    <img src="{{ pe }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
                   {% endif %}
-                {% endif %}
-              {% elsif cert.cert_url %}
-                {% assign url_lower = cert.cert_url | downcase %}
-                {% if url_lower contains '.png' or url_lower contains '.jpg' or url_lower contains '.jpeg' or url_lower contains '.svg' or url_lower contains '.gif' %}
-                  <img src="{{ cert.cert_url }}" class="img-fluid" alt="preview" />
+                {% elsif cert.cert_url %}
+                  {% assign url_lower = cert.cert_url | downcase %}
+                  {% if url_lower contains '.png' or url_lower contains '.jpg' or url_lower contains '.jpeg' or url_lower contains '.svg' or url_lower contains '.gif' %}
+                    <img src="{{ cert.cert_url }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
+                  {% else %}
+                    <img src="https://www.google.com/s2/favicons?sz=128&domain_url={{ cert.cert_url | uri_escape }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
+                  {% endif %}
                 {% else %}
-                  <img src="https://www.google.com/s2/favicons?sz=128&domain_url={{ cert.cert_url | uri_escape }}" class="img-fluid" alt="preview" />
+                  <img src="{{site.url}}{{site.baseurl}}/assets/img/profile.png" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
                 {% endif %}
-              {% else %}
-                <img src="{{site.url}}{{site.baseurl}}/assets/img/profile.png" class="img-fluid" alt="preview" />
-              {% endif %}
+              </div>
             </div>
             <div class="col-md-10">
               <h4 class="experience-title">{{ cert.cert_name }}</h4>
@@ -169,32 +165,28 @@ permalink: /certifications/
           {% if cert.visibility == true %}
           <div class="row" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0;">
             <div class="col-md-2">
-              {%- comment -%} Preview handling: prefer explicit image, then embed HTML, then direct image link, then favicon fallback {%- endcomment -%}
-              {% if cert.preview_image %}
-                <img src="{{ cert.preview_image }}" class="img-fluid" alt="preview" />
-              {% elsif cert.preview_embed %}
-                {% assign pe = cert.preview_embed | strip %}
-                {% if pe contains '<' %}
-                  {{ pe }}
-                  {% if pe contains 'credly' %}{% assign has_credly = true %}{% endif %}
-                {% elsif pe contains 'http' %}
-                  {% assign pe_low = pe | downcase %}
-                  {% if pe_low contains '.png' or pe_low contains '.jpg' or pe_low contains '.jpeg' or pe_low contains '.svg' or pe_low contains '.gif' %}
-                    <img src="{{ pe }}" class="img-fluid" alt="preview" />
-                  {% else %}
-                    <img src="{{ pe }}" class="img-fluid" alt="preview" />
+              <div class="preview-container" style="width:100%;display:flex;align-items:center;justify-content:center;min-height:96px;">
+                {% if cert.preview_image %}
+                  <img src="{{ cert.preview_image }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
+                {% elsif cert.preview_embed %}
+                  {% assign pe = cert.preview_embed | strip %}
+                  {% if pe contains '<' %}
+                    <div class="embed-wrapper" style="display:flex;align-items:center;justify-content:center;">{{ pe }}</div>
+                    {% if pe contains 'credly' %}{% assign has_credly = true %}{% endif %}
+                  {% elsif pe contains 'http' %}
+                    <img src="{{ pe }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
                   {% endif %}
-                {% endif %}
-              {% elsif cert.cert_url %}
-                {% assign url_lower = cert.cert_url | downcase %}
-                {% if url_lower contains '.png' or url_lower contains '.jpg' or url_lower contains '.jpeg' or url_lower contains '.svg' or url_lower contains '.gif' %}
-                  <img src="{{ cert.cert_url }}" class="img-fluid" alt="preview" />
+                {% elsif cert.cert_url %}
+                  {% assign url_lower = cert.cert_url | downcase %}
+                  {% if url_lower contains '.png' or url_lower contains '.jpg' or url_lower contains '.jpeg' or url_lower contains '.svg' or url_lower contains '.gif' %}
+                    <img src="{{ cert.cert_url }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
+                  {% else %}
+                    <img src="https://www.google.com/s2/favicons?sz=128&domain_url={{ cert.cert_url | uri_escape }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
+                  {% endif %}
                 {% else %}
-                  <img src="https://www.google.com/s2/favicons?sz=128&domain_url={{ cert.cert_url | uri_escape }}" class="img-fluid" alt="preview" />
+                  <img src="{{site.url}}{{site.baseurl}}/assets/img/profile.png" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
                 {% endif %}
-              {% else %}
-                <img src="{{site.url}}{{site.baseurl}}/assets/img/profile.png" class="img-fluid" alt="preview" />
-              {% endif %}
+              </div>
             </div>
             <div class="col-md-10">
               <h4 class="experience-title">{{ cert.cert_name }}</h4>
@@ -221,32 +213,28 @@ permalink: /certifications/
           {% if badge.visibility == true %}
           <div class="row" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0;">
             <div class="col-md-2">
-              {%- comment -%} Preview handling for badges: preview_image, preview_embed, direct image link, favicon fallback {%- endcomment -%}
-              {% if badge.preview_image %}
-                <img src="{{ badge.preview_image }}" class="img-fluid" alt="preview" />
-              {% elsif badge.preview_embed %}
-                {% assign pe = badge.preview_embed | strip %}
-                {% if pe contains '<' %}
-                  {{ pe }}
-                  {% if pe contains 'credly' %}{% assign has_credly = true %}{% endif %}
-                {% elsif pe contains 'http' %}
-                  {% assign pe_low = pe | downcase %}
-                  {% if pe_low contains '.png' or pe_low contains '.jpg' or pe_low contains '.jpeg' or pe_low contains '.svg' or pe_low contains '.gif' %}
-                    <img src="{{ pe }}" class="img-fluid" alt="preview" />
-                  {% else %}
-                    <img src="{{ pe }}" class="img-fluid" alt="preview" />
+              <div class="preview-container" style="width:100%;display:flex;align-items:center;justify-content:center;min-height:96px;">
+                {% if badge.preview_image %}
+                  <img src="{{ badge.preview_image }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
+                {% elsif badge.preview_embed %}
+                  {% assign pe = badge.preview_embed | strip %}
+                  {% if pe contains '<' %}
+                    <div class="embed-wrapper" style="display:flex;align-items:center;justify-content:center;">{{ pe }}</div>
+                    {% if pe contains 'credly' %}{% assign has_credly = true %}{% endif %}
+                  {% elsif pe contains 'http' %}
+                    <img src="{{ pe }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
                   {% endif %}
-                {% endif %}
-              {% elsif badge.badge_url %}
-                {% assign url_lower = badge.badge_url | downcase %}
-                {% if url_lower contains '.png' or url_lower contains '.jpg' or url_lower contains '.jpeg' or url_lower contains '.svg' or url_lower contains '.gif' %}
-                  <img src="{{ badge.badge_url }}" class="img-fluid" alt="preview" />
+                {% elsif badge.badge_url %}
+                  {% assign url_lower = badge.badge_url | downcase %}
+                  {% if url_lower contains '.png' or url_lower contains '.jpg' or url_lower contains '.jpeg' or url_lower contains '.svg' or url_lower contains '.gif' %}
+                    <img src="{{ badge.badge_url }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
+                  {% else %}
+                    <img src="https://www.google.com/s2/favicons?sz=128&domain_url={{ badge.badge_url | uri_escape }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
+                  {% endif %}
                 {% else %}
-                  <img src="https://www.google.com/s2/favicons?sz=128&domain_url={{ badge.badge_url | uri_escape }}" class="img-fluid" alt="preview" />
+                  <img src="{{site.url}}{{site.baseurl}}/assets/img/profile.png" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
                 {% endif %}
-              {% else %}
-                <img src="{{site.url}}{{site.baseurl}}/assets/img/profile.png" class="img-fluid" alt="preview" />
-              {% endif %}
+              </div>
             </div>
             <div class="col-md-10">
               <h4 class="experience-title">{{ badge.badge_name }}</h4>

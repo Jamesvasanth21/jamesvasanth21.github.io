@@ -77,8 +77,7 @@ author_professional_certifications:
               cert_date: "2023-05"
               cert_expiry: "2025-05"
               cert_url: "https://aws.amazon.com/"
-              preview_embed: >-
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="fdcd9364-266a-4ea3-bc12-c7ef9512faff" data-share-badge-host="https://www.credly.com"></div>
+              preview_image: "https://via.placeholder.com/120x120.png?text=AWS+Badge"
               visibility: true
 
 # Certifications
