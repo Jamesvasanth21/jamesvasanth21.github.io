@@ -108,28 +108,29 @@ permalink: /certifications/
       </div>
     </div>
 
-    <!-- Professional Certifications Section -->
     <div class="card mb-3">
     <h1 class="card-title">Professional Certifications</h1>
     <br />
     {% if site.author_professional_certifications %}
         {% for cert in site.author_professional_certifications %}
         {% if cert.visibility == true %}
-        <div class="row" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0;">
+        <div class="row align-items-center" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0;">
 
-            <!-- PREVIEW COLUMN (wider to prevent squeeze) -->
+            <!-- PREVIEW COLUMN -->
             <div class="col-md-4 col-4">
-            <div class="preview-container" style="width:100%;display:flex;align-items:center;justify-content:center;min-height:120px;overflow:hidden;">
+            <div class="preview-container" style="width:100%;display:flex;align-items:center;justify-content:flex-start;min-height:120px;">
 
                 {% if cert.preview_image %}
-                <img src="{{ cert.preview_image }}" class="img-fluid rounded" alt="preview" style="max-width:120px;max-height:120px;" />
+                <img src="{{site.baseurl}}/assets/images/{{ cert.preview_image }}" 
+                    class="img-fluid rounded" 
+                    alt="preview" 
+                    style="max-width:120px;max-height:120px;" />
 
                 {% elsif cert.preview_embed %}
                 {% assign pe = cert.preview_embed | strip %}
                 {% if pe contains '<' %}
 
-                    <!-- SOLUTION 1: SCALE + CONTAIN EMBED -->
-                    <div class="embed-wrapper" style="width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+                    <div class="embed-wrapper" style="width:100%;overflow:hidden;display:flex;align-items:center;justify-content:flex-start;">
                     <div style="transform:scale(0.42);transform-origin:top left;">
                         {{ pe }}
                     </div>
