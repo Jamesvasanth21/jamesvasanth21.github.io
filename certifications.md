@@ -86,6 +86,31 @@ permalink: /certifications/
   </div>
 
   <div class="col-lg-8">
+    <!-- Professional Certifications Section -->
+    <div class="card">
+      <h1 class="card-title">Professional Certifications</h1>
+      <br />
+      {% if site.author_professional_certifications %}
+        {% for cert in site.author_professional_certifications %}
+          {% if cert.visibility == true %}
+          <div class="row" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0;">
+            <div class="col-md-12">
+              <h4 class="experience-title">{{ cert.cert_name }}</h4>
+              <h6 class="experience-info">{{ cert.cert_issuer }}</h6>
+              <p class="experience-desc">Certified: {{ cert.cert_date}} | Expires: {{ cert.cert_expiry }}</p>
+              {% if cert.cert_url %}
+              <p><a href="{{cert.cert_url}}" target="_blank">View Credential</a></p>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <p>No professional certifications to display at this time.</p>
+      {% endif %}
+    </div>
+
+    <!-- Certifications Section -->
     <div class="card">
       <h1 class="card-title">Certifications</h1>
       <br />
@@ -96,7 +121,7 @@ permalink: /certifications/
             <div class="col-md-12">
               <h4 class="experience-title">{{ cert.cert_name }}</h4>
               <h6 class="experience-info">{{ cert.cert_issuer }}</h6>
-              <p class="experience-desc">Certified: {{ cert.cert_date}}</p>
+              <p class="experience-desc">Certified: {{ cert.cert_date}} | Expires: {{ cert.cert_expiry }}</p>
               {% if cert.cert_url %}
               <p><a href="{{cert.cert_url}}" target="_blank">View Credential</a></p>
               {% endif %}
@@ -106,6 +131,30 @@ permalink: /certifications/
         {% endfor %}
       {% else %}
         <p>No certifications to display at this time.</p>
+      {% endif %}
+    </div>
+
+    <!-- Badges Section -->
+    <div class="card">
+      <h1 class="card-title">Badges</h1>
+      <br />
+      {% if site.author_badges %}
+        {% for badge in site.author_badges %}
+          {% if badge.visibility == true %}
+          <div class="row" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0;">
+            <div class="col-md-12">
+              <h4 class="experience-title">{{ badge.badge_name }}</h4>
+              <h6 class="experience-info">{{ badge.badge_issuer }}</h6>
+              <p class="experience-desc">Awarded: {{ badge.badge_date}} | Expires: {{ badge.badge_expiry }}</p>
+              {% if badge.badge_url %}
+              <p><a href="{{badge.badge_url}}" target="_blank">View Badge</a></p>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <p>No badges to display at this time.</p>
       {% endif %}
     </div>
   </div>

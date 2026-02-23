@@ -62,27 +62,57 @@ author_project_details:
                 project_url: https://hack4r.com
                 visibility: true
 
-# Certifications
-author_certifications:
+# Professional Certifications
+author_professional_certifications:
             - cert_name: Google Cloud Professional Data Engineer
               cert_issuer: Google Cloud
               cert_date: "2023-06"
-              cert_expiry: "2023-06"
+              cert_expiry: "2025-06"
               cert_url: "https://www.credential.net/"
               visibility: true
             - cert_name: AWS Certified Solutions Architect
               cert_issuer: Amazon Web Services
               cert_date: "2023-05"
-              cert_expiry: "2023-05"
+              cert_expiry: "2025-05"
               cert_url: "https://aws.amazon.com/"
+              visibility: true
+
+# Certifications
+author_certifications:
+            - cert_name: Kubernetes Application Developer (CKAD)
+              cert_issuer: Linux Foundation
+              cert_date: "2023-04"
+              cert_expiry: "2026-04"
+              cert_url: "https://www.linuxfoundation.org/"
+              visibility: true
+            - cert_name: HashiCorp Certified: Terraform Associate
+              cert_issuer: HashiCorp
+              cert_date: "2023-03"
+              cert_expiry: "2025-03"
+              cert_url: "https://www.hashicorp.com/"
+              visibility: true
+
+# Badges
+author_badges:
+            - badge_name: Cloud Skills Advocate
+              badge_issuer: Google Cloud
+              badge_date: "2024-01"
+              badge_expiry: "2025-01"
+              badge_url: "https://www.credential.net/"
+              visibility: true
+            - badge_name: AWS Community Builder
+              badge_issuer: Amazon Web Services
+              badge_date: "2023-08"
+              badge_expiry: "2024-08"
+              badge_url: "https://aws.amazon.com/"
               visibility: true
 
 # social links
 twitter_username: beingjamesvasa1
 github_username:  Jamesvasanth21
+linkedin_username: james-vasanth-57a673124
 # instagram_username: xplor4r
 # facebook_username: johndoe
-# linkedin_username: johndoe
 # behance_username: johndoe
 # medium_username: johndoe
 # telegram_username: johndoe
