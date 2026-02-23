@@ -165,7 +165,7 @@ permalink: /certifications/
           {% if cert.visibility == true %}
           <div class="row" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0;">
             <div class="col-md-2">
-              <div class="preview-container" style="width:100%;display:flex;align-items:center;justify-content:center;min-height:96px;overflow:hidden;">
+              <div class="preview-container" style="width:100%;display:flex;align-items:center;justify-content:center;min-height:96px;">
                 {% if cert.preview_image %}
                   <img src="{{ cert.preview_image }}" class="img-fluid rounded" alt="preview" style="max-width:96px;max-height:96px;" />
                 {% elsif cert.preview_embed %}
