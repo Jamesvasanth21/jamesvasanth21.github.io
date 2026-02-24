@@ -93,7 +93,7 @@ permalink: /certifications/
         <table class="table text-center mb-0">
           <thead>
             <tr>
-              <th>Professional</th>
+              <th>Professional Certifications</th>
               <th>Certifications</th>
               <th>Badges</th>
             </tr>
