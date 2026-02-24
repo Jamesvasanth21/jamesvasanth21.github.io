@@ -99,32 +99,171 @@ author_professional_certifications:
               cert_date: "March 31, 2025" 
               cert_expiry: "March 31, 2027"
               cert_url: "https://www.credly.com/badges/fdcd9364-266a-4ea3-bc12-c7ef9512faff/public_url"
-              preview_image: pmle-cert.png
+              preview_image: "PRBDG-Professional_Machine_learning_Engineer.png"
               visibility: true
             - cert_name: AI/ML Pre-sales Technical Expert Badge
               cert_issuer: Google Cloud
               cert_date: "January 05, 2026"
               cert_expiry: "January 05, 2027"
               cert_url: "https://www.credly.com/badges/556c31c5-9183-49a1-b739-b1f52b67bbe8/public_url"
-              preview_image: ai-ml-pste-cert.png
+              preview_image: "PRBDG-AIML_Presales_Technical_Expert.png"
               visibility: true
 
 # Certifications
 author_certifications:
-            - cert_name: Kubernetes Application Developer (CKAD)
-              cert_issuer: Linux Foundation
-              cert_date: "2023-04"
-              cert_expiry: "2026-04"
-              cert_url: "https://www.linuxfoundation.org/"
-              preview_image: gcp-ml.png
+            - cert_name: "Google Cloud Big Data and Machine Learning Fundamentals"
+              cert_issuer: Coursera - Google Cloud
+              cert_date: "December 27, 2023"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/verify/ZM5W6VMLP5XZ"
+              preview_image: "CERT-Google_Cloud_Big_Data_and_Machine_Learning_Fundamentals.png"
+              specialization: "Machine Learning Engineer Specialization"
               visibility: true
-            - cert_name: "HashiCorp Certified: Terraform Associate"
-              cert_issuer: HashiCorp
-              cert_date: "2023-03"
-              cert_expiry: "2025-03"
-              cert_url: "https://www.hashicorp.com/"
-              preview_image: gcp-ml.png
+            - cert_name: "How Google does Machine Learning"
+              cert_issuer: Coursera - Google Cloud
+              cert_date: "October 10, 2023"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/verify/V4CEA6K46BF5"
+              preview_image: "CERT-How_Google_does_Machine_Learning.png"
+              specialization: "Machine Learning Engineer Specialization"
               visibility: true
+            - cert_name: "Launching into Machine Learning"
+              cert_issuer: Coursera - Google Cloud
+              cert_date: "December 03, 2023"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/verify/DTCZLSXR96QX"
+              preview_image: "CERT-Launching_into_Machine_Learning.png"
+              specialization: "Machine Learning Engineer Specialization"
+              visibility: true
+            - cert_name: "Feature Engineering"
+              cert_issuer: Coursera - Google Cloud
+              cert_date: "May 26, 2024"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/verify/G5RNFWPAZXY2"
+              preview_image: "CERT-Feature_Engineering.png"
+              specialization: "Machine Learning Engineer Specialization"
+              visibility: true
+            - cert_name: "Machine Learning in Enterprise"
+              cert_issuer: Coursera - Google Cloud
+              cert_date: "August 17, 2024"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/certificate/1DALU8RB6OA2"
+              preview_image: "CERT-Machine_Learning_in_Enterprise.png"
+              specialization: "Machine Learning Engineer Specialization"
+              visibility: true
+            - cert_name: "Build, Train and Deploy ML Models with Keras on Google Cloud"
+              cert_issuer: Coursera - Google Cloud
+              cert_date: "February 06, 2024"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/certificate/7LE98ABHBS3Z"
+              preview_image: "CERT-Build_Train_and_Deploy_ML_Models_with_Keras_on_Google_Cloud.png"
+              specialization: "Machine Learning Engineer Specialization"
+              visibility: true
+            - cert_name: "ML Pipelines on Google Cloud"
+              cert_issuer: Coursera - Google Cloud
+              cert_date: "March 08, 2025"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/certificate/Q2335QMNUINS"
+              preview_image: "CERT-ML_Pipelines_on_Google_Cloud.png"
+              specialization: "Machine Learning Engineer Specialization"
+              visibility: true
+            - cert_name: "Learning How to Learn: Powerful mental tools to help you master tough subjects"
+              cert_issuer: Coursera - Deep Teaching Solutions
+              cert_date: "September 25, 2022"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/verify/PRLDL8D4LAYD"
+              preview_image: "CERT-Learning_How_to_Learn.png"
+              specialization: ""
+              visibility: true
+            - cert_name: "The Data Science Course 2022: Complete Data Science Bootcamp"
+              cert_issuer: Udemy
+              cert_date: "March 11, 2022"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.udemy.com/certificate/UC-f2fb0bd3-3b26-4224-ad9d-5733f51edd7a/"
+              preview_image: "CERT-The_Data_Science_Course_2022.png"
+              specialization: ""
+              visibility: true
+            - cert_name: "SQL for Data Science Interviews"
+              cert_issuer: 365 DataScience
+              cert_date: "November 07, 2021"
+              cert_expiry: "No Expiry"
+              cert_url: "https://learn.365datascience.com/certificates/CC-AE02A3833D/"
+              preview_image: "CERT-SQL_for_Data_Science_Interviews.png"
+              specialization: ""
+              visibility: true
+            - cert_name: "Mathematics for Machine Learning: Specialization"
+              cert_issuer: Coursera - Imperial College
+              cert_date: "March 09, 2020"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/specialization/KRTXGTKTUMTC"
+              preview_image: "CERT-Mathematics_for_Machine_Learning_Specialization.png"
+              specialization: "Mathematics for Machine Learning Specialization"
+              visibility: true
+            - cert_name: "Mathematics for Machine Learning: Linear Algebra"
+              cert_issuer: Coursera - Imperial College
+              cert_date: "September 04, 2019"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/certificate/RZ7VGFD2K6X5"
+              preview_image: "CERT-Mathematics_for_Machine_Learning_Linear_Algebra.png"
+              specialization: "Mathematics for Machine Learning Specialization"
+              visibility: true
+            - cert_name: "Mathematics for Machine Learning: Multivariate Calculus"
+              cert_issuer: Coursera - Imperial College
+              cert_date: "December 19, 2019"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/certificate/GM833ALXBE54"
+              preview_image: "CERT-Mathematics_for_Machine_Learning_Multivariate_Calculus.png"
+              specialization: "Mathematics for Machine Learning Specialization"
+              visibility: true
+            - cert_name: "Mathematics for Machine Learning: PCA"
+              cert_issuer: Coursera - Imperial College
+              cert_date: "March 09, 2020"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/certificate/RRDREJD528MP"
+              preview_image: "CERT-Mathematics_for_Machine_Learning_PCA.png"
+              specialization: "Mathematics for Machine Learning Specialization"
+              visibility: true
+            - cert_name: "Introduction To Modern Application Development "
+              cert_issuer: NPTEL
+              cert_date: "November 07, 2021"
+              cert_expiry: "No Expiry"
+              cert_url: "https://learn.365datascience.com/certificates/CC-AE02A3833D/"
+              preview_image: "CERT-Introduction_To_Modern_Application_Development.png"
+              specialization: ""
+              visibility: true
+            - cert_name: "Programming for Everybody (Getting Started with Python)"
+              cert_issuer: Coursera - University of Michigan
+              cert_date: "March 01, 2019"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/certificate/WW7XZXWD8AGW"
+              preview_image: "CERT-Programming_for_Everybody_Getting_Started_with_Python.png"
+              specialization: ""
+              visibility: true
+            - cert_name: "Big Data Foundations - Level 1"
+              cert_issuer: IBM
+              cert_date: "December 22, 2018"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.credly.com/badges/65477a36-f8c3-40ac-8226-2c02f8901017/linked_in_profile"
+              preview_image: "CERT-Big_Data_Foundations_Level_1.png"
+              specialization: ""
+              visibility: true
+            - cert_name: "Hadoop Foundations - Level 1"
+              cert_issuer: IBM
+              cert_date: "December 19, 2018"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.credly.com/badges/bc294461-4a64-421b-b00d-0ecc0c60e2de/linked_in_profile"
+              preview_image: "CERT-Hadoop_Foundations_Level_1.png"
+              specialization: ""
+              visibility: true
+            - cert_name: "JavaScript"
+              cert_issuer: SoloLearn
+              cert_date: "December 13, 2017"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.sololearn.com/Certificate/CT-CHKLRD5G/pdf"
+              preview_image: "CERT-JavaScript.png"
+              specialization: ""
+              visibility: true
+
 
 # Badges
 author_badges:
