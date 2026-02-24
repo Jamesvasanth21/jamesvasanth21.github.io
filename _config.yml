@@ -168,7 +168,7 @@ author_badges:
               preview_image: "BDG-Build_search_and_recommendations_applications_with_AI_Applications.png"
               specialization: ""
               visibility: true
-              - badge_name: "Get Started with Pub/Sub Skill Badge - Skill Badge"
+            - badge_name: "Get Started with Pub/Sub Skill Badge - Skill Badge"
               badge_issuer: Google Cloud
               badge_date: "November 20, 2025"
               badge_expiry: "No Expiry"
@@ -176,7 +176,7 @@ author_badges:
               preview_image: "BDG-Get_Started_with_Pub_Sub.png"
               specialization: ""
               visibility: true
-              - badge_name: "Introduction to AI Applications"
+            - badge_name: "Introduction to AI Applications"
               badge_issuer: Google Cloud
               badge_date: "November 04, 2025"
               badge_expiry: "No Expiry"
@@ -184,7 +184,7 @@ author_badges:
               preview_image: "BDG-Introduction_to_AI_Applications.png"
               specialization: ""
               visibility: true
-              - badge_name: "Google Cloud Fundamentals: Core Infrastructure"
+            - badge_name: "Google Cloud Fundamentals: Core Infrastructure"
               badge_issuer: Google Cloud
               badge_date: "December 04, 2025"
               badge_expiry: "No Expiry"
@@ -192,7 +192,7 @@ author_badges:
               preview_image: "BDG-Google_Cloud_Fundamentals_Core_Infrastructure.png"
               specialization: ""
               visibility: true
-              - badge_name: "Essential Google Cloud Infrastructure: Core Services"
+            - badge_name: "Essential Google Cloud Infrastructure: Core Services"
               badge_issuer: Google Cloud
               badge_date: "December 12, 2025"
               badge_expiry: "No Expiry"
@@ -200,7 +200,7 @@ author_badges:
               preview_image: "BDG-Essential_Google_Cloud_Infrastructure_Core_Services.png"
               specialization: ""
               visibility: true
-              - badge_name: "Elastic Google Cloud Infrastructure: Scaling and Automation"
+            - badge_name: "Elastic Google Cloud Infrastructure: Scaling and Automation"
               badge_issuer: Google Cloud
               badge_date: "December 19, 2025"
               badge_expiry: "No Expiry"
@@ -208,7 +208,7 @@ author_badges:
               preview_image: "BDG-Elastic_Google_Cloud_Infrastructure_Scaling_and_Automation.png"
               specialization: ""
               visibility: true
-              - badge_name: "Vertex AI Search for Commerce Webinars"
+            - badge_name: "Vertex AI Search for Commerce Webinars"
               badge_issuer: Google Cloud
               badge_date: "December 02, 2025"
               badge_expiry: "No Expiry"
@@ -216,7 +216,7 @@ author_badges:
               preview_image: "BDG-Vertex_AI_Search_for_Commerce_Webinars.png"
               specialization: ""
               visibility: true
-              - badge_name: "Vertex AI Search for Commerce"
+            - badge_name: "Vertex AI Search for Commerce"
               badge_issuer: Google Cloud
               badge_date: "November 26, 2025"
               badge_expiry: "No Expiry"
@@ -224,7 +224,7 @@ author_badges:
               preview_image: "BDG-Vertex_AI_Search_for_Commerce.png"
               specialization: ""
               visibility: true
-              - badge_name: "Build and Deploy Machine Learning Solutions on Vertex AI Skill Badge"
+            - badge_name: "Build and Deploy Machine Learning Solutions on Vertex AI Skill Badge"
               badge_issuer: Google Cloud
               badge_date: "November 09, 2024"
               badge_expiry: "No Expiry"
@@ -232,7 +232,7 @@ author_badges:
               preview_image: "BDG-Build_and_Deploy_Machine_Learning_Solutions_on_Vertex_AI_Skill_Badge.png"
               specialization: ""
               visibility: true
-              - badge_name: "Manage Kubernetes in Google Cloud - Skill Badge"
+            - badge_name: "Manage Kubernetes in Google Cloud - Skill Badge"
               badge_issuer: Google Cloud
               badge_date: "December 23, 2025"
               badge_expiry: "No Expiry"
@@ -240,7 +240,7 @@ author_badges:
               preview_image: "BDG-Manage_Kubernetes_in_Google_Cloud_Skill_Badge.png"
               specialization: ""
               visibility: true
-              - badge_name: "Implement Cloud Security Fundamentals on Google Cloud - Skill Badge"
+            - badge_name: "Implement Cloud Security Fundamentals on Google Cloud - Skill Badge"
               badge_issuer: Google Cloud
               badge_date: "December 26, 2025"
               badge_expiry: "No Expiry"
@@ -248,7 +248,7 @@ author_badges:
               preview_image: "BDG-Implement_Cloud_Security_Fundamentals_on_Google_Cloud_Skill_Badge.png"
               specialization: ""
               visibility: true
-              - badge_name: "Preparing for your Professional Cloud Architect Journey"
+            - badge_name: "Preparing for your Professional Cloud Architect Journey"
               badge_issuer: Google Cloud
               badge_date: "January 12, 2026"
               badge_expiry: "No Expiry"
@@ -256,7 +256,7 @@ author_badges:
               preview_image: "BDG-Preparing_for_your_Professional_Cloud_Architect_Journey.png"
               specialization: ""
               visibility: true
-              - badge_name: "Professional Machine Learning Engineer Study Guide"
+            - badge_name: "Professional Machine Learning Engineer Study Guide"
               badge_issuer: Google Cloud
               badge_date: "October 28, 2024"
               badge_expiry: "No Expiry"
