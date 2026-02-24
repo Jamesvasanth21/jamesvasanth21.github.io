@@ -709,6 +709,21 @@ header {
 
 }
 
+#skills-table {
+    th {
+        width: 42%;
+        font-weight: 600;
+        vertical-align: top;
+        color: var(--main-text-color);
+        padding-left: 0;
+    }
+
+    td {
+        color: var(--main-text-color);
+        padding-right: 0;
+    }
+}
+
 #author_projects {
     .project-img {
         width: 300px;
