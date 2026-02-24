@@ -25,6 +25,36 @@ author_website_url: "https://jamesvasanth.com"
 typewrite-text: devlopr is a jekyll framework built for developers. You can edit this in _config.yml file
 hero_cover_img: sample_cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
 
+
+# Skills
+author_skills:
+            - heading: "Programming Languages"
+              skills: "Java, Python, PySpark"
+              visibility: true
+            - heading: "Scripting & Front-End"
+              skills: "JavaScript, PHP, React"
+              visibility: true
+            - heading: "Database & Query Languages"
+              skills: "SQL, BigQuery"
+              visibility: true
+            - heading: "Data Modeling"
+              skills: "AtScale"
+              visibility: true
+            - heading: "Build & Deployment Tools"
+              skills: "Jenkins, Maven, TeamCity, Spinnaker, GitHub Actions, PCF"
+              visibility: true
+            - heading: "ML & Statistical Methods"
+              skills: "Linear Regression, Logistic Regression, Time Series Forecasting, Hypothesis Testing, PCA, K-Means, RAG Models"
+              visibility: true
+            - heading: "Cloud Platform"
+              skills: "Google Cloud Platform (GCP)"
+              visibility: true
+            - heading: "GCP Services"
+              skills: "App Engine, BigQuery, Cloud Functions, Cloud Run, Composer, KMS, GKE, BQML, Vertex AI, Vertex AI Search for Commerce, Compute Engine, Pub/Sub"
+              visibility: true
+            - heading: "BI & Visualization Tools"
+              skills: "Apache Superset, Grafana, Tableau"
+              visibility: true
 # Experiences
 author_work_experiences:
             - company_name: Google
