@@ -99,14 +99,14 @@ author_professional_certifications:
               cert_date: "March 31, 2025" 
               cert_expiry: "March 31, 2027"
               cert_url: "https://www.credly.com/badges/fdcd9364-266a-4ea3-bc12-c7ef9512faff/public_url"
-              preview_image: gcp-ml.png
+              preview_image: pmle-cert.png
               visibility: true
-            - cert_name: AWS Certified Solutions Architect
-              cert_issuer: Amazon Web Services
-              cert_date: "2023-05"
-              cert_expiry: "2025-05"
-              cert_url: "https://aws.amazon.com/"
-              preview_image: gcp-ml.png
+            - cert_name: AI/ML Pre-sales Technical Expert Badge
+              cert_issuer: Google Cloud
+              cert_date: "January 05, 2026"
+              cert_expiry: "January 05, 2027"
+              cert_url: "https://www.credly.com/badges/556c31c5-9183-49a1-b739-b1f52b67bbe8/public_url"
+              preview_image: ai-ml-pste-cert.png
               visibility: true
 
 # Certifications
