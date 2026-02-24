@@ -129,7 +129,7 @@ permalink: /certifications/
           <h6 class="experience-info">{{ cert.cert_issuer }}</h6>
           <p class="experience-desc">Certified: {{ cert.cert_date }} | Expires: {{ cert.cert_expiry }}</p>
           {% if cert.specialization != "" %}
-          <p class="experience-specialization">Specialization: {cert.specialization}</p>
+          <p class="experience-specialization">Specialization: {{ cert.specialization }}</p>
           {% endif %}
           {% if cert.cert_url %}
           <p><a href="{{cert.cert_url}}" target="_blank">View Credential</a></p>
@@ -161,7 +161,7 @@ permalink: /certifications/
           <h6 class="experience-info">{{ cert.cert_issuer }}</h6>
           <p class="experience-desc">Certified: {{ cert.cert_date }} | Expires: {{ cert.cert_expiry }}</p>
           {% if cert.specialization != "" %}
-          <p class="experience-specialization">Specialization: {cert.specialization}</p>
+          <p class="experience-specialization">Specialization: {{ cert.specialization }}</p>
           {% endif %}
           {% if cert.cert_url %}
           <p><a href="{{cert.cert_url}}" target="_blank">View Credential</a></p>
@@ -193,7 +193,7 @@ permalink: /certifications/
           <h6 class="experience-info">{{ badge.badge_issuer }}</h6>
           <p class="experience-desc">Awarded: {{ badge.badge_date }} | Expires: {{ badge.badge_expiry }}</p>
           {% if cert.specialization != "" %}
-          <p class="experience-specialization">Specialization: {cert.specialization}</p>
+          <p class="experience-specialization">Specialization: {{ cert.specialization }}</p>
           {% endif %}
           {% if badge.badge_url %}
           <p><a href="{{badge.badge_url}}" target="_blank">View Badge</a></p>
