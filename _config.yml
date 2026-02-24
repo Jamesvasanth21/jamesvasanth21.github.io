@@ -19,9 +19,9 @@ urls:
 author_logo: profile.png
 author: John Doe
 author_bio: Google Cloud Certified Professional Machine Learning Engineer with 6+ years of experience turning raw data into scalable data platforms and ML-powered insights on GCP. I enjoy tackling complex data challenges—from building and evolving production ETL pipelines for Fortune 500 retail analytics to exploring hybrid forecasting models and contributing to product discovery solutions and search relevance improvements for a global luxury ecommerce platform using catalog ingestion and Vertex AI Search for Commerce. My work has delivered measurable impact, including reducing cloud costs by $2K/month and automating data workflows that cut processing time by 85%. I value collaborative problem-solving and delivering reliable data products that stakeholders trust for decision-making.
-author_email: "jamesvasasnth789@gmail.com"
+author_email: "jamesvasanth789@gmail.com"
 author_location: Bangalore, India
-author_website_url: "https://jamesvasanth.com"
+author_website_url: "https://jamesvasanth21.github.io"
 typewrite-text: devlopr is a jekyll framework built for developers. You can edit this in _config.yml file
 hero_cover_img: sample_cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
 
