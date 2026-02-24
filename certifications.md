@@ -193,7 +193,7 @@ permalink: /certifications/
           <h6 class="experience-info">{{ badge.badge_issuer }}</h6>
           <p class="experience-desc">Awarded: {{ badge.badge_date }} | Expires: {{ badge.badge_expiry }}</p>
           {% if cert.specialization != "" %}
-          <p class="experience-specialization">Specialization: {{ cert.specialization }}</p>
+          <p class="experience-specialization">Specialization: {{ badge.specialization }}</p>
           {% endif %}
           {% if badge.badge_url %}
           <p><a href="{{badge.badge_url}}" target="_blank">View Badge</a></p>
