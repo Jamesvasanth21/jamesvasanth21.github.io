@@ -92,16 +92,15 @@ layout: default
 
     {% if site.show_author_highlights == true %}
     <div id="author_highlights" class="card">
+      <div class="row" id="project-card"></div>
       {% for highlights in site.author_highlights %}
       {% if highlights.visibility == true %}
-      <div class="row" id="project-card">
         <div class="col-md-2">
           <img src="{{site.baseurl}}/assets/images/{{ highlights.preview_image }}" class="project-img" />
         </div>
-      </div>
-      <br />
       {% endif %}
       {% endfor %}
+      </div>
     </div>
     {% endif %}
 
