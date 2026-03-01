@@ -72,11 +72,12 @@ author_work_experiences:
 
 # Education
 author_education_details:
-              - college_logo: mit.png
-                college_name: MIT
-                college_url: https://mit.org
-                college_degree: CS Engineer
-                description: Bachelor of Technology
+              - college_logo: "Logo - SRIT.png"
+                university_name: "Anna University"
+                college_name: "Sri Ramakrishna Institute of Technology"
+                college_url: "https://www.srit.org/"
+                college_degree: "Computer Science and Engineering"
+                description: "Bachelor of Engineering (2015-2019)"
                 visibility: true
 
 # Projects
@@ -99,7 +100,8 @@ author_professional_certifications:
               cert_date: "March 31, 2025" 
               cert_expiry: "March 31, 2027"
               cert_url: "https://www.credly.com/badges/fdcd9364-266a-4ea3-bc12-c7ef9512faff/public_url"
-              preview_image: "PRBDG-Professional_Machine_learning_Engineer.png"
+              # preview_image: "PRBDG-Professional_Machine_learning_Engineer.png"
+              preview_image: "CERT-Professional_Machine_learning_Engineer.png.png"
               specialization: ""
               visibility: true
             - cert_name: AI/ML Pre-sales Technical Expert Badge
