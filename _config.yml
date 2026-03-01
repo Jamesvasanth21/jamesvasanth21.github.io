@@ -102,7 +102,7 @@ author_professional_certifications:
               cert_expiry: "March 31, 2027"
               cert_url: "https://www.credly.com/badges/fdcd9364-266a-4ea3-bc12-c7ef9512faff/public_url"
               # preview_image: "PRBDG-Professional_Machine_learning_Engineer.png"
-              preview_image: "CERT-Professional_Machine_learning_Engineer.png.png"
+              preview_image: "CERT-Professional_Machine_learning_Engineer.png"
               specialization: ""
               visibility: true
             - cert_name: AI/ML Pre-sales Technical Expert Badge
