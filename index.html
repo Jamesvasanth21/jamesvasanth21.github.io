@@ -88,6 +88,28 @@ layout: default
       <p>{{ site.author_bio }}</p>
     </div>
     {% endif %}
+    
+
+    {% if site.show_author_highlights == true %}
+    <div id="author_highlights" class="card">
+      {% for highlights in site.show_author_highlights %}
+      {% if highlights.visibility == true %}
+      <div class="row" id="project-card">
+        <div class="col-md-2">
+          <img src="{{site.baseurl}}/assets/images/{{ highlights.preview_image }}" class="project-img" />
+        </div>
+         <div class="col-md-2">
+          <img src="{{site.baseurl}}/assets/images/{{ highlights.preview_image }}" class="project-img" />
+        </div>
+
+      </div>
+      <br />
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+
     {% if site.show_author_project_details == true %}
     <div id="author_projects" class="card">
       <h1 class="card-title">Projects</h1>
@@ -145,9 +167,9 @@ layout: default
           <h4 class="experience-title">{{detail.college_specialization }}</h4>
           <h6 class="experience-info">University - {{detail.university_name}}</h6>
           <h6 class="experience-info">College - {{detail.college_name}}</h6>
-          <p class="experience-desc">Degree - {{detail.college_degree}}</p>
-          <p class="experience-desc">Duration - {{detail.duration}}</p>
-          <p><a href="{{detail.college_url}}">{{ detail.college_url}}</a></p>
+          <h6 class="experience-desc">Degree - {{detail.college_degree}}</h6>
+          <h6 class="experience-desc">Duration - {{detail.duration}}</h6>
+          <h6><a href="{{detail.college_url}}">{{ detail.college_url}}</a></h6>
         </div>
       </div>
       {% endif %}
