@@ -27,7 +27,7 @@ hero_cover_img: sample_cover.jpg # replace this for changing homepage cover (eg.
 
 # Author Highlights (can be used to show skills, experience, education, projects or anything you want to highlight about yourself in the homepage)
 author_highlights:
-            - preview_image:"PRBDG-Professional_Machine_learning_Engineer.png"
+            - preview_image: "PRBDG-Professional_Machine_learning_Engineer.png"
               visibility: true
             - preview_image: "PRBDG-AIML_Presales_Technical_Expert.png"
               visibility: true
