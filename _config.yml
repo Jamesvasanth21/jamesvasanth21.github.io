@@ -62,17 +62,26 @@ author_skills:
               visibility: true
 # Experiences
 author_work_experiences:
-            - company_name: Google
-              company_logo: google.png
-              company_url: https://google.com
-              designation: Software Engineer
-              description: Worked on various Google Products
+            - company_name: "Valtech"
+              company_logo: "CLogo-Valtech.png"
+              company_url: "https://www.valtech.com/en-in/"
+              designation: Lead Developer
+              duration: "October, 2025 - Present"
+              description: "Engineered product discovery and search relevance solutions for a global luxury eCommerce platform using catalog ingestion pipelines and Vertex AI Search for Commerce."
               visibility: true
-            - company_name: Microsoft
-              company_logo: microsoft.png
-              company_url: https://microsoft.com
-              designation: Azure Developer
-              description: Worked on various Azure Cloud Products
+            - company_name: "Merkle"
+              company_logo: "CLogo-Merkle.png"
+              company_url: "https://www.merkle.com/"
+              designation: Senior Software Engineer
+              duration: "March, 2022 - October, 2025"
+              description: "Built and evolved production-grade ETL pipelines for Fortune 500 retail analytics, while developing hybrid forecasting models for retail sales using BigQuery ML and various ML models."
+              visibility: true
+            - company_name: "Corporater"
+              company_logo: "CLogo-Corporater.png"
+              company_url: "https://corporater.com/"
+              designation: Implementation and Support Engineer
+              duration: "June, 2019 - March, 2022"
+              description: "Led end-to-end Balanced Scorecard and performance management implementations across MEA and APAC, building automated data pipelines and BI dashboards to drive actionable business insights."
               visibility: true
 
 # Education
