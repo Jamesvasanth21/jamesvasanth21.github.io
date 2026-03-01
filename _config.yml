@@ -75,9 +75,10 @@ author_education_details:
               - college_logo: "Logo - SRIT.png"
                 university_name: "Anna University"
                 college_name: "Sri Ramakrishna Institute of Technology"
+                college_specialization: "Computer Science and Engineering"
+                college_degree: "Bachelor of Engineering (B.E.)"
+                duration: "2015-2019"
                 college_url: "https://www.srit.org/"
-                college_degree: "Computer Science and Engineering"
-                description: "Bachelor of Engineering (2015-2019)"
                 visibility: true
 
 # Projects
