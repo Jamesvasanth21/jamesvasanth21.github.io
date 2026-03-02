@@ -14,8 +14,9 @@ permalink: /professional_journey/
     <div id="{{ key }}">
     <div class="row align-items-center" style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;">
         <div class="col-md-2 col-3">
-          <img src="{{site.baseurl}}/assets/images/{{ details.company_logo }}" class="img-fluid rounded"
-              style="width:90px;height:90px;object-fit:contain;" />
+            <a href="{{details.company_url}}">
+            <img src="{{site.baseurl}}/assets/images/{{ details.company_logo }}" class="img-fluid rounded" style="width:90px;height:90px;object-fit:contain;" />
+            </a>
         </div>
         <div class="col-md-10 col-9">
             <h3>{{ details.company_name}}</h3>
@@ -35,7 +36,7 @@ permalink: /professional_journey/
             </ul>
             {% endfor %}
             </p>
-            <p><a href="{{details.company_url}}">{{ details.company_name }}</a></p>
+            <!-- <p><a href="{{details.company_url}}">{{ details.company_name }}</a></p> -->
         </div>
     </div>
     </div>
