@@ -204,6 +204,13 @@ h1, h2, h3, h4, h5, h6 {
 a{
     color: var(--link-color) !important;
 }
+
+.job-link {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block;
+}
+
 /* Navigation Header */
 header {
     background-color: var(--main-background-color);
