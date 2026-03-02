@@ -1,11 +1,11 @@
 ---
-title: Professional Journey
+title: Professional Experience
 layout: default
-permalink: /professional_journey/
+permalink: /professional_experience/
 ---
 
-<div id="professional_journey" class="card">
-    <h1>Professional Journey</h1>
+<div id="professional_experience" class="card">
+    <h1>Professional Experience</h1>
     <hr class="section-divider">
     {% for job in site.data.work_experience %}
     {% assign key = job[0] %}
