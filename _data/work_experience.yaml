@@ -1,11 +1,11 @@
-corporater
+corporater:
   company_name: Corporater
   company_logo: corporater.png
   
-merkle
+merkle:
   company_name: Merkle
   company_logo: merkle.png
 
-valtech
+valtech:
   company_name: Valtech
   company_logo: valtech.png
