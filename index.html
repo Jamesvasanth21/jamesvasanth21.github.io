@@ -114,7 +114,8 @@ layout: default
       {% if exp.visibility == true %}
       <div class="row">
         <div class="col-md-2 col-3">
-          <img src="{{site.baseurl}}/assets/images/{{ exp.company_logo }}" class="company-logo" />
+          <img src="{{site.baseurl}}/assets/images/{{ exp.company_logo }}" class="img-fluid rounded"
+              style="width:90px;height:90px;object-fit:contain;" />
         </div>
         <div class="col-md-10 col-9">
           <h4 class="experience-title">{{ exp.designation }}</h4>
