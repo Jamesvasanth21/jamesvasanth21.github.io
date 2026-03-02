@@ -1,11 +1,63 @@
-corporater:
-  company_name: Corporater
-  company_logo: corporater.png
-  
-merkle:
-  company_name: Merkle
-  company_logo: merkle.png
-
 valtech:
   company_name: Valtech
-  company_logo: valtech.png
+  company_logo: "CLogo-Valtech.png"
+  duration: "October, 2025 - Present"
+  designation: Lead Developer
+  company_url: "https://www.valtech.com/en-in/"
+  short_description: "Engineered product discovery and search relevance solutions for a global luxury eCommerce platform using catalog ingestion pipelines and Vertex AI Search for Commerce."
+  detailed_description:
+    - Engineered Vertex AI Search for Commerce implementation on GCP for a global luxury retail client, optimizing search architecture and data ingestion flows (Pub/Sub → BigQuery → Cloud Run) to improve product discovery and API performance.
+    - Leveraged OpenSearch logs to analyze user API request patterns and debug search behavior, while working across MuleSoft API layers (Experience, Process, System) to ensure reliable search system integrations and downstream data exchange.
+    - Performed search relevance tuning and A/B testing of search features (ranking signals, filters, query handling), while supporting L2/L3 production issues through end-to-end RCA, stakeholder collaboration, and enhancement delivery.
+  visibility: true
+
+merkle:
+  company_name: Merkle
+  company_logo: "CLogo-Merkle.png"
+  duration: "March, 2022 - October, 2025"
+  designation: Senior Software Engineer
+  company_url: "https://www.merkle.com/"
+  short_description: "Built and evolved production-grade ETL pipelines for Fortune 500 retail analytics, while developing hybrid forecasting models for retail sales using BigQuery ML and various ML models."
+  detailed_description:
+    - Data Product Development & Enhancement
+      - Contributed as a Data Engineer to a large-scale ecommerce analytics platform supporting a Fortune 500 retailer, delivering incremental features and improvements to existing data products used by analysts and business teams.
+      - Enhanced and maintained production ETL pipelines (Java, Python, PySpark, GCP) powering datasets such as Orders, Sales, Adobe Clickstream, Bazaarvoice reviews, and Qualtrics sentiment data.
+      - Partnered with business analysts and product stakeholders to understand reporting gaps, implement new transformations, and ensure data availability for decision-making.
+    - Business Support & Data Reliability
+      - Investigated and resolved data discrepancies raised by business users, performing root-cause analysis across ingestion, transformation, and semantic layers to maintain trust in analytics outputs.
+      - Supported ad-hoc data requests and analytical questions by tracing lineage, validating metrics, and coordinating fixes across upstream systems.
+      - Managed production releases and monitored ETL workflows to ensure SLA adherence, data freshness, and pipeline stability.
+    - Semantic Layer & Performance Optimization
+      - Maintained and enhanced AtScale semantic cubes, introducing new measures, dimensions, and modeling improvements to support evolving reporting needs.
+      - Developed a Python/Flask automation tool to audit unused cube aggregates, reducing build time by 50% and lowering BigQuery compute costs.
+      - Implemented BigQuery partitioning and clustering strategies to improve query performance for downstream BI tools and frontend applications.
+    - Cloud Migration & Cost Optimization
+      - Migrated multiple ETL services from App Engine to Cloud Run + Jenkins, improving deployment consistency and reducing operational overhead.
+      - Led migration of a GoLang Bazaarvoice ingestion pipeline, delivering $2K/month cost savings while improving execution reliability.
+      - Contributed to infrastructure optimization initiatives, including dynamic scaling of AtScale servers during off-peak periods.
+    - Machine Learning & Analytics Enablement
+      - Developed time-series forecasting models for key ecommerce metrics and integrated automated anomaly detection into daily ETL workflows.
+      - Built a Streamlit dashboard to visualize forecast trends and anomalies, improving transparency and stakeholder understanding of data behavior.
+  visibility: true
+
+corporater:
+  company_name: Corporater
+  company_logo: "CLogo-Corporater.png"
+  duration: "June, 2019 - March, 2022"
+  designation: "Implementation and Support Engineer"
+  company_url: "https://corporater.com/"
+  short_description: "Led end-to-end Balanced Scorecard and performance management implementations across MEA and APAC, building automated data pipelines and BI dashboards to drive actionable business insights."
+  detailed_description:
+    - Balanced Scorecard Implementations
+     - Delivered Balanced Scorecard implementation and performance management projects across MEA and APAC regions. 
+     - Designed dashboards and visualizations to provide actionable business insights aligned with strategic objectives. 
+    - Data Integration & Automation 
+      - Automated new user access workflows with SSO credentials using PHP, JavaScript, and SQL. 
+      - Developed automated data transformation and upload scripts using PHP, Python, Batch Script, and SQL to streamline data processing. 
+    - BI Dashboard Development 
+      - Created BI charts and Excel infographics to enhance visualization of granular data and improve reporting clarity. 
+      - Built interactive dashboards in Apache Superset and Grafana to support performance monitoring and forecasting. 
+    - Client Support & System 
+      - Improvements Provided ongoing support for a leading power generation company, addressing system issues and enhancement requests. 
+      - Implemented system improvements to optimize performance management workflows and reporting efficiency.
+  visibility: true
