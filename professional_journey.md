@@ -18,10 +18,7 @@ permalink: /professional_journey/
               style="width:90px;height:90px;object-fit:contain;" />
         </div>
         <div class="col-md-10 col-9">
-            <h3>{{ details.company_name}}</h3>
-            <br />
-
-            <h4 class="experience-title">{{ details.designation }}</h4>
+            <h3>{{ details.company_name}}</h3> - <h4 class="experience-title">{{ details.designation }}</h4>
             <p class="experience-desc">{{ details.duration }}</p>
             <p class="experience-desc">{{ details.short_description }}</p>
             <p><a href="{{details.company_url}}">{{ details.company_name }}</a></p>
