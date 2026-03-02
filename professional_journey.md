@@ -6,12 +6,14 @@ permalink: /professional_journey/
 
 <div id="professional_journey" class="card">
     <h1>Professional Journey</h1>
-    </br>
- 
+    
     {% for job in site.data.work_experience %}
     {% assign details = job[1] %}
     
     <div id="{{ details.company_name}}">
+    <h3>{{ details.company_name}}</h3>
+    <br />
+    
     <div class="row align-items-center" style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;">
         <div class="col-md-2 col-3">
           <img src="{{site.baseurl}}/assets/images/{{ details.company_logo }}" class="img-fluid rounded"
@@ -26,7 +28,6 @@ permalink: /professional_journey/
           <h7 class="experience-info">Detailed Description</h7>
           <p>{{ details.detailed_description}}</p>
         </div>
-    <h3>{{ details.company_name}}</h3>
     </div>
     </div>
     
