@@ -12,6 +12,8 @@ urls:
       url: /
     - text: Certifications
       url: /certifications
+    - text: Profesional Journey
+      url: /professional_journey
 
 
 # Edit Author details (For multi authors check _data/authors.yml)
