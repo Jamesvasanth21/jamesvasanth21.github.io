@@ -119,7 +119,7 @@ layout: default
         </div>
         <div class="col-md-10 col-9" style="cursor:pointer;">
           <!-- <a href="professional_journey" class="job-link"> -->
-          <a href="professional_journey/{{ exp.company_name | downcase | replace: ' ', '' }}" class="job-link">
+          <a href="professional_journey/#{{ exp.company_name | downcase | replace: ' ', '' }}" class="job-link">
           <h4 class="experience-title">{{ exp.designation }}</h4>
           <h6 class="experience-info">{{ exp.company_name}}</h6>
           <p class="experience-desc">{{ exp.description }}</p>
