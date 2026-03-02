@@ -213,7 +213,9 @@ a{
 
 .section-divider {
     border: none;
-    height: 1px;
+    height: 2px;
+    background: #e0e0e0;
+    opacity: 1;
     background-color: #e0e0e0;
     margin: 16px 0 32px 0;
 }
