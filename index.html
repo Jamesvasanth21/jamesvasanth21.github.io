@@ -114,12 +114,12 @@ layout: default
       {% if exp.visibility == true %}
       <div class="row align-items-center" style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;">
         <div class="col-md-2 col-3">
-          <img src="{{site.baseurl}}/assets/images/{{ exp.company_logo }}" class="img-fluid rounded"
+          <img src="{{ site.baseurl }}/assets/images/{{ exp.company_logo }}" class="img-fluid rounded"
               style="width:90px;height:90px;object-fit:contain;" />
         </div>
         <div class="col-md-10 col-9" style="cursor:pointer;">
           <!-- <a href="professional_journey" class="job-link"> -->
-          <a href="professional_journey/#{{ exp.company_name | downcase | replace: ' ', '' }}" class="job-link">
+          <a href="{{ site.baseurl }}/professional_journey/#{{ exp.company_name | downcase | replace: ' ', '' }}" class="job-link">
           <h4 class="experience-title">{{ exp.designation }}</h4>
           <h6 class="experience-info">{{ exp.company_name}}</h6>
           <p class="experience-desc">{{ exp.description }}</p>

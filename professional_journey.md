@@ -6,6 +6,7 @@ permalink: /professional_journey/
 
 <div id="professional_journey" class="card">
     <h1>Professional Journey</h1>
+    <div class="row align-items-center" style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;">
     
     {% for job in site.data.work_experience %}
     {% assign key = job[0] %}
@@ -42,5 +43,5 @@ permalink: /professional_journey/
     </div>
     
     {% endfor %}
-
+    </div>
 </div>
