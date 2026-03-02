@@ -211,6 +211,13 @@ a{
     display: block;
 }
 
+.section-divider {
+    border: none;
+    height: 1px;
+    background-color: var(--light-border-color);
+    margin: 16px 0 32px 0;
+}
+
 /* Navigation Header */
 header {
     background-color: var(--main-background-color);
