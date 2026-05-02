@@ -168,12 +168,13 @@ layout: default
 
           <!-- Links -->
           <div class="project-links">
+            {% if project.project_url %}
             <a class="btn btn-sm btn-outline-primary" 
               href="{{ project.project_url }}" 
               target="_blank">
               View Project
             </a>
-
+            {% endif %}
             {% if project.github_url %}
             <a class="btn btn-sm btn-outline-dark" 
               href="{{ project.github_url }}" 
@@ -182,14 +183,10 @@ layout: default
             </a>
             {% endif %}
           </div>
-
         </div>
-
         <hr />
-
         {% endif %}
       {% endfor %}
-
     </div>
     {% endif %}
 
