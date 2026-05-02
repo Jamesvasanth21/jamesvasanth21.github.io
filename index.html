@@ -82,6 +82,7 @@ layout: default
     </div>
   </div>
   <div class="col-lg-8">
+    <!-- Author Bio -->
     {% if site.author_bio %}
     <div class="card">
       <h1 class="card-title">About</h1>
@@ -89,6 +90,7 @@ layout: default
     </div>
     {% endif %}
     
+    <!-- Author Highlights -->
     {% if site.show_author_highlights == true %}
     <div id="author_highlights" class="card">
       <div class="row g-3 justify-content-start" id="project-card">
@@ -106,6 +108,7 @@ layout: default
     </div>
     {% endif %}
 
+    <!-- Author Work Experiences -->
     {% if site.show_author_work_experiences == true %}
     <div class="card">
       <h1 class="card-title">Work Experience</h1>
@@ -132,29 +135,65 @@ layout: default
     </div>
     {% endif %}
 
+    <!-- Author Project Details -->
     {% if site.show_author_project_details == true %}
     <div id="author_projects" class="card">
-      <h1 class="card-title">Projects</h1>
+      <h1 class="card-title">Selected Projects</h1>
       <br />
+
       {% for project in site.author_project_details %}
-      {% if project.visibility == true %}
-      <div class="row" id="project-card">
-        <div class="col-md-6">
-          <img src="{{site.url}}{{site.baseurl}}/assets/img/{{project.project_thumbnail}}" class="project-img" />
+        {% if project.visibility == true %}
+
+        <div class="project-card mb-4">
+
+          <!-- Title -->
+          <h4 class="project-title">{{ project.project_title }}</h4>
+
+          <!-- Impact / One-liner -->
+          <p class="project-impact">
+            {{ project.project_info }}
+          </p>
+
+          <!-- Description -->
+          <p class="project-desc">
+            {{ project.project_description }}
+          </p>
+
+          <!-- Tech Stack -->
+          {% if project.project_tech %}
+          <p class="project-tech">
+            <strong>Tech:</strong> {{ project.project_tech }}
+          </p>
+          {% endif %}
+
+          <!-- Links -->
+          <div class="project-links">
+            <a class="btn btn-sm btn-outline-primary" 
+              href="{{ project.project_url }}" 
+              target="_blank">
+              View Project
+            </a>
+
+            {% if project.github_url %}
+            <a class="btn btn-sm btn-outline-dark" 
+              href="{{ project.github_url }}" 
+              target="_blank">
+              GitHub
+            </a>
+            {% endif %}
+          </div>
+
         </div>
-        <div class="col-md-4 center">
-          <h4 class="experience-title">{{ project.project_title }}</h4>
-          <h6 class="experience-info">{{ project.project_info}}</h6>
-          <p class="experience-desc">{{ project.project_description }}</p>
-          <p><a class="project-link" href="{{project.project_url}}">{{ project.project_url}}</a></p>
-        </div>
-      </div>
-      <br />
-      {% endif %}
+
+        <hr />
+
+        {% endif %}
       {% endfor %}
+
     </div>
     {% endif %}
 
+    <!-- Author Education Details -->
     {% if site.show_author_education_details == true %}
     <div class="card">
       <h1 class="card-title">Education</h1>
