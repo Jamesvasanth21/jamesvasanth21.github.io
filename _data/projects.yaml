@@ -9,14 +9,14 @@ projects:
     github_url: "https://github.com/Jamesvasanth21/named-entity-recognition-system"
     featured: true
 
-  - id: rag-chatbot
-    title: "GenAI RAG Chatbot"
-    description: "Natural language to SQL chatbot with analytics capabilities."
-    tech: ["LLM", "Azure OpenAI", "SQL", "Streamlit"]
+  - id: text2sql-analytics
+    title: "Text2SQL Analytics Engine"
+    description: "Conversational AI system that converts natural language into SQL queries, executes them on structured datasets, and generates analytical insights using metadata-driven schema understanding."
+    tech: ["LLM", "Python", "SQL", "Streamlit", "Pandas"]
     tags:
       main: "GenAI"
-      sub: ["RAG", "LLM"]
-    github_url: "https://github.com/your-repo"
+      sub: ["Text2SQL", "Analytics", "LLM"]
+    github_url: "https://github.com/Jamesvasanth21/text2sql"
     featured: true
 
   - id: edw-analytics
