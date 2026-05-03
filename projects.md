@@ -8,7 +8,8 @@ permalink: /projects/
   <h1 class="card-title">
     Projects ({{ site.data.projects.projects | size }})
   </h1>
-
+  <hr class="section-divider">
+  
   <!-- Main Tags -->
   <div class="tags">
     {% assign main_tags = site.data.projects.projects | map: "tags" | map: "main" | uniq %}

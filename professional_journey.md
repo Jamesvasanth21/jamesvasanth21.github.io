@@ -5,7 +5,10 @@ permalink: /professional_experience/
 ---
 
 <div id="professional_experience" class="card">
-    <h1>Professional Experience</h1>
+    <!-- <h1>Professional Experience</h1> -->
+    <h1 class="card-title">
+    Professional Experience ({{ site.data.work_experience | size }})
+    </h1>
     <hr class="section-divider">
     {% for job in site.data.work_experience %}
     {% assign key = job[0] %}
