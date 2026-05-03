@@ -1,12 +1,12 @@
 projects:
   - id: ner-system
     title: "Named Entity Recognition System"
-    description: "End-to-end NER system using BiLSTM, CRF, and BERT with production design."
+    description: "Built an end-to-end NER system using BiLSTM, CRF, and BERT with production design. Improving Macro F1 through model iteration and sequence-aware learning"
     tech: ["Python", "PyTorch", "Transformers", "NLP"]
     tags:
       main: "Machine Learning"
       sub: ["NLP", "Deep Learning"]
-    github: "https://github.com/Jamesvasanth21/named-entity-recognition-system"
+    github_url: "https://github.com/Jamesvasanth21/named-entity-recognition-system"
     featured: true
 
   - id: rag-chatbot
@@ -16,7 +16,7 @@ projects:
     tags:
       main: "GenAI"
       sub: ["RAG", "LLM"]
-    github: "https://github.com/your-repo"
+    github_url: "https://github.com/your-repo"
     featured: true
 
   - id: edw-analytics
@@ -26,5 +26,5 @@ projects:
     tags:
       main: "Data Engineering"
       sub: ["ETL", "Analytics"]
-    github: "https://github.com/your-repo"
+    github_url: "https://github.com/your-repo"
     featured: false

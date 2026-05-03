@@ -9,7 +9,7 @@ permalink: /projects/
     Projects ({{ site.data.projects.projects | size }})
   </h1>
   <hr class="section-divider">
-  
+
   <!-- Main Tags -->
   <div class="tags">
     {% assign main_tags = site.data.projects.projects | map: "tags" | map: "main" | uniq %}
@@ -38,7 +38,7 @@ permalink: /projects/
 
         <p><strong>Tech:</strong> {{ project.tech | join: ', ' }}</p>
 
-        <a href="{{ project.github }}" target="_blank">GitHub</a>
+        <a href="{{ project.github_url }}" target="_blank">GitHub</a>
       </div>
       <hr />
     {% endfor %}

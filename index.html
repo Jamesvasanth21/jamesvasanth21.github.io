@@ -141,28 +141,23 @@ layout: default
       <h1 class="card-title">Selected Projects</h1>
       <br />
 
-      {% for project in site.author_project_details %}
-        {% if project.visibility == true %}
+      {% for project in site.data.projects.projects %}
+        {% if project.featured == true %}
 
         <div class="project-card mb-4">
 
           <!-- Title -->
-          <h3 class="project-title">{{ project.project_title }}</h3>
-
-          <!-- Impact / One-liner -->
-          <p class="project-impact">
-            {{ project.project_info }}
-          </p>
+          <h3 class="project-title">{{ project.title }}</h3>
 
           <!-- Description -->
           <p class="project-desc">
-            {{ project.project_description }}
+            {{ project.description }}
           </p>
 
           <!-- Tech Stack -->
           {% if project.project_tech %}
           <p class="project-tech">
-            <strong>Tech:</strong> {{ project.project_tech }}
+            <strong>Tech:</strong> {{ project.tech }}
           </p>
           {% endif %}
 
@@ -187,6 +182,7 @@ layout: default
         <hr />
         {% endif %}
       {% endfor %}
+      <a href="/projects">View All Projects →</a>
     </div>
     {% endif %}
 
