@@ -8,7 +8,7 @@ permalink: /projects/
   <h1 class="card-title">
     Projects ({{ site.data.projects.projects | size }})
   </h1>
-  <hr class="section-divider">
+  
 
   <!-- Main Tags -->
   <div class="tags">
@@ -20,11 +20,12 @@ permalink: /projects/
 
   <!-- Sub Tags -->
   <div id="sub-tags"></div>
+  <hr class="section-divider">
 
   <!-- Projects List -->
   <div id="project-list">
     {% for project in site.data.projects.projects %}
-      <div class="project-item"
+      <div class="project-item" id=project.id
            data-main="{{ project.tags.main }}"
            data-sub="{{ project.tags.sub | join: ',' }}">
 

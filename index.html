@@ -132,6 +132,7 @@ layout: default
       </div>
       {% endif %}
       {% endfor %}
+      <a href="/professional_experience">View Detailed Professional Experience →</a>
     </div>
     {% endif %}
 
@@ -147,7 +148,11 @@ layout: default
         <div class="project-card mb-4">
 
           <!-- Title -->
-          <h3 class="project-title">{{ project.title }}</h3>
+          <h3 class="project-title">
+            <a href="{{ site.baseurl }}/projects/#{{ project.id }}" class="project-link">
+              {{ project.title }}
+            </a>
+          </h3>
 
           <!-- Description -->
           <p class="project-desc">
@@ -185,24 +190,6 @@ layout: default
       <a href="/projects">View All Projects →</a>
     </div>
     {% endif %}
-
-    <!-- Temp -->
-    <h1>Selected Projects</h1>
-
-    {% for project in site.data.projects.projects %}
-      {% if project.featured == true %}
-        <div>
-          <h3>
-            <a href="/projects/{{ project.id }}.html">
-              {{ project.title }}
-            </a>
-          </h3>
-          <p>{{ project.description }}</p>
-        </div>
-      {% endif %}
-    {% endfor %}
-
-    <a href="/projects">View All Projects →</a>
 
     <!-- Author Education Details -->
     {% if site.show_author_education_details == true %}
