@@ -190,6 +190,24 @@ layout: default
     </div>
     {% endif %}
 
+    <!-- Temp -->
+    <h1>Selected Projects</h1>
+
+    {% for project in site.data.projects.projects %}
+      {% if project.featured == true %}
+        <div>
+          <h3>
+            <a href="/projects/{{ project.id }}.html">
+              {{ project.title }}
+            </a>
+          </h3>
+          <p>{{ project.description }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    <a href="/projects">View All Projects →</a>
+
     <!-- Author Education Details -->
     {% if site.show_author_education_details == true %}
     <div class="card">

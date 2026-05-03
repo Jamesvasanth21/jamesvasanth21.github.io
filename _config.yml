@@ -14,6 +14,8 @@ urls:
       url: /certifications
     - text: Professional Experience
       url: /professional_experience
+    - text: Projects
+      url: /projects
 
 
 # Edit Author details (For multi authors check _data/authors.yml)
@@ -106,12 +108,19 @@ author_project_details:
               #  project_url: "https://your-live-demo.com"
               #  github_url: "https://github.com/your-repo"
               #  visibility: true
+              - project_title: "Named Entity Recognition System"
+                project_info: "Built an end-to-end NER system using BiLSTM, CRF, and BERT, improving Macro F1 through model iteration and sequence-aware learning"
+                project_description: "Implemented and compared multiple sequence labeling approaches, addressed class imbalance, and designed a production-ready ML system with scalable deployment, monitoring, and retraining pipelines."
+                project_tech: "Python, PyTorch, Transformers, NLP, FastAPI, MLflow, GCP"
+                github_url: "https://github.com/Jamesvasanth21/named-entity-recognition-system"
+                visibility: true
               - project_title: "Data Science Notes"
                 project_info: "Curated data science notes developed through teaching sessions, focusing on clear explanations and practical understanding"
                 project_description: "A continuously evolving collection of data science concepts compiled from teaching, discussions, and hands-on exploration. Designed to simplify complex topics, reinforce learning, and serve as a structured reference for learners and practitioners."
                 project_tech: "Python, Data Science, Machine Learning, Jupyter, AI-assisted documentation"
                 github_url: "https://github.com/Jamesvasanth21/data-science-notes"
                 visibility: true
+              
 
 # Professional Certifications
 author_professional_certifications:
