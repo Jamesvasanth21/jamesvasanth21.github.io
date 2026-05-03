@@ -64,7 +64,7 @@ permalink: /projects/
 
 
 <script>
-function resetFilter() {
+window.resetFilter = function() {
   console.log("🔄 Reset filter triggered");
 
   const items = document.querySelectorAll(".project-item");
@@ -77,9 +77,9 @@ function resetFilter() {
 
   document.getElementById("sub-tags").innerHTML = "";
   console.log("Sub-tags cleared");
-}
+};
 
-function filterMain(tag) {
+window.filterMain = function(tag) {
   console.log("🎯 filterMain called with tag:", tag);
 
   const items = document.querySelectorAll(".project-item");
@@ -119,10 +119,10 @@ function filterMain(tag) {
 
   console.log("📦 Final subTags set:", Array.from(subTags));
 
-  renderSubTags(subTags);
-}
+  window.renderSubTags(subTags);
+};
 
-function renderSubTags(subTags) {
+window.renderSubTags = function(subTags) {
   console.log("🎨 Rendering sub-tags");
 
   const container = document.getElementById("sub-tags");
@@ -139,18 +139,19 @@ function renderSubTags(subTags) {
 
     const btn = document.createElement("button");
     btn.innerText = sub;
+
     btn.onclick = () => {
       console.log("👉 Sub-tag clicked:", sub);
-      filterSub(sub);
+      window.filterSub(sub);
     };
 
     container.appendChild(btn);
   });
 
   console.log("✅ Sub-tags rendered successfully");
-}
+};
 
-function filterSub(tag) {
+window.filterSub = function(tag) {
   console.log("🎯 filterSub called with tag:", tag);
 
   const items = document.querySelectorAll(".project-item");
@@ -166,6 +167,5 @@ function filterSub(tag) {
       item.style.display = "none";
     }
   });
-}
-
+};
 </script>
