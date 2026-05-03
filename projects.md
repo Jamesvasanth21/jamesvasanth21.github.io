@@ -37,7 +37,11 @@ permalink: /projects/
 
         <p><strong>Tech:</strong> {{ project.tech | join: ', ' }}</p>
 
-        <a href="{{ project.github_url }}" target="_blank">GitHub</a>
+        <a class="btn btn-sm btn-outline-dark" 
+            href="{{ project.github_url }}" 
+            target="_blank">
+            GitHub
+        </a>
       </div>
       <hr class="section-divider" />
     {% endfor %}
