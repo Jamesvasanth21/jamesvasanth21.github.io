@@ -20,19 +20,17 @@ permalink: /projects/
 
   <!-- Sub Tags -->
   <div id="sub-tags"></div>
-  <hr class="section-divider">
+  <hr class="section-divider" />
 
   <!-- Projects List -->
   <div id="project-list">
     {% for project in site.data.projects.projects %}
-      <div class="project-item" id=project.id
+      <div class="project-item" id="{{ project.id }}"
            data-main="{{ project.tags.main }}"
            data-sub="{{ project.tags.sub | join: ',' }}">
 
         <h3>
-          <a href="/projects/{{ project.id }}.html">
-            {{ project.title }}
-          </a>
+          {{ project.title }}
         </h3>
 
         <p>{{ project.description }}</p>
@@ -41,7 +39,7 @@ permalink: /projects/
 
         <a href="{{ project.github_url }}" target="_blank">GitHub</a>
       </div>
-      <hr />
+      <hr class="section-divider" />
     {% endfor %}
   </div>
 </div>
