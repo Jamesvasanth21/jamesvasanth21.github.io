@@ -62,57 +62,110 @@ permalink: /projects/
 }
 </style>
 
+
 <script>
 function resetFilter() {
-  document.querySelectorAll(".project-item").forEach(item => {
+  console.log("🔄 Reset filter triggered");
+
+  const items = document.querySelectorAll(".project-item");
+  console.log("Total items:", items.length);
+
+  items.forEach((item, index) => {
+    console.log(`Showing item ${index}`, item.dataset);
     item.style.display = "block";
   });
+
   document.getElementById("sub-tags").innerHTML = "";
+  console.log("Sub-tags cleared");
 }
 
 function filterMain(tag) {
+  console.log("🎯 filterMain called with tag:", tag);
+
   const items = document.querySelectorAll(".project-item");
   const subTags = new Set();
 
-  items.forEach(item => {
+  items.forEach((item, index) => {
+    console.log(`\n🔍 Checking item ${index}`);
+    console.log("data-main:", item.dataset.main);
+    console.log("data-sub:", item.dataset.sub);
+
     if (item.dataset.main === tag) {
+      console.log("✅ MATCHED MAIN TAG");
+
       item.style.display = "block";
 
       if (item.dataset.sub) {
-        item.dataset.sub.split(',').forEach(sub => {
-          if (sub.trim()) subTags.add(sub.trim());
+        const subs = item.dataset.sub.split(',');
+        console.log("Sub tags found:", subs);
+
+        subs.forEach(sub => {
+          const clean = sub.trim();
+          if (clean) {
+            console.log("➕ Adding sub-tag:", clean);
+            subTags.add(clean);
+          }
         });
+
+      } else {
+        console.log("⚠️ No sub-tags found for this item");
       }
 
     } else {
+      console.log("❌ Not matching main tag → hiding");
       item.style.display = "none";
     }
   });
+
+  console.log("📦 Final subTags set:", Array.from(subTags));
 
   renderSubTags(subTags);
 }
 
 function renderSubTags(subTags) {
+  console.log("🎨 Rendering sub-tags");
+
   const container = document.getElementById("sub-tags");
   container.innerHTML = "";
 
+  if (subTags.size === 0) {
+    console.log("⚠️ No sub-tags to render");
+    container.innerHTML = "<p>No sub-tags available</p>";
+    return;
+  }
+
   subTags.forEach(sub => {
+    console.log("🔘 Creating button for:", sub);
+
     const btn = document.createElement("button");
     btn.innerText = sub;
-    btn.onclick = () => filterSub(sub);
+    btn.onclick = () => {
+      console.log("👉 Sub-tag clicked:", sub);
+      filterSub(sub);
+    };
+
     container.appendChild(btn);
   });
+
+  console.log("✅ Sub-tags rendered successfully");
 }
 
 function filterSub(tag) {
+  console.log("🎯 filterSub called with tag:", tag);
+
   const items = document.querySelectorAll(".project-item");
 
-  items.forEach(item => {
+  items.forEach((item, index) => {
+    console.log(`Checking item ${index}`, item.dataset.sub);
+
     if (item.dataset.sub && item.dataset.sub.includes(tag)) {
+      console.log("✅ MATCHED SUB TAG → show");
       item.style.display = "block";
     } else {
+      console.log("❌ No match → hide");
       item.style.display = "none";
     }
   });
 }
+
 </script>
