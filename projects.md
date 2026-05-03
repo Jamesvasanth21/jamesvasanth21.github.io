@@ -8,10 +8,10 @@ permalink: /projects/
   <h1 class="card-title">
     Projects ({{ site.data.projects.projects | size }})
   </h1>
-  
 
   <!-- Main Tags -->
   <div class="tags">
+    <button onclick="resetFilter()">All</button>
     {% assign main_tags = site.data.projects.projects | map: "tags" | map: "main" | uniq %}
     {% for tag in main_tags %}
       <button onclick="filterMain('{{ tag }}')">{{ tag }}</button>
@@ -29,18 +29,16 @@ permalink: /projects/
            data-main="{{ project.tags.main }}"
            data-sub="{{ project.tags.sub | join: ',' }}">
 
-        <h3>
-          {{ project.title }}
-        </h3>
+        <h3>{{ project.title }}</h3>
 
         <p>{{ project.description }}</p>
 
         <p><strong>Tech:</strong> {{ project.tech | join: ', ' }}</p>
 
-        <a class="btn btn-sm btn-outline-dark" 
-            href="{{ project.github_url }}" 
-            target="_blank">
-            GitHub
+        <a class="btn btn-sm btn-outline-dark"
+           href="{{ project.github_url }}"
+           target="_blank">
+          GitHub
         </a>
       </div>
       <hr class="section-divider" />
@@ -49,40 +47,64 @@ permalink: /projects/
 </div>
 
 <script>
-function filterMain(tag) {
-  const items = document.querySelectorAll(".project-item");
-  const subTags = new Set();
+(function () {
 
-  items.forEach(item => {
-    if (item.dataset.main === tag) {
+  var currentMain = null;
+
+  window.resetFilter = function () {
+    currentMain = null;
+    document.querySelectorAll(".project-item").forEach(function (item) {
       item.style.display = "block";
-      item.dataset.sub.split(',').forEach(t => subTags.add(t));
-    } else {
-      item.style.display = "none";
-    }
-  });
+    });
+    document.getElementById("sub-tags").innerHTML = "";
+  };
 
-  // Render sub-tags
-  const subTagDiv = document.getElementById("sub-tags");
-  subTagDiv.innerHTML = "";
+  window.filterMain = function (tag) {
+    currentMain = tag;
+    var subTags = new Set();
 
-  subTags.forEach(sub => {
-    const btn = document.createElement("button");
-    btn.innerText = sub;
-    btn.onclick = () => filterSub(sub);
-    subTagDiv.appendChild(btn);
-  });
-}
+    document.querySelectorAll(".project-item").forEach(function (item) {
+      if (item.getAttribute("data-main") === tag) {
+        item.style.display = "block";
+        var sub = item.getAttribute("data-sub");
+        if (sub) {
+          sub.split(",").forEach(function (s) {
+            var clean = s.trim();
+            if (clean) subTags.add(clean);
+          });
+        }
+      } else {
+        item.style.display = "none";
+      }
+    });
 
-function filterSub(tag) {
-  const items = document.querySelectorAll(".project-item");
+    renderSubTags(subTags);
+  };
 
-  items.forEach(item => {
-    if (item.dataset.sub.includes(tag)) {
-      item.style.display = "block";
-    } else {
-      item.style.display = "none";
-    }
-  });
-}
+  function renderSubTags(subTags) {
+    var container = document.getElementById("sub-tags");
+    container.innerHTML = "";
+
+    subTags.forEach(function (sub) {
+      var btn = document.createElement("button");
+      btn.textContent = sub;
+      btn.onclick = function () { filterSub(sub); };
+      container.appendChild(btn);
+    });
+  }
+
+  window.filterSub = function (tag) {
+    document.querySelectorAll(".project-item").forEach(function (item) {
+      if (item.getAttribute("data-main") !== currentMain) {
+        item.style.display = "none";
+        return;
+      }
+      var subs = (item.getAttribute("data-sub") || "")
+        .split(",")
+        .map(function (s) { return s.trim(); });
+      item.style.display = subs.indexOf(tag) !== -1 ? "block" : "none";
+    });
+  };
+
+})();
 </script>
