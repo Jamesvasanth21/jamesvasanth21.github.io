@@ -29,14 +29,14 @@ projects:
     github_url: "https://github.com/Jamesvasanth21/Customer_Conversion"
     featured: true
 
-  - id: data-science-projects
-    title: "Applied Data Science Projects"
-    description: "Collection of practical machine learning and analytics implementations involving exploratory data analysis, preprocessing, predictive modeling, and data visualization workflows across multiple datasets."
-    tech: ["Python", "Pandas", "Machine Learning", "Visualization"]
+  - id: data-science-notes
+    title: "Data Science Training & Knowledge Repository"
+    description: "Created and maintained a structured learning repository while conducting data science training sessions for fresh graduates. Taught machine learning fundamentals, data preprocessing, exploratory analysis, and practical implementation workflows through hands-on examples, notebooks, and guided project-based learning."
+    tech: ["Python", "Jupyter", "Machine Learning", "Data Science"]
     tags:
       main: "Data Science"
-      sub: ["EDA", "Machine Learning", "Analytics"]
-    github_url: "https://github.com/Jamesvasanth21/Data-Science"
+      sub: ["Training", "Machine Learning", "Mentorship"]
+    github_url: "https://github.com/Jamesvasanth21/data-science-notes"
     featured: true
 
   - id: covid-lilly-app
@@ -59,16 +59,6 @@ projects:
     github_url: "https://github.com/Jamesvasanth21/patient_tracker"
     featured: false
 
-  - id: data-science-notes
-    title: "Data Science Knowledge Repository"
-    description: "Maintained a repository of implementation notes, experiments, and references covering machine learning, statistics, and practical data science concepts."
-    tech: ["Python", "Jupyter", "Machine Learning"]
-    tags:
-      main: "Data Science"
-      sub: ["Learning", "ML Concepts", "Notes"]
-    github_url: "https://github.com/Jamesvasanth21/data-science-notes"
-    featured: false
-
   - id: jamesvasanth21-portfolio
     title: "ML Engineer Portfolio Website"
     description: "Designed and developed a responsive developer portfolio showcasing machine learning, GenAI, and software engineering projects with structured project presentation and modern frontend design."
@@ -77,6 +67,16 @@ projects:
       main: "Web Development"
       sub: ["Portfolio", "Frontend", "Responsive UI"]
     github_url: "https://github.com/Jamesvasanth21/jamesvasanth21.github.io"
+    featured: false
+
+  - id: data-science-projects
+    title: "Applied Data Science Projects"
+    description: "Collection of practical machine learning and analytics implementations involving exploratory data analysis, preprocessing, predictive modeling, and data visualization workflows across multiple datasets."
+    tech: ["Python", "Pandas", "Machine Learning", "Visualization"]
+    tags:
+      main: "Data Science"
+      sub: ["EDA", "Machine Learning", "Analytics"]
+    github_url: "https://github.com/Jamesvasanth21/Data-Science"
     featured: false
 
   - id: react-task-tracker
