@@ -1,30 +1,119 @@
-projects:
-  - id: ner-system
-    title: "Named Entity Recognition System"
-    description: "Built an end-to-end NER system using BiLSTM, CRF, and BERT with production design. Improving Macro F1 through model iteration and sequence-aware learning"
-    tech: ["Python", "PyTorch", "Transformers", "NLP"]
-    tags:
-      main: "Machine Learning"
-      sub: ["NLP", "Deep Learning"]
-    github_url: "https://github.com/Jamesvasanth21/named-entity-recognition-system"
-    featured: true
+- id: ner-sequence-labeling-system
+  title: "Production-Oriented Named Entity Recognition System"
+  description: "Implemented an end-to-end sequence labeling system for Named Entity Recognition using BiLSTM, BiLSTM-CRF, and BERT architectures. Built token preprocessing pipelines, sequence-aware decoding with CRF, Macro F1 evaluation for imbalanced classes, and designed a scalable production architecture with FastAPI, MLflow, monitoring, and model deployment considerations."
+  tech: ["Python", "PyTorch", "Transformers", "FastAPI", "MLflow", "NLP"]
+  tags:
+    main: "Machine Learning"
+    sub: ["NLP", "Deep Learning", "MLOps"]
+  github_url: "https://github.com/Jamesvasanth21/ner-sequence-labeling-system"
+  featured: true
 
-  - id: text2sql-analytics
-    title: "Text2SQL Analytics Engine"
-    description: "Conversational AI system that converts natural language into SQL queries, executes them on structured datasets, and generates analytical insights using metadata-driven schema understanding."
-    tech: ["LLM", "Python", "SQL", "Streamlit", "Pandas"]
-    tags:
-      main: "GenAI"
-      sub: ["Text2SQL", "Analytics", "LLM"]
-    github_url: "https://github.com/Jamesvasanth21/text2sql"
-    featured: true
+- id: text2sql
+  title: "LLM-Powered Text2SQL Analytics Engine"
+  description: "Developed a conversational analytics platform that converts natural language queries into SQL using metadata-aware schema understanding. Integrated conversational LLM workflows, dataset ingestion pipelines, schema metadata management, analytics execution, context retention, and automated business insight generation over structured datasets."
+  tech: ["Python", "LLM", "SQL", "Streamlit", "Pandas", "GenAI"]
+  tags:
+    main: "GenAI"
+    sub: ["Text2SQL", "LLM", "Analytics"]
+  github_url: "https://github.com/Jamesvasanth21/text2sql"
+  featured: true
 
-  - id: edw-analytics
-    title: "EDW Analytics Engine"
-    description: "Analytics system with trend detection and anomaly insights."
-    tech: ["SQL", "Python", "Analytics"]
-    tags:
-      main: "Data Engineering"
-      sub: ["ETL", "Analytics"]
-    github_url: "https://github.com/your-repo"
-    featured: false
+- id: customer-conversion
+  title: "Audiobook Customer Conversion Prediction"
+  description: "Built a supervised machine learning classification system to predict whether audiobook customers will make repeat purchases within six months based on two years of engagement data. Performed preprocessing, missing value imputation, feature analysis, behavioral metric engineering, and customer conversion modeling using engagement and activity patterns."
+  tech: ["Python", "Scikit-learn", "Pandas", "Machine Learning"]
+  tags:
+    main: "Machine Learning"
+    sub: ["Classification", "Customer Analytics", "Feature Engineering"]
+  github_url: "https://github.com/Jamesvasanth21/Customer_Conversion"
+  featured: true
+
+- id: data-science-projects
+  title: "Applied Data Science Projects"
+  description: "Collection of practical machine learning and analytics implementations involving exploratory data analysis, preprocessing, predictive modeling, and data visualization workflows across multiple datasets."
+  tech: ["Python", "Pandas", "Machine Learning", "Visualization"]
+  tags:
+    main: "Data Science"
+    sub: ["EDA", "Machine Learning", "Analytics"]
+  github_url: "https://github.com/Jamesvasanth21/Data-Science"
+  featured: true
+
+- id: covid-lilly-app
+  title: "COVID React Web Application"
+  description: "Built a React-based web application using Create React App with development, testing, and production build workflows for interactive frontend application deployment."
+  tech: ["React", "JavaScript", "HTML", "CSS"]
+  tags:
+    main: "Frontend"
+    sub: ["React", "Web App", "Frontend Development"]
+  github_url: "https://github.com/Jamesvasanth21/covidapp-lilly"
+  featured: false
+
+- id: patient-tracker
+  title: "Patient Tracker System"
+  description: "Developed a patient tracking application focused on managing healthcare-related records, workflow tracking, and structured data organization."
+  tech: ["Python", "SQL", "Application Development"]
+  tags:
+    main: "Software Development"
+    sub: ["Healthcare", "Database", "Tracking"]
+  github_url: "https://github.com/Jamesvasanth21/patient_tracker"
+  featured: false
+
+- id: data-science-notes
+  title: "Data Science Knowledge Repository"
+  description: "Maintained a repository of implementation notes, experiments, and references covering machine learning, statistics, and practical data science concepts."
+  tech: ["Python", "Jupyter", "Machine Learning"]
+  tags:
+    main: "Data Science"
+    sub: ["Learning", "ML Concepts", "Notes"]
+  github_url: "https://github.com/Jamesvasanth21/data-science-notes"
+  featured: false
+
+- id: jamesvasanth21-portfolio
+  title: "ML Engineer Portfolio Website"
+  description: "Designed and developed a responsive developer portfolio showcasing machine learning, GenAI, and software engineering projects with structured project presentation and modern frontend design."
+  tech: ["HTML", "CSS", "JavaScript", "GitHub Pages"]
+  tags:
+    main: "Web Development"
+    sub: ["Portfolio", "Frontend", "Responsive UI"]
+  github_url: "https://github.com/Jamesvasanth21/jamesvasanth21.github.io"
+  featured: false
+
+- id: react-task-tracker
+  title: "React Task Tracker"
+  description: "Built a task management application using React with reusable UI components, state handling, and interactive frontend workflows."
+  tech: ["React", "JavaScript", "HTML", "CSS"]
+  tags:
+    main: "Frontend"
+    sub: ["React", "Web App", "UI"]
+  github_url: "https://github.com/Jamesvasanth21/react-task-tracker"
+  featured: false
+
+- id: library-assistant
+  title: "Library Assistant System"
+  description: "Developed a desktop-based library management application for handling inventory operations, issue tracking, and administrative workflows."
+  tech: ["Java", "JavaFX", "SQL"]
+  tags:
+    main: "Software Development"
+    sub: ["Desktop Application", "Java", "Management System"]
+  github_url: "https://github.com/Jamesvasanth21/Library-Assistant"
+  featured: false
+
+- id: srit-press
+  title: "SRIT Press Platform"
+  description: "Developed a web-based publishing and content management platform with frontend workflows and structured content handling."
+  tech: ["HTML", "CSS", "JavaScript", "Web Development"]
+  tags:
+    main: "Web Development"
+    sub: ["Publishing", "Frontend", "Content Management"]
+  github_url: "https://github.com/Jamesvasanth21/sritpress"
+  featured: false
+
+- id: cynosure
+  title: "Cynosure Web Platform"
+  description: "Worked on a modular web platform involving integrated frontend-backend workflows and scalable application structure."
+  tech: ["JavaScript", "Backend", "Frontend", "Web Development"]
+  tags:
+    main: "Software Engineering"
+    sub: ["Full Stack", "Architecture", "Platform"]
+  github_url: "https://github.com/Jamesvasanth21/cynosure"
+  featured: false
