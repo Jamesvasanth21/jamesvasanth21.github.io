@@ -202,6 +202,39 @@ projects:
     github_url: "https://github.com/Jamesvasanth21/jamesvasanth21.github.io"
 
 
+  - id: initiate-motion-physio
+
+    title: "Initiate Motion Physiotherapy Website"
+
+    category: "Product & Platform Engineering"
+
+    tags:
+      - Business Website
+      - SEO
+      - Deployment
+      - Digital Presence
+
+    featured: true
+
+    tech:
+      - Wix
+      - Domain Management
+      - Google Business
+      - SEO
+      - Web Design
+
+    description: >
+      Designed and launched a production-ready website for a physiotherapy
+      clinic focused on improving digital presence, appointment accessibility,
+      and local discoverability. Managed website structure, deployment,
+      domain configuration, Google Business onboarding, and ongoing SEO
+      optimization efforts for business visibility and customer reach.
+
+    github_url: ""
+
+    live_url: "https://www.initiatemotionphysio.com/"
+
+
   - id: data-science-projects
 
     title: "Applied Data Science Projects"
