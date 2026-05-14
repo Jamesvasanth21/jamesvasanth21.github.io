@@ -13,8 +13,7 @@ permalink: /projects/
     </h1>
 
     <p class="projects-subtitle">
-      AI systems, cloud engineering, platform development,
-      and knowledge-driven projects.
+      AI systems, cloud engineering, platform development projects.
     </p>
   </div>
 
