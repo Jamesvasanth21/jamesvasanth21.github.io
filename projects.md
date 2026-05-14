@@ -212,9 +212,11 @@ permalink: /projects/
 
 .project-description {
 
-  color: #444;
-  line-height: 1.7;
-
+  color: rgba(255,255,255,0.78);
+  
+  line-height: 1.8;
+  font-size: 15px;
+  
   margin-bottom: 14px;
 }
 
