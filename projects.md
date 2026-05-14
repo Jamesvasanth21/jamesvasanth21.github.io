@@ -5,211 +5,541 @@ permalink: /projects/
 ---
 
 <div class="card">
-  <h1 class="card-title">
-    Projects ({{ site.data.projects.projects | size }})
-  </h1>
 
-  <!-- Main Tags -->
-  <div class="tags">
-    <button onclick="resetFilter()">All</button>
-    {% assign main_tags = site.data.projects.projects | map: "tags" | map: "main" | uniq %}
-    {% for tag in main_tags %}
-      <button onclick="filterMain('{{ tag }}')">{{ tag }}</button>
-    {% endfor %}
+  <!-- HEADER -->
+  <div class="projects-header">
+    <h1 class="card-title">
+      Projects ({{ site.data.projects.projects | size }})
+    </h1>
+
+    <p class="projects-subtitle">
+      AI systems, cloud engineering, platform development,
+      and knowledge-driven projects.
+    </p>
   </div>
 
-  <!-- Sub Tags -->
-  <div id="sub-tags"></div>
-  <hr id="top-divider" class="section-divider" />
+  <!-- CATEGORY FILTERS -->
+  <div class="tags category-tags">
 
-  <!-- Projects List -->
-  <div id="project-list">
-    {% for project in site.data.projects.projects %}
-      <div class="project-item" id="{{ project.id }}"
-           data-main="{{ project.tags.main }}"
-           data-sub="{{ project.tags.sub | join: ',' }}">
+    <button class="active" onclick="resetFilter()">
+      All
+    </button>
 
-        <h3>{{ project.title }}</h3>
-
-        <p>{{ project.description }}</p>
-
-        <p><strong>Tech:</strong> {{ project.tech | join: ', ' }}</p>
-
-        <a class="btn btn-sm btn-outline-dark"
-           href="{{ project.github_url }}"
-           target="_blank">
-          GitHub
-        </a>
-      </div>
-      <hr class="section-divider item-divider" />
+    {% for category in site.data.projects.categories %}
+      <button onclick="filterCategory('{{ category | escape }}')">
+        {{ category }}
+      </button>
     {% endfor %}
+
+  </div>
+
+  <!-- DYNAMIC TAG FILTERS -->
+  <div id="sub-tags"></div>
+
+  <hr class="section-divider" />
+
+  <!-- PROJECTS -->
+  <div id="project-list">
+
+    {% for project in site.data.projects.projects %}
+
+      <div
+        class="project-item"
+        id="{{ project.id }}"
+        data-category="{{ project.category }}"
+        data-tags="{{ project.tags | join: ',' }}"
+      >
+
+        <!-- CATEGORY LABEL -->
+        <div class="project-category-label">
+          {{ project.category }}
+        </div>
+
+        <!-- TITLE -->
+        <h3 class="project-title">
+          {{ project.title }}
+        </h3>
+
+        <!-- DESCRIPTION -->
+        <p class="project-description">
+          {{ project.description }}
+        </p>
+
+        <!-- TECH -->
+        <div class="tech-stack">
+
+          {% for tech in project.tech %}
+            <span class="tech-badge">
+              {{ tech }}
+            </span>
+          {% endfor %}
+
+        </div>
+
+        <!-- TAGS -->
+        <div class="project-tags">
+
+          {% for tag in project.tags %}
+            <span class="project-tag">
+              {{ tag }}
+            </span>
+          {% endfor %}
+
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="project-actions">
+
+          {% if project.github_url %}
+          <a
+            class="project-btn"
+            href="{{ project.github_url }}"
+            target="_blank"
+          >
+            GitHub
+          </a>
+          {% endif %}
+
+          {% if project.live_url %}
+          <a
+            class="project-btn live-btn"
+            href="{{ project.live_url }}"
+            target="_blank"
+          >
+            Live Site
+          </a>
+          {% endif %}
+
+        </div>
+
+      </div>
+
+      <hr class="section-divider item-divider" />
+
+    {% endfor %}
+
   </div>
 </div>
 
 <style>
-/* Tag buttons */
+
+/* =========================
+   HEADER
+========================= */
+
+.projects-header {
+  margin-bottom: 25px;
+}
+
+.projects-subtitle {
+  color: #666;
+  margin-top: 6px;
+  font-size: 15px;
+}
+
+/* =========================
+   FILTER BUTTONS
+========================= */
+
 .tags,
 #sub-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 10px;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 
 .tags button,
 #sub-tags button {
-  display: inline-block;
-  padding: 6px 14px;
+
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+
+  padding: 7px 14px;
+
+  border-radius: 20px;
+
+  cursor: pointer;
+
   font-size: 13px;
   font-weight: 500;
-  line-height: 1;
-  border: 1.5px solid #aaa;
-  border-radius: 20px;
-  background: #f5f5f5;
-  color: #333;
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
-  white-space: nowrap;
+
+  transition: all 0.2s ease;
 }
 
 .tags button:hover,
 #sub-tags button:hover {
-  background: #333;
-  border-color: #333;
-  color: #fff;
+  background: #222;
+  color: white;
+  border-color: #222;
 }
 
 .tags button.active,
 #sub-tags button.active {
-  background: #222;
-  border-color: #222;
-  color: #fff;
+  background: #111;
+  color: white;
+  border-color: #111;
 }
 
-#sub-tags {
-  margin-top: 8px;
+/* =========================
+   PROJECT CARD
+========================= */
+
+.project-item {
+
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
+
+.project-category-label {
+
+  display: inline-block;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #666;
+
+  margin-bottom: 8px;
+
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.project-title {
+
+  margin-bottom: 12px;
+}
+
+.project-description {
+
+  color: #444;
+  line-height: 1.7;
+
+  margin-bottom: 14px;
+}
+
+/* =========================
+   TECH STACK
+========================= */
+
+.tech-stack,
+.project-tags {
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 12px;
+}
+
+.tech-badge,
+.project-tag {
+
+  display: inline-block;
+
+  padding: 6px 10px;
+
+  border-radius: 14px;
+
+  font-size: 12px;
+}
+
+.tech-badge {
+
+  background: #f1f3f5;
+  color: #333;
+}
+
+.project-tag {
+
+  background: #ececec;
+  color: #555;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.project-actions {
+
+  margin-top: 18px;
+
+  display: flex;
+  gap: 10px;
+}
+
+.project-btn {
+
+  display: inline-block;
+
+  padding: 8px 14px;
+
+  border-radius: 6px;
+
+  text-decoration: none;
+
+  background: #222;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  transition: opacity 0.2s ease;
+}
+
+.project-btn:hover {
+  opacity: 0.9;
+  color: white;
+}
+
+.live-btn {
+  background: #444;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.item-divider {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
 </style>
 
 <script>
+
 (function () {
 
-  var currentMain = null;
+  let currentCategory = null;
 
-  function syncDividers() {
-    var items = document.querySelectorAll(".project-item");
-    var dividers = document.querySelectorAll(".item-divider");
-
-    /* Hide all dividers first */
-    dividers.forEach(function (hr) { hr.style.display = "none"; });
-
-    /* Find visible items and show a divider after each except the last */
-    var visibleItems = [];
-    items.forEach(function (item) {
-      if (item.style.display !== "none") visibleItems.push(item);
-    });
-
-    visibleItems.forEach(function (item, idx) {
-      /* Each .project-item is immediately followed by an .item-divider */
-      var next = item.nextElementSibling;
-      if (next && next.classList.contains("item-divider")) {
-        /* Show divider after every visible item except the last */
-        next.style.display = idx < visibleItems.length - 1 ? "" : "none";
-      }
-    });
-
-    /* Hide the top divider when there are no sub-tags and nothing filtered */
-    var topDivider = document.getElementById("top-divider");
-    if (topDivider) {
-      topDivider.style.display = visibleItems.length === 0 ? "none" : "";
-    }
-  }
-
-  function setActiveMainButton(tag) {
-    document.querySelectorAll(".tags button").forEach(function (btn) {
-      btn.classList.remove("active");
-      if (
-        (tag === null && btn.getAttribute("onclick") === "resetFilter()") ||
-        btn.getAttribute("onclick") === "filterMain('" + tag + "')"
-      ) {
-        btn.classList.add("active");
-      }
-    });
-  }
+  /* =========================
+     RESET FILTER
+  ========================= */
 
   window.resetFilter = function () {
-    currentMain = null;
-    document.querySelectorAll(".project-item").forEach(function (item) {
-      item.style.display = "block";
-    });
-    document.getElementById("sub-tags").innerHTML = "";
-    setActiveMainButton(null);
-    syncDividers();
-  };
 
-  window.filterMain = function (tag) {
-    currentMain = tag;
-    var subTags = new Set();
+    currentCategory = null;
 
-    document.querySelectorAll(".project-item").forEach(function (item) {
-      if (item.getAttribute("data-main") === tag) {
+    document
+      .querySelectorAll(".project-item")
+      .forEach(function (item) {
         item.style.display = "block";
-        var sub = item.getAttribute("data-sub");
-        if (sub) {
-          sub.split(",").forEach(function (s) {
-            var clean = s.trim();
-            if (clean) subTags.add(clean);
-          });
-        }
-      } else {
-        item.style.display = "none";
-      }
-    });
+      });
 
-    setActiveMainButton(tag);
-    renderSubTags(subTags);
+    document.getElementById("sub-tags").innerHTML = "";
+
+    setActiveCategoryButton(null);
+
     syncDividers();
   };
 
-  function renderSubTags(subTags) {
-    var container = document.getElementById("sub-tags");
+  /* =========================
+     FILTER CATEGORY
+  ========================= */
+
+  window.filterCategory = function (category) {
+
+    currentCategory = category;
+
+    const tags = new Set();
+
+    document
+      .querySelectorAll(".project-item")
+      .forEach(function (item) {
+
+        const itemCategory =
+          item.getAttribute("data-category");
+
+        if (itemCategory === category) {
+
+          item.style.display = "block";
+
+          const itemTags =
+            item.getAttribute("data-tags");
+
+          if (itemTags) {
+
+            itemTags
+              .split(",")
+              .forEach(function (tag) {
+
+                const clean = tag.trim();
+
+                if (clean) {
+                  tags.add(clean);
+                }
+
+              });
+          }
+
+        } else {
+
+          item.style.display = "none";
+        }
+
+      });
+
+    renderSubTags(tags);
+
+    setActiveCategoryButton(category);
+
+    syncDividers();
+  };
+
+  /* =========================
+     FILTER SUB TAG
+  ========================= */
+
+  window.filterTag = function (tag) {
+
+    document
+      .querySelectorAll(".project-item")
+      .forEach(function (item) {
+
+        const itemCategory =
+          item.getAttribute("data-category");
+
+        if (
+          currentCategory &&
+          itemCategory !== currentCategory
+        ) {
+          item.style.display = "none";
+          return;
+        }
+
+        const itemTags =
+          (item.getAttribute("data-tags") || "")
+          .split(",")
+          .map(function (t) {
+            return t.trim();
+          });
+
+        item.style.display =
+          itemTags.indexOf(tag) !== -1
+            ? "block"
+            : "none";
+      });
+
+    syncDividers();
+  };
+
+  /* =========================
+     RENDER SUB TAGS
+  ========================= */
+
+  function renderSubTags(tags) {
+
+    const container =
+      document.getElementById("sub-tags");
+
     container.innerHTML = "";
 
-    subTags.forEach(function (sub) {
-      var btn = document.createElement("button");
-      btn.textContent = sub;
+    tags.forEach(function (tag) {
+
+      const btn =
+        document.createElement("button");
+
+      btn.textContent = tag;
+
       btn.onclick = function () {
-        document.querySelectorAll("#sub-tags button").forEach(function (b) {
-          b.classList.remove("active");
-        });
+
+        document
+          .querySelectorAll("#sub-tags button")
+          .forEach(function (b) {
+            b.classList.remove("active");
+          });
+
         btn.classList.add("active");
-        filterSub(sub);
+
+        filterTag(tag);
       };
+
       container.appendChild(btn);
     });
   }
 
-  window.filterSub = function (tag) {
-    document.querySelectorAll(".project-item").forEach(function (item) {
-      if (item.getAttribute("data-main") !== currentMain) {
-        item.style.display = "none";
-        return;
-      }
-      var subs = (item.getAttribute("data-sub") || "")
-        .split(",")
-        .map(function (s) { return s.trim(); });
-      item.style.display = subs.indexOf(tag) !== -1 ? "block" : "none";
-    });
-    syncDividers();
-  };
+  /* =========================
+     ACTIVE CATEGORY BUTTON
+  ========================= */
 
-  /* Run once on load so dividers are correct from the start */
-  document.addEventListener("DOMContentLoaded", function () {
-    syncDividers();
-    /* Mark "All" as active by default */
-    var allBtn = document.querySelector(".tags button[onclick='resetFilter()']");
-    if (allBtn) allBtn.classList.add("active");
-  });
+  function setActiveCategoryButton(category) {
+
+    document
+      .querySelectorAll(".category-tags button")
+      .forEach(function (btn) {
+
+        btn.classList.remove("active");
+
+        const text =
+          btn.textContent.trim();
+
+        if (
+          (category === null && text === "All") ||
+          text === category
+        ) {
+          btn.classList.add("active");
+        }
+      });
+  }
+
+  /* =========================
+     DIVIDER HANDLING
+  ========================= */
+
+  function syncDividers() {
+
+    const items =
+      document.querySelectorAll(".project-item");
+
+    const dividers =
+      document.querySelectorAll(".item-divider");
+
+    dividers.forEach(function (divider) {
+      divider.style.display = "none";
+    });
+
+    const visible = [];
+
+    items.forEach(function (item) {
+
+      if (item.style.display !== "none") {
+        visible.push(item);
+      }
+    });
+
+    visible.forEach(function (item, index) {
+
+      const divider =
+        item.nextElementSibling;
+
+      if (
+        divider &&
+        divider.classList.contains("item-divider")
+      ) {
+
+        divider.style.display =
+          index < visible.length - 1
+            ? ""
+            : "none";
+      }
+    });
+  }
+
+  /* =========================
+     INITIALIZE
+  ========================= */
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+      syncDividers();
+    }
+  );
 
 })();
+
 </script>
