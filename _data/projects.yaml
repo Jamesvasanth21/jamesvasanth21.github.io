@@ -214,7 +214,7 @@ projects:
       - Deployment
       - Digital Presence
 
-    featured: true
+    featured: false
 
     tech:
       - Wix
