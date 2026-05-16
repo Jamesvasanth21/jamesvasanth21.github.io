@@ -4,10 +4,7 @@ layout: default
 
 <script>
 
-function calculateMonths(
-    startDate,
-    endDate
-) {
+function calculateMonths(startDate, endDate) {
 
     const start = new Date(startDate);
 
@@ -31,7 +28,6 @@ function calculateMonths(
     months +=
         end.getMonth() - start.getMonth();
 
-    // Handle partial months
     if (end.getDate() < start.getDate()) {
         months--;
     }
@@ -39,16 +35,16 @@ function calculateMonths(
     return Math.max(months, 0);
 }
 
-function formatDuration(months) {
+function formatDuration(totalMonths) {
 
     const years =
-        Math.floor(months / 12);
+        Math.floor(totalMonths / 12);
 
-    const remainingMonths =
-        months % 12;
+    const months =
+        totalMonths % 12;
 
     return (
-        `${years} Years ${remainingMonths} Months`
+        `${years} Years ${months} Months`
     );
 }
 
@@ -56,24 +52,22 @@ document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-        // -----------------------------------
+        // ---------------------------------
         // TOTAL EXPERIENCE
-        // -----------------------------------
+        // ---------------------------------
 
         let totalMonths = 0;
 
-        const jobs = [
+        const jobs = [];
 
-            {% for exp in site.author_work_experiences %}
+        {% for exp in site.author_work_experiences %}
 
-            {
-                start: "{{ exp.start_date }}",
-                end: "{{ exp.end_date }}"
-            },
+        jobs.push({
+            start: "{{ exp.start_date }}",
+            end: "{{ exp.end_date }}"
+        });
 
-            {% endfor %}
-
-        ];
+        {% endfor %}
 
         jobs.forEach(job => {
 
@@ -83,14 +77,20 @@ document.addEventListener(
             );
         });
 
-        document.getElementById(
-            "total-experience"
-        ).innerText =
-            formatDuration(totalMonths);
+        const totalExperienceElement =
+            document.getElementById(
+                "total-experience"
+            );
 
-        // -----------------------------------
+        if (totalExperienceElement) {
+
+            totalExperienceElement.innerText =
+                formatDuration(totalMonths);
+        }
+
+        // ---------------------------------
         // INDIVIDUAL JOB DURATIONS
-        // -----------------------------------
+        // ---------------------------------
 
         const durationElements =
             document.querySelectorAll(
@@ -125,29 +125,31 @@ document.addEventListener(
 
     display: flex;
 
-    align-items: baseline;
+    align-items: center;
 
-    gap: 12px;
+    gap: 14px;
 
     flex-wrap: wrap;
 
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .experience-meta {
 
     font-size: 1rem;
 
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,0.68);
 
     font-weight: 400;
 
     letter-spacing: 0.3px;
+
+    margin-top: 4px;
 }
 
 .job-duration {
 
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.72);
 }
 
 .work-card {
@@ -335,19 +337,21 @@ document.addEventListener(
 
             <div class="experience-header">
 
-                <h1 class="card-title">
-                    Work Experience
-                </h1>
+            <h1 class="card-title">
+                Work Experience
+            </h1>
 
-                <span class="experience-meta">
+            <div class="experience-meta">
 
-                    {{ site.author_work_experiences | size }} Roles
-                    ·
-                    <span id="total-experience"></span>
-
+                {{ site.author_work_experiences | size }} Roles
+                ·
+                <span id="total-experience">
+                    Loading...
                 </span>
 
             </div>
+
+        </div>
 
             {% for exp in site.author_work_experiences %}
 
