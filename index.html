@@ -8,8 +8,7 @@ function normalizeEndDate(endDate) {
 
     if (
         !endDate ||
-        endDate === "" ||
-        endDate.toLowerCase() === "present"
+        String(endDate).toLowerCase() === "present"
     ) {
 
         return new Date();
@@ -18,27 +17,16 @@ function normalizeEndDate(endDate) {
     return new Date(endDate);
 }
 
-function calculateMonths(
-    startDate,
-    endDate
-) {
+function calculateMonths(startDate, endDate) {
 
     const start = new Date(startDate);
 
-    const end =
-        normalizeEndDate(endDate);
+    const end = normalizeEndDate(endDate);
 
-    // Invalid date protection
     if (
         isNaN(start.getTime()) ||
         isNaN(end.getTime())
     ) {
-
-        console.log(
-            "Invalid dates:",
-            startDate,
-            endDate
-        );
 
         return 0;
     }
@@ -49,7 +37,6 @@ function calculateMonths(
     months +=
         end.getMonth() - start.getMonth();
 
-    // Partial month handling
     if (end.getDate() < start.getDate()) {
         months--;
     }
@@ -72,73 +59,9 @@ function formatDuration(totalMonths) {
 
 document.addEventListener(
     "DOMContentLoaded",
-    function () {
-
-        console.log(
-            "Experience calculation started"
-        );
-
-        // -----------------------------------
-        // TOTAL EXPERIENCE
-        // -----------------------------------
+    () => {
 
         let totalMonths = 0;
-
-        const hiddenJobs =
-            document.querySelectorAll(
-                ".job-duration"
-            );
-
-        console.log(
-            "Hidden jobs found:",
-            hiddenJobs.length
-        );
-
-        hiddenJobs.forEach(el => {
-
-            const start =
-                el.dataset.start;
-
-            const end =
-                el.dataset.end;
-
-            console.log(
-                "Processing total exp:",
-                start,
-                end
-            );
-
-            totalMonths += calculateMonths(
-                start,
-                end
-            );
-        });
-
-        console.log(
-            "Total months:",
-            totalMonths
-        );
-
-        const totalExperience =
-            document.getElementById(
-                "total-experience"
-            );
-
-        if (totalExperience) {
-
-            totalExperience.innerText =
-                formatDuration(totalMonths);
-
-            console.log(
-                "Updated total experience"
-            );
-
-        } else {
-
-            console.log(
-                "total-experience element not found"
-            );
-        }
 
         // -----------------------------------
         // INDIVIDUAL JOB DURATIONS
@@ -148,11 +71,6 @@ document.addEventListener(
             document.querySelectorAll(
                 ".job-duration"
             );
-
-        console.log(
-            "Job durations found:",
-            durations.length
-        );
 
         durations.forEach(el => {
 
@@ -168,9 +86,26 @@ document.addEventListener(
                     end
                 );
 
+            totalMonths += months;
+
             el.innerText =
                 formatDuration(months);
         });
+
+        // -----------------------------------
+        // TOTAL EXPERIENCE
+        // -----------------------------------
+
+        const totalExperience =
+            document.getElementById(
+                "total-experience"
+            );
+
+        if (totalExperience) {
+
+            totalExperience.innerText =
+                formatDuration(totalMonths);
+        }
     }
 );
 
