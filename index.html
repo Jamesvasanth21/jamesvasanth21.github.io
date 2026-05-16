@@ -29,8 +29,12 @@ function calculateMonths(
 
     months +=
         end.getMonth() - start.getMonth();
-
-    return months;
+  
+    if (end.getDate() < start.getDate()) {
+        months--;
+    }
+    
+    return Math.max(months, 0);
 }
 
 document.addEventListener(
@@ -41,11 +45,11 @@ document.addEventListener(
 
         const jobs = [
 
-            {% for job in  site.author_work_experiences %}
+            {% for exp in site.author_work_experiences %}
 
             {
-                start: "{{ job[1].start_date }}",
-                end: "{{ job[1].end_date }}"
+                start: "{{ exp.start_date }}",
+                end: "{{ exp.end_date }}"
             },
 
             {% endfor %}
@@ -75,6 +79,7 @@ document.addEventListener(
 
 </script>
 
+<style>
 .experience-header {
 
     display: flex;
@@ -96,6 +101,7 @@ document.addEventListener(
 
     letter-spacing: 0.3px;
 }
+</style>
 
 <div class="col-lg-12">
 <div class="row">
@@ -207,20 +213,17 @@ document.addEventListener(
     <!-- Author Work Experiences -->
     {% if site.show_author_work_experiences == true %}
     <div class="card">
-      <h1 class="card-title">Work Experience</h1>
-         <div class="experience-header">
-            <h1 class="card-title">
-                Work Experience
-            </h1>
+     <div class="experience-header">
+        <h1 class="card-title">Work Experience</h1>
 
-            <span class="experience-meta">
+        <span class="experience-meta">
 
-                {{ site.data.work_experience | size }} Roles
-                ·
-                <span id="total-experience"></span>
+            {{ site.author_work_experiences | size }} Roles
+            ·
+            <span id="total-experience"></span>
 
-            </span>
-          </div>
+        </span>
+      </div>
       <br />
       {% for exp in site.author_work_experiences %}
       {% if exp.visibility == true %}
@@ -248,12 +251,16 @@ document.addEventListener(
 
           </p>
           </a>
-          <p><a href="{{exp.company_url}}">{{ exp.company_url}}</a></p>
+          <p>
+            <a href="{{exp.company_url}}" target="_blank">
+              Company Website
+            </a>
+          </p>
         </div>
       </div>
       {% endif %}
       {% endfor %}
-      <a href="/professional_experience">View Detailed Professional Experience →</a>
+      <a href="{{ site.baseurl }}/professional_experience">View Detailed Professional Experience →</a>
     </div>
     {% endif %}
 
