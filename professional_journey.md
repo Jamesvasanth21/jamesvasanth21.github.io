@@ -33,22 +33,48 @@ function calculateMonths(
     months +=
         end.getMonth() - start.getMonth();
 
-    return months;
+    // Handle partial month
+    if (end.getDate() < start.getDate()) {
+        months--;
+    }
+
+    return Math.max(months, 0);
+}
+
+function formatDuration(months) {
+
+    const years =
+        Math.floor(months / 12);
+
+    const remainingMonths =
+        months % 12;
+
+    return (
+        `${years} Years ${remainingMonths} Months`
+    );
 }
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
+        // -----------------------------------
+        // TOTAL EXPERIENCE
+        // -----------------------------------
+
         let totalMonths = 0;
 
         const jobs = [
+
             {% for job in site.data.work_experience %}
+
             {
                 start: "{{ job[1].start_date }}",
                 end: "{{ job[1].end_date }}"
             },
+
             {% endfor %}
+
         ];
 
         jobs.forEach(job => {
@@ -59,76 +85,228 @@ document.addEventListener(
             );
         });
 
-        const years =
-            Math.floor(totalMonths / 12);
-
-        const months =
-            totalMonths % 12;
-
         document.getElementById(
             "total-experience"
         ).innerText =
-            `${years} Years ${months} Months`;
+            formatDuration(totalMonths);
+
+        // -----------------------------------
+        // INDIVIDUAL JOB DURATIONS
+        // -----------------------------------
+
+        const durationElements =
+            document.querySelectorAll(
+                ".job-duration"
+            );
+
+        durationElements.forEach(el => {
+
+            const start =
+                el.dataset.start;
+
+            const end =
+                el.dataset.end;
+
+            const months =
+                calculateMonths(
+                    start,
+                    end
+                );
+
+            el.innerText =
+                formatDuration(months);
+        });
     }
 );
 
 </script>
 
+<style>
+
+.experience-header {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 12px;
+}
+
+.experience-meta {
+
+    font-size: 1rem;
+
+    color: rgba(255,255,255,0.65);
+
+    font-weight: 400;
+
+    letter-spacing: 0.3px;
+}
+
+.job-duration {
+
+    color: rgba(255,255,255,0.7);
+}
+
+.job-card {
+
+    margin-bottom: 24px;
+
+    padding-bottom: 24px;
+
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.company-logo {
+
+    width: 90px;
+
+    height: 90px;
+
+    object-fit: contain;
+}
+
+.details-heading {
+
+    margin-top: 16px;
+
+    margin-bottom: 12px;
+
+    font-weight: 600;
+}
+
+.job-description-list {
+
+    padding-left: 18px;
+}
+
+.job-description-list li {
+
+    margin-bottom: 10px;
+}
+
+</style>
+
 <div id="professional_experience" class="card">
-    <!-- <h1>Professional Experience</h1> -->
-    <h1 class="card-title">
-    Professional Experience
-    (
-    {{ site.data.work_experience | size }} Roles
-    ·
-    <span id="total-experience"></span>
-    )
-    </h1>
+
+    <div class="experience-header">
+
+        <h1 class="card-title">
+            Professional Experience
+        </h1>
+
+        <span class="experience-meta">
+
+            {{ site.data.work_experience | size }} Roles
+            ·
+            <span id="total-experience"></span>
+
+        </span>
+
+    </div>
+
+    <hr class="section-divider">
+
     {% for job in site.data.work_experience %}
+
     {% assign key = job[0] %}
     {% assign details = job[1] %}
-    
-    <div id="{{ key }}">
-    <div class="row align-items-center" style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;">
-        <div class="col-md-2 col-3">
-            <a href="{{details.company_url}}">
-            <img src="{{site.baseurl}}/assets/images/{{ details.company_logo }}" class="img-fluid rounded" style="width:90px;height:90px;object-fit:contain;" />
-            </a>
-        </div>
-        <div class="col-md-10 col-9">
-            <h3>{{ details.company_name}}</h3>
-            <h4 class="experience-title">{{ details.designation }}</h4>
-            <p class="experience-desc">
 
-                {{ details.duration }}
-            
-                ·
-            
-                <span
-                    class="job-duration"
-                    data-start="{{ details.start_date }}"
-                    data-end="{{ details.end_date }}">
-                </span>
-            
-            </p>
-            <p class="experience-desc">{{ details.short_description }}</p>
-            <h7 class="experience-info">Detailed Description:</h7>
-            <p>
-            {% for section in details.detailed_description %}
-            <ul>
-            <li>{{ section.title }}</li>
-                {% for point in section.points %}
-                <ul>
-                <li>{{ point }}</li>
+    <div
+        id="{{ key | slugify }}"
+        class="job-card"
+    >
+
+        <div class="row align-items-center">
+
+            <div class="col-md-2 col-3">
+
+                <a
+                    href="{{ details.company_url }}"
+                    target="_blank"
+                >
+
+                    <img
+                        src="{{site.baseurl}}/assets/images/{{ details.company_logo }}"
+                        class="img-fluid rounded company-logo"
+                    />
+
+                </a>
+
+            </div>
+
+            <div class="col-md-10 col-9">
+
+                <h3>
+                    {{ details.company_name }}
+                </h3>
+
+                <h4 class="experience-title">
+                    {{ details.designation }}
+                </h4>
+
+                <p class="experience-desc">
+
+                    {{ details.duration }}
+
+                    ·
+
+                    <span
+                        class="job-duration"
+                        data-start="{{ details.start_date }}"
+                        data-end="{{ details.end_date }}">
+                    </span>
+
+                </p>
+
+                <p class="experience-desc">
+                    {{ details.short_description }}
+                </p>
+
+                <div class="details-heading">
+                    Detailed Description
+                </div>
+
+                <ul class="job-description-list">
+
+                    {% for section in details.detailed_description %}
+
+                    <li>
+
+                        {{ section.title }}
+
+                        {% if section.points %}
+
+                        <ul>
+
+                            {% for point in section.points %}
+
+                            <li>
+                                {{ point }}
+                            </li>
+
+                            {% endfor %}
+
+                        </ul>
+
+                        {% endif %}
+
+                    </li>
+
+                    {% endfor %}
+
                 </ul>
-                {% endfor %}
-            </ul>
-            {% endfor %}
-            </p>
-            <!-- <p><a href="{{details.company_url}}">{{ details.company_name }}</a></p> -->
+
+            </div>
+
         </div>
+
     </div>
-    </div>
-    
+
     {% endfor %}
+
 </div>

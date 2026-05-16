@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 <script>
 
 function calculateMonths(
@@ -29,17 +30,35 @@ function calculateMonths(
 
     months +=
         end.getMonth() - start.getMonth();
-  
+
+    // Handle partial months
     if (end.getDate() < start.getDate()) {
         months--;
     }
-    
+
     return Math.max(months, 0);
+}
+
+function formatDuration(months) {
+
+    const years =
+        Math.floor(months / 12);
+
+    const remainingMonths =
+        months % 12;
+
+    return (
+        `${years} Years ${remainingMonths} Months`
+    );
 }
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
+
+        // -----------------------------------
+        // TOTAL EXPERIENCE
+        // -----------------------------------
 
         let totalMonths = 0;
 
@@ -64,22 +83,44 @@ document.addEventListener(
             );
         });
 
-        const years =
-            Math.floor(totalMonths / 12);
-
-        const months =
-            totalMonths % 12;
-
         document.getElementById(
             "total-experience"
         ).innerText =
-            `${years} Years ${months} Months`;
+            formatDuration(totalMonths);
+
+        // -----------------------------------
+        // INDIVIDUAL JOB DURATIONS
+        // -----------------------------------
+
+        const durationElements =
+            document.querySelectorAll(
+                ".job-duration"
+            );
+
+        durationElements.forEach(el => {
+
+            const start =
+                el.dataset.start;
+
+            const end =
+                el.dataset.end;
+
+            const months =
+                calculateMonths(
+                    start,
+                    end
+                );
+
+            el.innerText =
+                formatDuration(months);
+        });
     }
 );
 
 </script>
 
 <style>
+
 .experience-header {
 
     display: flex;
@@ -89,6 +130,8 @@ document.addEventListener(
     gap: 12px;
 
     flex-wrap: wrap;
+
+    margin-bottom: 12px;
 }
 
 .experience-meta {
@@ -101,251 +144,375 @@ document.addEventListener(
 
     letter-spacing: 0.3px;
 }
+
+.job-duration {
+
+    color: rgba(255,255,255,0.7);
+}
+
+.work-card {
+
+    margin-bottom: 20px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.company-logo {
+
+    width: 90px;
+
+    height: 90px;
+
+    object-fit: contain;
+}
+
+.job-link {
+
+    text-decoration: none;
+
+    color: inherit;
+}
+
+.job-link:hover {
+
+    text-decoration: none;
+
+    color: inherit;
+}
+
+.project-card {
+
+    margin-bottom: 24px;
+}
+
+.project-links {
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.project-tech {
+
+    opacity: 0.85;
+}
+
 </style>
 
 <div class="col-lg-12">
+
 <div class="row">
-  <div class="col-lg-4">
-    <div class="card" id="profile-card">
-      <a href="/">
-        <img src="{{site.url}}{{site.baseurl}}/assets/img/{{ site.author_logo }}" class="profile-img" />
-      </a>
-      <h1 class="profile-name">{{ site.title }}</h1>
-      <p class="profile-bio">{{ site.subtitle }}</p>
-      {% if site.github_username %} {%- include github_follow_button.html -%} {% endif %}
 
-      <p class="profile-links">
-        {% if site.twitter_username %}
-        <a class="social-link" href="http://twitter.com/{{ site.twitter_username }}">
-          <i class="fab fa-twitter"></i>
-        </a>
-        {% endif %}
-        {% if site.facebook_username %}
-        <a class="social-link" href="http://facebook.com/{{ site.facebook_username }}">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        {% endif %}
-        {% if site.instagram_username %}
-        <a class="social-link" href="http://instagram.com/{{ site.instagram_username }}">
-          <i class="fab fa-instagram"></i>
-        </a>
-        {% endif %}
-        {% if site.medium_username %}
-        <a class="social-link" href="http://medium.com/@{{ site.medium_username }}">
-          <i class="fab fa-medium-m"></i>
-        </a>
-        {% endif %}
-        {% if site.github_username %}
-        <a class="social-link" href="http://github.com/{{ site.github_username }}">
-          <i class="fab fa-github"></i>
-        </a>
-        {% endif %}
-        {% if site.behance_username %}
-        <a class="social-link" href="http://behance.net/{{ site.behance_username }}">
-          <i class="fab fa-behance"></i>
-        </a>
-        {% endif %}
-        {% if site.linkedin_username %}
-        <a class="social-link" href="http://linkedin.com/in/{{ site.linkedin_username }}">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        {% endif %}
-        {% if site.telegram_username %}
-        <a class="social-link" href="http://t.me/{{ site.telegram_username }}">
-          <i class="fab fa-telegram-plane"></i>
-        </a>
-        {% endif %}
-        {% if site.dribbble_username %}
-        <a class="social-link" href="https://dribbble.com/{{ site.dribbble_username }}">
-          <i class="fab fa-dribbble"></i>
-        </a>
-        {% endif %}
-        {% if site.flickr_username %}
-        <a class="social-link" href="https://www.flickr.com/photos/{{ site.flickr_username }}">
-          <i class="fab fa-flickr"></i>
-        </a>
-        {% endif %}
-      </p>
+    <!-- LEFT SIDEBAR -->
+    <div class="col-lg-4">
 
-      {% if site.author_location %}
-      <h6><a href="https://www.google.com/maps/search/?api=1&query={{ site.author_location }}" class="social-link"><i class="fas fa-map-marker-alt"></i> {{ site.author_location }}</a></h6>
-      {% endif %}
-      {% if site.author_email %}
-      <h6><a href="mailto:{{ site.author_email }}"><i class="fas fa-envelope" class="social-link"></i> {{ site.author_email }}</a></h6>
-      {% endif %}
-      {% if site.author_website_url %}
-      <h6><a href="{{ site.author_website_url }}"><i class="fas fa-link" class="social-link"></i> {{ site.author_website_url }}</a></h6>
-      {% endif %}
-    </div>
+        <!-- PROFILE CARD -->
+        <div class="card" id="profile-card">
 
-    <div class="card">
-      <h1>Skills</h1>
-      {%- include author_skills.html -%}
-    </div>
-  </div>
-  <div class="col-lg-8">
-    <!-- Author Bio -->
-    {% if site.author_bio %}
-    <div class="card">
-      <h1 class="card-title">About</h1>
-      <p>{{ site.author_bio }}</p>
-    </div>
-    {% endif %}
-    
-    <!-- Author Highlights -->
-    {% if site.show_author_highlights == true %}
-    <div id="author_highlights" class="card">
-      <div class="row g-3 justify-content-start" id="project-card">
-      {% for highlights in site.author_highlights %}
-      {% if highlights.visibility == true %}
-    
-      <div class="col-md-3 col-sm-4 col-6">
-        <img src="{{site.baseurl}}/assets/images/{{ highlights.preview_image }}" 
-             class="project-img img-fluid" />
-      </div>
-      
-      {% endif %}
-      {% endfor %}
-      </div>
-    </div>
-    {% endif %}
+            <a href="{{ site.baseurl }}/">
 
-    <!-- Author Work Experiences -->
-    {% if site.show_author_work_experiences == true %}
-    <div class="card">
-     <div class="experience-header">
-        <h1 class="card-title">Work Experience</h1>
+                <img
+                    src="{{site.url}}{{site.baseurl}}/assets/img/{{ site.author_logo }}"
+                    class="profile-img"
+                />
 
-        <span class="experience-meta">
-
-            {{ site.author_work_experiences | size }} Roles
-            ·
-            <span id="total-experience"></span>
-
-        </span>
-      </div>
-      <br />
-      {% for exp in site.author_work_experiences %}
-      {% if exp.visibility == true %}
-      <div class="row align-items-center" style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;">
-        <div class="col-md-2 col-3">
-          <img src="{{ site.baseurl }}/assets/images/{{ exp.company_logo }}" class="img-fluid rounded"
-              style="width:90px;height:90px;object-fit:contain;" />
-        </div>
-        <div class="col-md-10 col-9" style="cursor:pointer;">
-          <a href="{{ site.baseurl }}/professional_experience/#{{ exp.company_name | downcase | replace: ' ', '' }}" class="job-link">
-          <h3 class="experience-title">{{ exp.designation }}</h3>
-          <h6 class="experience-info">{{ exp.company_name}}</h6>
-          <p class="experience-desc">{{ exp.description }}</p>
-          <p class="experience-desc">
-
-              {{ exp.duration }}
-
-              ·
-
-              <span
-                  class="job-duration"
-                  data-start="{{ exp.start_date }}"
-                  data-end="{{ exp.end_date }}">
-              </span>
-
-          </p>
-          </a>
-          <p>
-            <a href="{{exp.company_url}}" target="_blank">
-              Company Website
             </a>
-          </p>
-        </div>
-      </div>
-      {% endif %}
-      {% endfor %}
-      <a href="{{ site.baseurl }}/professional_experience">View Detailed Professional Experience →</a>
-    </div>
-    {% endif %}
 
-    <!-- Author Project Details -->
-    {% if site.show_author_project_details == true %}
-    <div id="author_projects" class="card">
-      <h1 class="card-title">Selected Projects</h1>
-      <br />
+            <h1 class="profile-name">
+                {{ site.title }}
+            </h1>
 
-      {% for project in site.data.projects.projects %}
-        {% if project.featured == true %}
+            <p class="profile-bio">
+                {{ site.subtitle }}
+            </p>
 
-        <div class="project-card mb-4">
-
-          <!-- Title -->
-          <h3 class="project-title">
-            <a href="{{ site.baseurl }}/projects/#{{ project.id }}" class="project-link">
-              {{ project.title }}
-            </a>
-          </h3>
-
-          <!-- Description -->
-          <p class="project-desc">
-            {{ project.description }}
-          </p>
-
-          <!-- Tech Stack -->
-          {% if project.project_tech %}
-          <p class="project-tech">
-            <strong>Tech:</strong> {{ project.tech }}
-          </p>
-          {% endif %}
-
-          <!-- Links -->
-          <div class="project-links">
-            {% if project.project_url %}
-            <a class="btn btn-sm btn-outline-primary" 
-              href="{{ project.project_url }}" 
-              target="_blank">
-              View Project
-            </a>
+            {% if site.github_username %}
+            {%- include github_follow_button.html -%}
             {% endif %}
-            {% if project.github_url %}
-            <a class="btn btn-sm btn-outline-dark" 
-              href="{{ project.github_url }}" 
-              target="_blank">
-              GitHub
-            </a>
+
+            <p class="profile-links">
+
+                {% if site.twitter_username %}
+                <a class="social-link" href="http://twitter.com/{{ site.twitter_username }}">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                {% endif %}
+
+                {% if site.facebook_username %}
+                <a class="social-link" href="http://facebook.com/{{ site.facebook_username }}">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                {% endif %}
+
+                {% if site.instagram_username %}
+                <a class="social-link" href="http://instagram.com/{{ site.instagram_username }}">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                {% endif %}
+
+                {% if site.medium_username %}
+                <a class="social-link" href="http://medium.com/@{{ site.medium_username }}">
+                    <i class="fab fa-medium-m"></i>
+                </a>
+                {% endif %}
+
+                {% if site.github_username %}
+                <a class="social-link" href="http://github.com/{{ site.github_username }}">
+                    <i class="fab fa-github"></i>
+                </a>
+                {% endif %}
+
+                {% if site.linkedin_username %}
+                <a class="social-link" href="http://linkedin.com/in/{{ site.linkedin_username }}">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                {% endif %}
+
+            </p>
+
+            {% if site.author_location %}
+            <h6>
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query={{ site.author_location }}"
+                    class="social-link"
+                >
+                    <i class="fas fa-map-marker-alt"></i>
+                    {{ site.author_location }}
+                </a>
+            </h6>
             {% endif %}
-          </div>
+
+            {% if site.author_email %}
+            <h6>
+                <a href="mailto:{{ site.author_email }}">
+                    <i class="fas fa-envelope"></i>
+                    {{ site.author_email }}
+                </a>
+            </h6>
+            {% endif %}
+
         </div>
-        <hr />
+
+        <!-- SKILLS -->
+        <div class="card">
+
+            <h1>
+                Skills
+            </h1>
+
+            {%- include author_skills.html -%}
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="col-lg-8">
+
+        <!-- ABOUT -->
+        {% if site.author_bio %}
+        <div class="card">
+
+            <h1 class="card-title">
+                About
+            </h1>
+
+            <p>
+                {{ site.author_bio }}
+            </p>
+
+        </div>
         {% endif %}
-      {% endfor %}
 
-      <a href="/projects">View All Projects →</a>
-    </div>
-    {% endif %}
+        <!-- WORK EXPERIENCE -->
+        {% if site.show_author_work_experiences == true %}
 
-    <!-- Author Education Details -->
-    {% if site.show_author_education_details == true %}
-    <div class="card">
-      <h1 class="card-title">Education</h1>
-      <br />
-      {% for detail in site.author_education_details %}
-      {% if detail.visibility == true %}
-      <div class="row">
-        <div class="col-md-2 col-3">
-          <img src="{{site.baseurl}}/assets/images/{{ detail.college_logo}}" class="img-fluid rounded"
-              style="width:90px;height:90px;object-fit:contain;" />
+        <div class="card">
+
+            <div class="experience-header">
+
+                <h1 class="card-title">
+                    Work Experience
+                </h1>
+
+                <span class="experience-meta">
+
+                    {{ site.author_work_experiences | size }} Roles
+                    ·
+                    <span id="total-experience"></span>
+
+                </span>
+
+            </div>
+
+            {% for exp in site.author_work_experiences %}
+
+            {% if exp.visibility == true %}
+
+            <div class="work-card">
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-2 col-3">
+
+                        <img
+                            src="{{ site.baseurl }}/assets/images/{{ exp.company_logo }}"
+                            class="img-fluid rounded company-logo"
+                        />
+
+                    </div>
+
+                    <div class="col-md-10 col-9">
+
+                        <a
+                            href="{{ site.baseurl }}/professional_experience/#{{ exp.company_name | slugify }}"
+                            class="job-link"
+                        >
+
+                            <h3 class="experience-title">
+                                {{ exp.designation }}
+                            </h3>
+
+                            <h6 class="experience-info">
+                                {{ exp.company_name }}
+                            </h6>
+
+                            <p class="experience-desc">
+                                {{ exp.description }}
+                            </p>
+
+                            <p class="experience-desc">
+
+                                {{ exp.duration }}
+
+                                ·
+
+                                <span
+                                    class="job-duration"
+                                    data-start="{{ exp.start_date }}"
+                                    data-end="{{ exp.end_date }}">
+                                </span>
+
+                            </p>
+
+                        </a>
+
+                        <p>
+
+                            <a
+                                href="{{ exp.company_url }}"
+                                target="_blank"
+                            >
+                                Company Website
+                            </a>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+            {% endfor %}
+
+            <a href="{{ site.baseurl }}/professional_experience">
+                View Detailed Professional Experience →
+            </a>
+
         </div>
-        <div class="col-md-10 col-9">
-          <h4 class="experience-title">{{detail.college_specialization }}</h4>
-          <h6 class="experience-info"><b>University</b> - {{detail.university_name}}</h6>
-          <h6 class="experience-info"><b>College</b>    - {{detail.college_name}}</h6>
-          <h6 class="experience-desc"><b>Degree</b>     - {{detail.college_degree}}</h6>
-          <h6 class="experience-desc"><b>Duration</b>   - {{detail.duration}}</h6>
-          <h6><a href="{{detail.college_url}}">{{ detail.college_url}}</a></h6>
-        </div>
-      </div>
-      {% endif %}
-      {% endfor %}
-    </div>
-    {% endif %}
 
-  </div>
+        {% endif %}
+
+        <!-- PROJECTS -->
+        {% if site.show_author_project_details == true %}
+
+        <div id="author_projects" class="card">
+
+            <h1 class="card-title">
+                Selected Projects
+            </h1>
+
+            <br />
+
+            {% for project in site.data.projects.projects %}
+
+            {% if project.featured == true %}
+
+            <div class="project-card">
+
+                <h3 class="project-title">
+
+                    <a
+                        href="{{ site.baseurl }}/projects/#{{ project.id }}"
+                        class="project-link"
+                    >
+                        {{ project.title }}
+                    </a>
+
+                </h3>
+
+                <p class="project-desc">
+                    {{ project.description }}
+                </p>
+
+                {% if project.tech %}
+
+                <p class="project-tech">
+
+                    <strong>Tech:</strong>
+                    {{ project.tech | join: ", " }}
+
+                </p>
+
+                {% endif %}
+
+                <div class="project-links">
+
+                    {% if project.project_url %}
+                    <a
+                        class="btn btn-sm btn-outline-primary"
+                        href="{{ project.project_url }}"
+                        target="_blank"
+                    >
+                        View Project
+                    </a>
+                    {% endif %}
+
+                    {% if project.github_url %}
+                    <a
+                        class="btn btn-sm btn-outline-dark"
+                        href="{{ project.github_url }}"
+                        target="_blank"
+                    >
+                        GitHub
+                    </a>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            <hr />
+
+            {% endif %}
+            {% endfor %}
+
+            <a href="{{ site.baseurl }}/projects">
+                View All Projects →
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
 </div>
+
 </div>
