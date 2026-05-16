@@ -72,6 +72,8 @@ document.addEventListener(
                 ".job-duration"
             );
 
+        console.log(durations);
+
         durations.forEach(el => {
 
             const start =
@@ -79,6 +81,8 @@ document.addEventListener(
 
             const end =
                 el.dataset.end;
+
+            console.log(start, end);
 
             const months =
                 calculateMonths(
