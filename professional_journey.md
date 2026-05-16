@@ -4,10 +4,76 @@ layout: default
 permalink: /professional_experience/
 ---
 
+<script>
+
+function calculateDuration(
+    startDate,
+    endDate
+) {
+
+    const start = new Date(startDate);
+
+    let end;
+
+    if (
+        !endDate ||
+        endDate.toLowerCase() === "present"
+    ) {
+        end = new Date();
+    } else {
+        end = new Date(endDate);
+    }
+
+    let years =
+        end.getFullYear() -
+        start.getFullYear();
+
+    let months =
+        end.getMonth() -
+        start.getMonth();
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    return (
+        `${years} Years ${months} Months`
+    );
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const durations =
+            document.querySelectorAll(
+                ".job-duration"
+            );
+
+        durations.forEach(el => {
+
+            const start =
+                el.dataset.start;
+
+            const end =
+                el.dataset.end;
+
+            el.innerText =
+                calculateDuration(
+                    start,
+                    end
+                );
+        });
+    }
+);
+
+</script>
+
 <div id="professional_experience" class="card">
     <!-- <h1>Professional Experience</h1> -->
     <h1 class="card-title">
-    Professional Experience ({{ site.data.work_experience | size }})
+    Professional Experience ({{ site.data.work_experience | size }} Roles .  )
     </h1>
     <hr class="section-divider">
     {% for job in site.data.work_experience %}
@@ -25,6 +91,20 @@ permalink: /professional_experience/
             <h3>{{ details.company_name}}</h3>
             <h4 class="experience-title">{{ details.designation }}</h4>
             <p class="experience-desc">{{ details.duration }}</p>
+            
+            <p class="experience-desc">
+            
+                {{ details.duration }}
+            
+                ·
+            
+                <span
+                    class="job-duration"
+                    data-start="{{ details.start_date }}"
+                    data-end="{{ details.end_date }}">
+                </span>
+            
+            </p>
             <p class="experience-desc">{{ details.short_description }}</p>
             <h7 class="experience-info">Detailed Description:</h7>
             <p>

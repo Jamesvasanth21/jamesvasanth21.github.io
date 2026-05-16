@@ -2,6 +2,8 @@ valtech:
   company_name: Valtech
   company_logo: "CLogo-Valtech.png"
   duration: "October, 2025 - Present"
+  start_date: "2025-10-22"
+  end_date: "present"
   designation: Lead Developer
   company_url: "https://www.valtech.com/en-in/"
   short_description: "Engineered product discovery and search relevance solutions for a global luxury eCommerce platform using catalog ingestion pipelines and Vertex AI Search for Commerce."
@@ -15,6 +17,8 @@ merkle:
   company_name: Merkle
   company_logo: "CLogo-Merkle.png"
   duration: "March, 2022 - October, 2025"
+  start_date: "2022-03-24"
+  end_date: "2025-10-18"
   designation: Senior Software Engineer
   company_url: "https://www.merkle.com/"
   short_description: "Built and evolved production-grade ETL pipelines for Fortune 500 retail analytics, while developing hybrid forecasting models for retail sales using BigQuery ML and various ML models."
@@ -49,6 +53,8 @@ corporater:
   company_name: Corporater
   company_logo: "CLogo-Corporater.png"
   duration: "June, 2019 - March, 2022"
+  start_date: "2019-06-03"
+  end_date: "2022-03-22"
   designation: "Implementation and Support Engineer"
   company_url: "https://corporater.com/"
   short_description: "Led end-to-end Balanced Scorecard and performance management implementations across MEA and APAC, building automated data pipelines and BI dashboards to drive actionable business insights."
