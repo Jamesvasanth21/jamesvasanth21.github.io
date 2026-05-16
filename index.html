@@ -86,7 +86,7 @@ document.addEventListener(
 
         const hiddenJobs =
             document.querySelectorAll(
-                ".job-date-data"
+                ".job-duration"
             );
 
         console.log(
@@ -177,89 +177,38 @@ document.addEventListener(
 </script>
 
 <style>
-
 .experience-header {
 
     display: flex;
 
-    align-items: center;
-
-    gap: 14px;
+    align-items: baseline;
 
     flex-wrap: wrap;
 
-    margin-bottom: 16px;
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.experience-header .card-title {
+
+    margin: 0;
+
+    line-height: 1.1;
 }
 
 .experience-meta {
 
-    font-size: 1rem;
+    font-size: 0.95rem;
 
     color: rgba(255,255,255,0.68);
 
     font-weight: 400;
 
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
 
-    margin-top: 4px;
+    padding-top: 8px;
 }
-
-.job-duration {
-
-    color: rgba(255,255,255,0.72);
-}
-
-.work-card {
-
-    margin-bottom: 20px;
-
-    padding-bottom: 20px;
-
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.company-logo {
-
-    width: 90px;
-
-    height: 90px;
-
-    object-fit: contain;
-}
-
-.job-link {
-
-    text-decoration: none;
-
-    color: inherit;
-}
-
-.job-link:hover {
-
-    text-decoration: none;
-
-    color: inherit;
-}
-
-.project-card {
-
-    margin-bottom: 24px;
-}
-
-.project-links {
-
-    display: flex;
-
-    gap: 10px;
-
-    flex-wrap: wrap;
-}
-
-.project-tech {
-
-    opacity: 0.85;
-}
-
 </style>
 
 <div class="col-lg-12">
@@ -390,23 +339,19 @@ document.addEventListener(
         <!-- WORK EXPERIENCE -->
         {% if site.show_author_work_experiences == true %}
 
-        <div class="card">
-
-            <div class="experience-header">
+        <div class="experience-header">
 
             <h1 class="card-title">
                 Work Experience
             </h1>
 
-            <div class="experience-meta">
+            <span class="experience-meta">
 
                 {{ site.author_work_experiences | size }} Roles
                 ·
-                <span id="total-experience">
-                    Loading...
-                </span>
+                <span id="total-experience"></span>
 
-            </div>
+            </span>
 
         </div>
 
@@ -459,14 +404,6 @@ document.addEventListener(
                                 </span>
 
                             </p>
-
-                            <!-- Hidden span so JS can read Liquid-rendered dates for total calc -->
-                            <span
-                                class="job-date-data"
-                                data-start="{{ exp.start_date }}"
-                                data-end="{{ exp.end_date }}"
-                                style="display:none;">
-                            </span>
 
                         </a>
 
