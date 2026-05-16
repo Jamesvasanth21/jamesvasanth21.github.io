@@ -57,61 +57,50 @@ function formatDuration(totalMonths) {
     );
 }
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+window.onload = () => {
 
-        let totalMonths = 0;
+    let totalMonths = 0;
 
-        // -----------------------------------
-        // INDIVIDUAL JOB DURATIONS
-        // -----------------------------------
+    const durations =
+        document.querySelectorAll(
+            ".job-duration"
+        );
 
-        const durations =
-            document.querySelectorAll(
-                ".job-duration"
+    console.log(durations);
+
+    durations.forEach(el => {
+
+        const start =
+            el.dataset.start;
+
+        const end =
+            el.dataset.end;
+
+        console.log(start, end);
+
+        const months =
+            calculateMonths(
+                start,
+                end
             );
 
-        console.log(durations);
+        totalMonths += months;
 
-        durations.forEach(el => {
+        el.innerText =
+            formatDuration(months);
+    });
 
-            const start =
-                el.dataset.start;
+    const totalExperience =
+        document.getElementById(
+            "total-experience"
+        );
 
-            const end =
-                el.dataset.end;
+    if (totalExperience) {
 
-            console.log(start, end);
-
-            const months =
-                calculateMonths(
-                    start,
-                    end
-                );
-
-            totalMonths += months;
-
-            el.innerText =
-                formatDuration(months);
-        });
-
-        // -----------------------------------
-        // TOTAL EXPERIENCE
-        // -----------------------------------
-
-        const totalExperience =
-            document.getElementById(
-                "total-experience"
-            );
-
-        if (totalExperience) {
-
-            totalExperience.innerText =
-                formatDuration(totalMonths);
-        }
+        totalExperience.innerText =
+            formatDuration(totalMonths);
     }
-);
+};
 
 </script>
 
