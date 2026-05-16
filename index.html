@@ -3,120 +3,53 @@ layout: default
 ---
 
 <script>
-
 function calculateMonths(startDate, endDate) {
-
     const start = new Date(startDate);
-
     let end;
-
-    if (
-        !endDate ||
-        endDate.toLowerCase() === "present"
-    ) {
-
+    if (!endDate || endDate.toLowerCase() === "present") {
         end = new Date();
-
     } else {
-
         end = new Date(endDate);
     }
-
-    let months =
-        (end.getFullYear() - start.getFullYear()) * 12;
-
-    months +=
-        end.getMonth() - start.getMonth();
-
-    if (end.getDate() < start.getDate()) {
-        months--;
-    }
-
+    let months = (end.getFullYear() - start.getFullYear()) * 12;
+    months += end.getMonth() - start.getMonth();
+    if (end.getDate() < start.getDate()) { months--; }
     return Math.max(months, 0);
 }
 
 function formatDuration(totalMonths) {
-
-    const years =
-        Math.floor(totalMonths / 12);
-
-    const months =
-        totalMonths % 12;
-
-    return (
-        `${years} Years ${months} Months`
-    );
+    const years  = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
+    return `${years} Year${years !== 1 ? 's' : ''} ${months} Month${months !== 1 ? 's' : ''}`;
 }
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-        // ---------------------------------
-        // TOTAL EXPERIENCE
-        // ---------------------------------
-
-        let totalMonths = 0;
-
-        const jobs = [];
-
-        {% for exp in site.author_work_experiences %}
-
-        jobs.push({
-            start: "{{ exp.start_date }}",
-            end: "{{ exp.end_date }}"
-        });
-
-        {% endfor %}
-
-        jobs.forEach(job => {
-
-            totalMonths += calculateMonths(
-                job.start,
-                job.end
-            );
-        });
-
-        const totalExperienceElement =
-            document.getElementById(
-                "total-experience"
-            );
-
-        if (totalExperienceElement) {
-
-            totalExperienceElement.innerText =
-                formatDuration(totalMonths);
+    // ----------------------------
+    // INDIVIDUAL JOB DURATIONS
+    // ----------------------------
+    document.querySelectorAll(".job-duration").forEach(el => {
+        const start = el.dataset.start;
+        const end   = el.dataset.end;
+        if (start) {
+            el.innerText = formatDuration(calculateMonths(start, end));
         }
+    });
 
-        // ---------------------------------
-        // INDIVIDUAL JOB DURATIONS
-        // ---------------------------------
+    // ----------------------------
+    // TOTAL EXPERIENCE
+    // (read from hidden data spans rendered by Liquid)
+    // ----------------------------
+    let totalMonths = 0;
+    document.querySelectorAll(".job-date-data").forEach(el => {
+        totalMonths += calculateMonths(el.dataset.start, el.dataset.end);
+    });
 
-        const durationElements =
-            document.querySelectorAll(
-                ".job-duration"
-            );
-
-        durationElements.forEach(el => {
-
-            const start =
-                el.dataset.start;
-
-            const end =
-                el.dataset.end;
-
-            const months =
-                calculateMonths(
-                    start,
-                    end
-                );
-
-            el.innerText =
-                formatDuration(months);
-        });
+    const totalEl = document.getElementById("total-experience");
+    if (totalEl) {
+        totalEl.innerText = formatDuration(totalMonths);
     }
-);
-
+});
 </script>
 
 <style>
@@ -402,6 +335,14 @@ document.addEventListener(
                                 </span>
 
                             </p>
+
+                            <!-- Hidden span so JS can read Liquid-rendered dates for total calc -->
+                            <span
+                                class="job-date-data"
+                                data-start="{{ exp.start_date }}"
+                                data-end="{{ exp.end_date }}"
+                                style="display:none;">
+                            </span>
 
                         </a>
 
