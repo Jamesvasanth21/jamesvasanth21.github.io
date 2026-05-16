@@ -3,53 +3,177 @@ layout: default
 ---
 
 <script>
-function calculateMonths(startDate, endDate) {
-    const start = new Date(startDate);
-    let end;
-    if (!endDate || endDate.toLowerCase() === "present") {
-        end = new Date();
-    } else {
-        end = new Date(endDate);
+
+function normalizeEndDate(endDate) {
+
+    if (
+        !endDate ||
+        endDate === "" ||
+        endDate.toLowerCase() === "present"
+    ) {
+
+        return new Date();
     }
-    let months = (end.getFullYear() - start.getFullYear()) * 12;
-    months += end.getMonth() - start.getMonth();
-    if (end.getDate() < start.getDate()) { months--; }
+
+    return new Date(endDate);
+}
+
+function calculateMonths(
+    startDate,
+    endDate
+) {
+
+    const start = new Date(startDate);
+
+    const end =
+        normalizeEndDate(endDate);
+
+    // Invalid date protection
+    if (
+        isNaN(start.getTime()) ||
+        isNaN(end.getTime())
+    ) {
+
+        console.log(
+            "Invalid dates:",
+            startDate,
+            endDate
+        );
+
+        return 0;
+    }
+
+    let months =
+        (end.getFullYear() - start.getFullYear()) * 12;
+
+    months +=
+        end.getMonth() - start.getMonth();
+
+    // Partial month handling
+    if (end.getDate() < start.getDate()) {
+        months--;
+    }
+
     return Math.max(months, 0);
 }
 
 function formatDuration(totalMonths) {
-    const years  = Math.floor(totalMonths / 12);
-    const months = totalMonths % 12;
-    return `${years} Year${years !== 1 ? 's' : ''} ${months} Month${months !== 1 ? 's' : ''}`;
+
+    const years =
+        Math.floor(totalMonths / 12);
+
+    const months =
+        totalMonths % 12;
+
+    return (
+        `${years} Years ${months} Months`
+    );
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    // ----------------------------
-    // INDIVIDUAL JOB DURATIONS
-    // ----------------------------
-    document.querySelectorAll(".job-duration").forEach(el => {
-        const start = el.dataset.start;
-        const end   = el.dataset.end;
-        if (start) {
-            el.innerText = formatDuration(calculateMonths(start, end));
+        console.log(
+            "Experience calculation started"
+        );
+
+        // -----------------------------------
+        // TOTAL EXPERIENCE
+        // -----------------------------------
+
+        let totalMonths = 0;
+
+        const hiddenJobs =
+            document.querySelectorAll(
+                ".job-date-data"
+            );
+
+        console.log(
+            "Hidden jobs found:",
+            hiddenJobs.length
+        );
+
+        hiddenJobs.forEach(el => {
+
+            const start =
+                el.dataset.start;
+
+            const end =
+                el.dataset.end;
+
+            console.log(
+                "Processing total exp:",
+                start,
+                end
+            );
+
+            totalMonths += calculateMonths(
+                start,
+                end
+            );
+        });
+
+        console.log(
+            "Total months:",
+            totalMonths
+        );
+
+        const totalExperience =
+            document.getElementById(
+                "total-experience"
+            );
+
+        if (totalExperience) {
+
+            totalExperience.innerText =
+                formatDuration(totalMonths);
+
+            console.log(
+                "Updated total experience"
+            );
+
+        } else {
+
+            console.log(
+                "total-experience element not found"
+            );
         }
-    });
 
-    // ----------------------------
-    // TOTAL EXPERIENCE
-    // (read from hidden data spans rendered by Liquid)
-    // ----------------------------
-    let totalMonths = 0;
-    document.querySelectorAll(".job-date-data").forEach(el => {
-        totalMonths += calculateMonths(el.dataset.start, el.dataset.end);
-    });
+        // -----------------------------------
+        // INDIVIDUAL JOB DURATIONS
+        // -----------------------------------
 
-    const totalEl = document.getElementById("total-experience");
-    if (totalEl) {
-        totalEl.innerText = formatDuration(totalMonths);
+        const durations =
+            document.querySelectorAll(
+                ".job-duration"
+            );
+
+        console.log(
+            "Job durations found:",
+            durations.length
+        );
+
+        durations.forEach(el => {
+
+            const start =
+                el.dataset.start;
+
+            const end =
+                el.dataset.end;
+
+            const months =
+                calculateMonths(
+                    start,
+                    end
+                );
+
+            el.innerText =
+                formatDuration(months);
+        });
     }
-});
+);
+
 </script>
 
 <style>
