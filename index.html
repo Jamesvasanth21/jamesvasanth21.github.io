@@ -469,6 +469,96 @@ window.onload = () => {
 
         {% endif %}
 
+        <!-- EDUCATION -->
+        {% if site.show_author_education_details == true %}
+
+        <div class="card">
+
+            <h1 class="card-title">
+                Education
+            </h1>
+
+            <br />
+
+            {% for detail in site.author_education_details %}
+
+            {% if detail.visibility == true %}
+
+            <div
+                class="work-card"
+                style="
+                    margin-bottom:20px;
+                    padding-bottom:20px;
+                    border-bottom:1px solid #e0e0e0;
+                "
+            >
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-2 col-3">
+
+                        <img
+                            src="{{ site.baseurl }}/assets/images/{{ detail.college_logo }}"
+                            class="img-fluid rounded"
+                            style="
+                                width:90px;
+                                height:90px;
+                                object-fit:contain;
+                            "
+                        />
+
+                    </div>
+
+                    <div class="col-md-10 col-9">
+
+                        <h4 class="experience-title">
+                            {{ detail.college_degree }}
+                        </h4>
+
+                        <h6 class="experience-info">
+                            {{ detail.college_name }}
+                        </h6>
+
+                        <p class="experience-desc">
+
+                            {{ detail.college_specialization }}
+
+                            ·
+
+                            {{ detail.duration }}
+
+                        </p>
+
+                        <p class="experience-desc">
+
+                            {{ detail.university_name }}
+
+                        </p>
+
+                        <p>
+
+                            <a
+                                href="{{ detail.college_url }}"
+                                target="_blank"
+                            >
+                                Institution Website
+                            </a>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
     </div>
 
 </div>
