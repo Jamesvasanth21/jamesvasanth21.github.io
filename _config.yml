@@ -72,6 +72,8 @@ author_work_experiences:
               company_url: "https://www.valtech.com/en-in/"
               designation: Lead Developer
               duration: "October, 2025 - Present"
+              start_date: "2025-10-22"
+              end_date: "present"
               description: "Engineered product discovery and search relevance solutions for a global luxury eCommerce platform using catalog ingestion pipelines and Vertex AI Search for Commerce."
               visibility: true
             - company_name: "Merkle"
@@ -79,6 +81,8 @@ author_work_experiences:
               company_url: "https://www.merkle.com/"
               designation: Senior Software Engineer
               duration: "March, 2022 - October, 2025"
+              start_date: "2022-03-24"
+              end_date: "2025-10-18"
               description: "Built and evolved production-grade ETL pipelines for Fortune 500 retail analytics, while developing hybrid forecasting models for retail sales using BigQuery ML and various ML models."
               visibility: true
             - company_name: "Corporater"
@@ -86,6 +90,8 @@ author_work_experiences:
               company_url: "https://corporater.com/"
               designation: Implementation and Support Engineer
               duration: "June, 2019 - March, 2022"
+              start_date: "2019-06-03"
+              end_date: "2022-03-22"
               description: "Led end-to-end Balanced Scorecard and performance management implementations across MEA and APAC, building automated data pipelines and BI dashboards to drive actionable business insights."
               visibility: true
 

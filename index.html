@@ -1,6 +1,102 @@
 ---
 layout: default
 ---
+<script>
+
+function calculateMonths(
+    startDate,
+    endDate
+) {
+
+    const start = new Date(startDate);
+
+    let end;
+
+    if (
+        !endDate ||
+        endDate.toLowerCase() === "present"
+    ) {
+
+        end = new Date();
+
+    } else {
+
+        end = new Date(endDate);
+    }
+
+    let months =
+        (end.getFullYear() - start.getFullYear()) * 12;
+
+    months +=
+        end.getMonth() - start.getMonth();
+
+    return months;
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        let totalMonths = 0;
+
+        const jobs = [
+
+            {% for job in  site.author_work_experiences %}
+
+            {
+                start: "{{ job[1].start_date }}",
+                end: "{{ job[1].end_date }}"
+            },
+
+            {% endfor %}
+
+        ];
+
+        jobs.forEach(job => {
+
+            totalMonths += calculateMonths(
+                job.start,
+                job.end
+            );
+        });
+
+        const years =
+            Math.floor(totalMonths / 12);
+
+        const months =
+            totalMonths % 12;
+
+        document.getElementById(
+            "total-experience"
+        ).innerText =
+            `${years} Years ${months} Months`;
+    }
+);
+
+</script>
+
+.experience-header {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.experience-meta {
+
+    font-size: 1rem;
+
+    color: rgba(255,255,255,0.65);
+
+    font-weight: 400;
+
+    letter-spacing: 0.3px;
+}
+
 <div class="col-lg-12">
 <div class="row">
   <div class="col-lg-4">
@@ -112,6 +208,19 @@ layout: default
     {% if site.show_author_work_experiences == true %}
     <div class="card">
       <h1 class="card-title">Work Experience</h1>
+         <div class="experience-header">
+            <h1 class="card-title">
+                Work Experience
+            </h1>
+
+            <span class="experience-meta">
+
+                {{ site.data.work_experience | size }} Roles
+                ·
+                <span id="total-experience"></span>
+
+            </span>
+          </div>
       <br />
       {% for exp in site.author_work_experiences %}
       {% if exp.visibility == true %}
@@ -125,7 +234,19 @@ layout: default
           <h3 class="experience-title">{{ exp.designation }}</h3>
           <h6 class="experience-info">{{ exp.company_name}}</h6>
           <p class="experience-desc">{{ exp.description }}</p>
-          <p class="experience-desc">{{ exp.duration }}</p>
+          <p class="experience-desc">
+
+              {{ exp.duration }}
+
+              ·
+
+              <span
+                  class="job-duration"
+                  data-start="{{ exp.start_date }}"
+                  data-end="{{ exp.end_date }}">
+              </span>
+
+          </p>
           </a>
           <p><a href="{{exp.company_url}}">{{ exp.company_url}}</a></p>
         </div>

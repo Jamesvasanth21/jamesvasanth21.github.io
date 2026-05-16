@@ -6,7 +6,7 @@ permalink: /professional_experience/
 
 <script>
 
-function calculateDuration(
+function calculateMonths(
     startDate,
     endDate
 ) {
@@ -19,52 +19,56 @@ function calculateDuration(
         !endDate ||
         endDate.toLowerCase() === "present"
     ) {
+
         end = new Date();
+
     } else {
+
         end = new Date(endDate);
     }
 
-    let years =
-        end.getFullYear() -
-        start.getFullYear();
-
     let months =
-        end.getMonth() -
-        start.getMonth();
+        (end.getFullYear() - start.getFullYear()) * 12;
 
-    if (months < 0) {
-        years--;
-        months += 12;
-    }
+    months +=
+        end.getMonth() - start.getMonth();
 
-    return (
-        `${years} Years ${months} Months`
-    );
+    return months;
 }
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-        const durations =
-            document.querySelectorAll(
-                ".job-duration"
+        let totalMonths = 0;
+
+        const jobs = [
+            {% for job in site.data.work_experience %}
+            {
+                start: "{{ job[1].start_date }}",
+                end: "{{ job[1].end_date }}"
+            },
+            {% endfor %}
+        ];
+
+        jobs.forEach(job => {
+
+            totalMonths += calculateMonths(
+                job.start,
+                job.end
             );
-
-        durations.forEach(el => {
-
-            const start =
-                el.dataset.start;
-
-            const end =
-                el.dataset.end;
-
-            el.innerText =
-                calculateDuration(
-                    start,
-                    end
-                );
         });
+
+        const years =
+            Math.floor(totalMonths / 12);
+
+        const months =
+            totalMonths % 12;
+
+        document.getElementById(
+            "total-experience"
+        ).innerText =
+            `${years} Years ${months} Months`;
     }
 );
 
@@ -73,9 +77,13 @@ document.addEventListener(
 <div id="professional_experience" class="card">
     <!-- <h1>Professional Experience</h1> -->
     <h1 class="card-title">
-    Professional Experience ({{ site.data.work_experience | size }} Roles .  )
+    Professional Experience
+    (
+    {{ site.data.work_experience | size }} Roles
+    ·
+    <span id="total-experience"></span>
+    )
     </h1>
-    <hr class="section-divider">
     {% for job in site.data.work_experience %}
     {% assign key = job[0] %}
     {% assign details = job[1] %}
@@ -90,10 +98,8 @@ document.addEventListener(
         <div class="col-md-10 col-9">
             <h3>{{ details.company_name}}</h3>
             <h4 class="experience-title">{{ details.designation }}</h4>
-            <p class="experience-desc">{{ details.duration }}</p>
-            
             <p class="experience-desc">
-            
+
                 {{ details.duration }}
             
                 ·
