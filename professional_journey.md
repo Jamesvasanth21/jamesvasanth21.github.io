@@ -44,7 +44,6 @@ function calculateMonths(
     months +=
         end.getMonth() - start.getMonth();
 
-    // Partial month adjustment
     if (end.getDate() < start.getDate()) {
 
         months--;
@@ -66,54 +65,49 @@ function formatDuration(months) {
     );
 }
 
-window.onload = () => {
+window.addEventListener(
+    "load",
+    () => {
 
-    let totalMonths = 0;
+        let totalMonths = 0;
 
-    // -----------------------------------
-    // INDIVIDUAL JOB DURATIONS
-    // -----------------------------------
-
-    const durationElements =
-        document.querySelectorAll(
-            ".job-duration"
-        );
-
-    durationElements.forEach(el => {
-
-        const start =
-            el.dataset.start;
-
-        const end =
-            el.dataset.end;
-
-        const months =
-            calculateMonths(
-                start,
-                end
+        const durationElements =
+            document.querySelectorAll(
+                ".job-duration"
             );
 
-        totalMonths += months;
+        durationElements.forEach(el => {
 
-        el.innerText =
-            formatDuration(months);
-    });
+            const start =
+                el.dataset.start;
 
-    // -----------------------------------
-    // TOTAL EXPERIENCE
-    // -----------------------------------
+            const end =
+                el.dataset.end;
 
-    const totalExperience =
-        document.getElementById(
-            "total-experience"
-        );
+            const months =
+                calculateMonths(
+                    start,
+                    end
+                );
 
-    if (totalExperience) {
+            totalMonths += months;
 
-        totalExperience.innerText =
-            formatDuration(totalMonths);
+            el.innerText =
+                formatDuration(months);
+        });
+
+        const totalExperience =
+            document.getElementById(
+                "total-experience"
+            );
+
+        if (totalExperience) {
+
+            totalExperience.innerText =
+                formatDuration(totalMonths);
+        }
     }
-};
+);
 
 </script>
 
