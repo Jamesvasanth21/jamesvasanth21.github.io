@@ -6,25 +6,36 @@ permalink: /professional_experience/
 
 <script>
 
+function normalizeEndDate(endDate) {
+
+    if (
+        !endDate ||
+        String(endDate).toLowerCase() === "present"
+    ) {
+
+        return new Date();
+    }
+
+    return new Date(endDate);
+}
+
 function calculateMonths(
     startDate,
     endDate
 ) {
 
-    const start = new Date(startDate);
+    const start =
+        new Date(startDate);
 
-    let end;
+    const end =
+        normalizeEndDate(endDate);
 
     if (
-        !endDate ||
-        endDate.toLowerCase() === "present"
+        isNaN(start.getTime()) ||
+        isNaN(end.getTime())
     ) {
 
-        end = new Date();
-
-    } else {
-
-        end = new Date(endDate);
+        return 0;
     }
 
     let months =
@@ -33,8 +44,9 @@ function calculateMonths(
     months +=
         end.getMonth() - start.getMonth();
 
-    // Handle partial month
+    // Partial month adjustment
     if (end.getDate() < start.getDate()) {
+
         months--;
     }
 
@@ -54,70 +66,54 @@ function formatDuration(months) {
     );
 }
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+window.onload = () => {
 
-        // -----------------------------------
-        // TOTAL EXPERIENCE
-        // -----------------------------------
+    let totalMonths = 0;
 
-        let totalMonths = 0;
+    // -----------------------------------
+    // INDIVIDUAL JOB DURATIONS
+    // -----------------------------------
 
-        const jobs = [
+    const durationElements =
+        document.querySelectorAll(
+            ".job-duration"
+        );
 
-            {% for job in site.data.work_experience %}
+    durationElements.forEach(el => {
 
-            {
-                start: "{{ job[1].start_date }}",
-                end: "{{ job[1].end_date }}"
-            },
+        const start =
+            el.dataset.start;
 
-            {% endfor %}
+        const end =
+            el.dataset.end;
 
-        ];
-
-        jobs.forEach(job => {
-
-            totalMonths += calculateMonths(
-                job.start,
-                job.end
+        const months =
+            calculateMonths(
+                start,
+                end
             );
-        });
 
+        totalMonths += months;
+
+        el.innerText =
+            formatDuration(months);
+    });
+
+    // -----------------------------------
+    // TOTAL EXPERIENCE
+    // -----------------------------------
+
+    const totalExperience =
         document.getElementById(
             "total-experience"
-        ).innerText =
+        );
+
+    if (totalExperience) {
+
+        totalExperience.innerText =
             formatDuration(totalMonths);
-
-        // -----------------------------------
-        // INDIVIDUAL JOB DURATIONS
-        // -----------------------------------
-
-        const durationElements =
-            document.querySelectorAll(
-                ".job-duration"
-            );
-
-        durationElements.forEach(el => {
-
-            const start =
-                el.dataset.start;
-
-            const end =
-                el.dataset.end;
-
-            const months =
-                calculateMonths(
-                    start,
-                    end
-                );
-
-            el.innerText =
-                formatDuration(months);
-        });
     }
-);
+};
 
 </script>
 
