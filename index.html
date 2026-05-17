@@ -4,25 +4,27 @@ layout: default
 
 <script>
 
-function normalizeEndDate(endDate) {
+console.log("hello");
 
+function normalizeEndDate(endDate) {
     if (
         !endDate ||
         String(endDate).toLowerCase() === "present"
     ) {
-
         return new Date();
     }
 
-    return new Date(endDate);
+    const date = new Date(endDate);
+    if (isNaN(date.getTime())) {
+        return new Date();
+    }
+
+    return date;
 }
 
 function calculateMonths(startDate, endDate) {
-
     const start = new Date(startDate);
-
     const end = normalizeEndDate(endDate);
-
     const today = new Date();
 
     // Ignore future jobs
@@ -35,40 +37,31 @@ function calculateMonths(startDate, endDate) {
         isNaN(start.getTime()) ||
         isNaN(end.getTime())
     ) {
-
         return 0;
     }
 
     // ---------------------------------
-    // TOTAL DAYS DIFFERENCE
-    // ---------------------------------
-
-    const diffTime =
-        end.getTime() - start.getTime();
-
-    const diffDays =
-        Math.floor(
-            diffTime / (1000 * 60 * 60 * 24)
-        );
-
-    // ---------------------------------
-    // CONVERT TO MONTHS
+    // TOTAL MONTHS DIFFERENCE
     // ---------------------------------
 
     let totalMonths =
-        Math.floor(diffDays / 30);
+        (end.getFullYear() - start.getFullYear()) * 12 +
+        (end.getMonth() - start.getMonth());
 
-    // Remaining days
-    const remainingDays =
-        diffDays % 30;
+    let remainingDays = end.getDate() - start.getDate();
+
+    if (remainingDays < 0) {
+        totalMonths -= 1;
+        remainingDays += new Date(end.getFullYear(), end.getMonth(), 0).getDate();
+    }
 
     // ---------------------------------
     // ROUNDING RULE
     // ---------------------------------
 
     // 15+ days → round up
-    if (remainingDays >= 15) {
-
+    const daysInMonth = new Date(end.getFullYear(), end.getMonth() + 1, 0).getDate();
+    if (remainingDays >= daysInMonth / 2) {
         totalMonths += 1;
     }
 
@@ -76,7 +69,6 @@ function calculateMonths(startDate, endDate) {
 }
 
 function formatDuration(totalMonths) {
-
     const years =
         Math.floor(totalMonths / 12);
 
@@ -89,7 +81,6 @@ function formatDuration(totalMonths) {
 }
 
 window.onload = () => {
-
     let totalMonths = 0;
 
     const durations =
@@ -100,7 +91,6 @@ window.onload = () => {
     console.log(durations);
 
     durations.forEach(el => {
-
         const start =
             el.dataset.start;
 
@@ -127,7 +117,6 @@ window.onload = () => {
         );
 
     if (totalExperience) {
-
         totalExperience.innerText =
             formatDuration(totalMonths);
     }
