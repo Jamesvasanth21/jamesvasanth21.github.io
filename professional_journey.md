@@ -24,8 +24,13 @@ function calculateMonths(
     endDate
 ) {
 
-    const start =
-        new Date(startDate);
+    const start = new Date(startDate);
+
+    const today = new Date();
+    
+    if (start > today) {
+        return 0;
+    }
 
     const end =
         normalizeEndDate(endDate);
