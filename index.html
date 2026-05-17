@@ -51,28 +51,76 @@ function formatDuration(totalMonths) {
     return `${yearStr} ${monthStr}`;
 }
 
-// Using a safe IIFE/Direct block right before </body> ensuring the elements exist
-(() => {
-    let totalMonths = 0;
-    const durations = document.querySelectorAll(".job-duration");
+window.addEventListener(
+    "load",
+    function () {
 
-    if (durations.length === 0) return;
+        console.log("Rendering durations");
 
-    durations.forEach(el => {
-        const start = el.dataset.start;
-        const end = el.dataset.end;
+        var totalMonths = 0;
 
-        const months = calculateMonths(start, end);
-        totalMonths += months;
+        var durations =
+            document.querySelectorAll(
+                ".job-duration"
+            );
 
-        el.innerText = formatDuration(months);
-    });
+        console.log(
+            "Durations found:",
+            durations.length
+        );
 
-    const totalExperience = document.getElementById("total-experience");
-    if (totalExperience) {
-        totalExperience.innerText = formatDuration(totalMonths);
+        if (durations.length === 0) {
+
+            return;
+        }
+
+        durations.forEach(function (el) {
+
+            var start =
+                el.getAttribute("data-start");
+
+            var end =
+                el.getAttribute("data-end");
+
+            console.log(
+                "Processing:",
+                start,
+                end
+            );
+
+            var months =
+                calculateMonths(
+                    start,
+                    end
+                );
+
+            totalMonths += months;
+
+            el.innerText =
+                formatDuration(months);
+        });
+
+        console.log(
+            "Total months:",
+            totalMonths
+        );
+
+        var totalExperience =
+            document.getElementById(
+                "total-experience"
+            );
+
+        if (totalExperience) {
+
+            totalExperience.innerText =
+                formatDuration(totalMonths);
+
+            console.log(
+                "Updated total experience"
+            );
+        }
     }
-})();
+);
 </script>
 
 <style>
