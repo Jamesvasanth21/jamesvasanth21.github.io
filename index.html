@@ -39,17 +39,11 @@ function calculateMonths(startDate, endDate) {
         return 0;
     }
 
-    let years =
-        end.getFullYear() -
-        start.getFullYear();
+    let years = end.getFullYear() - start.getFullYear();
 
-    let months =
-        end.getMonth() -
-        start.getMonth();
+    let months = end.getMonth() - start.getMonth();
 
-    let days =
-        end.getDate() -
-        start.getDate();
+    let days = end.getDate() - start.getDate();
 
     // ---------------------------------
     // NORMALIZE NEGATIVE DAYS
