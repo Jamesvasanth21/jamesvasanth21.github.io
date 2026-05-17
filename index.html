@@ -39,55 +39,40 @@ function calculateMonths(startDate, endDate) {
         return 0;
     }
 
-    let years = end.getFullYear() - start.getFullYear();
-
-    let months = end.getMonth() - start.getMonth();
-
-    let days = end.getDate() - start.getDate();
-
     // ---------------------------------
-    // NORMALIZE NEGATIVE DAYS
+    // TOTAL DAYS DIFFERENCE
     // ---------------------------------
 
-    if (days < 0) {
+    const diffTime =
+        end.getTime() - start.getTime();
 
-        months -= 1;
-
-        // approximate previous month days
-        days += 30;
-    }
+    const diffDays =
+        Math.floor(
+            diffTime / (1000 * 60 * 60 * 24)
+        );
 
     // ---------------------------------
-    // NORMALIZE NEGATIVE MONTHS
+    // CONVERT TO MONTHS
     // ---------------------------------
 
-    if (months < 0) {
+    let totalMonths =
+        Math.floor(diffDays / 30);
 
-        years -= 1;
-
-        months += 12;
-    }
+    // Remaining days
+    const remainingDays =
+        diffDays % 30;
 
     // ---------------------------------
     // ROUNDING RULE
     // ---------------------------------
 
-    // If more than 15 days,
-    // round up month
-    if (days >= 15) {
+    // 15+ days → round up
+    if (remainingDays >= 15) {
 
-        months += 1;
+        totalMonths += 1;
     }
 
-    // Normalize overflow
-    if (months >= 12) {
-
-        years += 1;
-
-        months -= 12;
-    }
-
-    return (years * 12) + months;
+    return Math.max(totalMonths, 0);
 }
 
 function formatDuration(totalMonths) {
