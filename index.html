@@ -21,7 +21,6 @@ function calculateMonths(startDate, endDate) {
     const end = normalizeEndDate(endDate);
     const today = new Date();
 
-    // Guard clause: If start date is invalid, or in the future, or after the end date
     if (isNaN(start.getTime()) || isNaN(end.getTime()) || start > today || start > end) {
         return 0;
     }
@@ -29,14 +28,11 @@ function calculateMonths(startDate, endDate) {
     let totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
     let remainingDays = end.getDate() - start.getDate();
 
-    // Handle day overflow gracefully
     if (remainingDays < 0) {
         totalMonths -= 1;
-        // Gets the last day of the previous month
         remainingDays += new Date(end.getFullYear(), end.getMonth(), 0).getDate();
     }
 
-    // Round up by a month if remaining days span more than half the month
     const daysInMonth = new Date(end.getFullYear(), end.getMonth() + 1, 0).getDate();
     if (remainingDays >= daysInMonth / 2) {
         totalMonths += 1;
@@ -49,15 +45,14 @@ function formatDuration(totalMonths) {
     const years = Math.floor(totalMonths / 12);
     const months = totalMonths % 12;
 
-    // Clean pluralization for better UI presentation
     const yearStr = years === 1 ? "1 Year" : `${years} Years`;
     const monthStr = months === 1 ? "1 Month" : `${months} Months`;
 
     return `${yearStr} ${monthStr}`;
 }
 
-// Safer alternative to window.onload to prevent overwriting other scripts
-document.addEventListener("DOMContentLoaded", () => {
+// Using a safe IIFE/Direct block right before </body> ensuring the elements exist
+(() => {
     let totalMonths = 0;
     const durations = document.querySelectorAll(".job-duration");
 
@@ -77,8 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (totalExperience) {
         totalExperience.innerText = formatDuration(totalMonths);
     }
-});
-
+})();
 </script>
 
 <style>
