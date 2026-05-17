@@ -3,22 +3,16 @@ layout: default
 ---
 
 <script>
-
-console.log("hello");
+console.log("Script initialized");
 
 function normalizeEndDate(endDate) {
-    if (
-        !endDate ||
-        String(endDate).toLowerCase() === "present"
-    ) {
+    if (!endDate || String(endDate).toLowerCase() === "present") {
         return new Date();
     }
-
     const date = new Date(endDate);
     if (isNaN(date.getTime())) {
         return new Date();
     }
-
     return date;
 }
 
@@ -27,39 +21,22 @@ function calculateMonths(startDate, endDate) {
     const end = normalizeEndDate(endDate);
     const today = new Date();
 
-    // Ignore future jobs
-    if (start > today) {
+    // Guard clause: If start date is invalid, or in the future, or after the end date
+    if (isNaN(start.getTime()) || isNaN(end.getTime()) || start > today || start > end) {
         return 0;
     }
 
-    // Invalid dates
-    if (
-        isNaN(start.getTime()) ||
-        isNaN(end.getTime())
-    ) {
-        return 0;
-    }
-
-    // ---------------------------------
-    // TOTAL MONTHS DIFFERENCE
-    // ---------------------------------
-
-    let totalMonths =
-        (end.getFullYear() - start.getFullYear()) * 12 +
-        (end.getMonth() - start.getMonth());
-
+    let totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
     let remainingDays = end.getDate() - start.getDate();
 
+    // Handle day overflow gracefully
     if (remainingDays < 0) {
         totalMonths -= 1;
+        // Gets the last day of the previous month
         remainingDays += new Date(end.getFullYear(), end.getMonth(), 0).getDate();
     }
 
-    // ---------------------------------
-    // ROUNDING RULE
-    // ---------------------------------
-
-    // 15+ days → round up
+    // Round up by a month if remaining days span more than half the month
     const daysInMonth = new Date(end.getFullYear(), end.getMonth() + 1, 0).getDate();
     if (remainingDays >= daysInMonth / 2) {
         totalMonths += 1;
@@ -69,58 +46,38 @@ function calculateMonths(startDate, endDate) {
 }
 
 function formatDuration(totalMonths) {
-    const years =
-        Math.floor(totalMonths / 12);
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
 
-    const months =
-        totalMonths % 12;
+    // Clean pluralization for better UI presentation
+    const yearStr = years === 1 ? "1 Year" : `${years} Years`;
+    const monthStr = months === 1 ? "1 Month" : `${months} Months`;
 
-    return (
-        `${years} Years ${months} Months`
-    );
+    return `${yearStr} ${monthStr}`;
 }
 
-window.onload = () => {
+// Safer alternative to window.onload to prevent overwriting other scripts
+document.addEventListener("DOMContentLoaded", () => {
     let totalMonths = 0;
+    const durations = document.querySelectorAll(".job-duration");
 
-    const durations =
-        document.querySelectorAll(
-            ".job-duration"
-        );
-
-    console.log(durations);
+    if (durations.length === 0) return;
 
     durations.forEach(el => {
-        const start =
-            el.dataset.start;
+        const start = el.dataset.start;
+        const end = el.dataset.end;
 
-        const end =
-            el.dataset.end;
-
-        console.log(start, end);
-
-        const months =
-            calculateMonths(
-                start,
-                end
-            );
-
+        const months = calculateMonths(start, end);
         totalMonths += months;
 
-        el.innerText =
-            formatDuration(months);
+        el.innerText = formatDuration(months);
     });
 
-    const totalExperience =
-        document.getElementById(
-            "total-experience"
-        );
-
+    const totalExperience = document.getElementById("total-experience");
     if (totalExperience) {
-        totalExperience.innerText =
-            formatDuration(totalMonths);
+        totalExperience.innerText = formatDuration(totalMonths);
     }
-};
+});
 
 </script>
 
