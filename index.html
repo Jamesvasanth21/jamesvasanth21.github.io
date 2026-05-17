@@ -19,19 +19,18 @@ function normalizeEndDate(endDate) {
 
 function calculateMonths(startDate, endDate) {
 
-    const start =
-        new Date(startDate);
+    const start = new Date(startDate);
 
-    const end =
-        normalizeEndDate(endDate);
+    const end = normalizeEndDate(endDate);
 
-    // Ignore future jobs
     const today = new Date();
 
+    // Ignore future jobs
     if (start > today) {
         return 0;
     }
 
+    // Invalid dates
     if (
         isNaN(start.getTime()) ||
         isNaN(end.getTime())
@@ -52,27 +51,49 @@ function calculateMonths(startDate, endDate) {
         end.getDate() -
         start.getDate();
 
-    // Convert years into months
-    let totalMonths =
-        (years * 12) + months;
-
     // ---------------------------------
-    // ROUNDING LOGIC
+    // NORMALIZE NEGATIVE DAYS
     // ---------------------------------
 
-    // If 15+ days, round up month
+    if (days < 0) {
+
+        months -= 1;
+
+        // approximate previous month days
+        days += 30;
+    }
+
+    // ---------------------------------
+    // NORMALIZE NEGATIVE MONTHS
+    // ---------------------------------
+
+    if (months < 0) {
+
+        years -= 1;
+
+        months += 12;
+    }
+
+    // ---------------------------------
+    // ROUNDING RULE
+    // ---------------------------------
+
+    // If more than 15 days,
+    // round up month
     if (days >= 15) {
 
-        totalMonths += 1;
+        months += 1;
     }
 
-    // If negative days, adjust
-    if (days < -15) {
+    // Normalize overflow
+    if (months >= 12) {
 
-        totalMonths -= 1;
+        years += 1;
+
+        months -= 12;
     }
 
-    return Math.max(totalMonths, 0);
+    return (years * 12) + months;
 }
 
 function formatDuration(totalMonths) {
