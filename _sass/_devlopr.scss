@@ -408,13 +408,13 @@ header {
     overflow: auto;
     white-space: normal;
     text-align: center;
-    color: lightgrey;
+    color: #fff;
 
     .heading {
        margin-bottom: 16px !important;
        margin-right: 16px !important;
        font-size: 17px;
-       color: lightgrey !important;
+       color: #fff !important;
     }
 
     &__item {
