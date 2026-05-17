@@ -5,91 +5,92 @@ permalink: /professional_experience/
 ---
 
 <script>
+console.log("Script initialized");
 
 function normalizeEndDate(endDate) {
-
-    if (
-        !endDate ||
-        String(endDate).toLowerCase() === "present"
-    ) {
-
+    if (!endDate || String(endDate).toLowerCase() === "present") {
         return new Date();
     }
-
-    return new Date(endDate);
+    const date = new Date(endDate);
+    if (isNaN(date.getTime())) {
+        return new Date();
+    }
+    return date;
 }
 
-function calculateMonths(
-    startDate,
-    endDate
-) {
-
+function calculateMonths(startDate, endDate) {
     const start = new Date(startDate);
-
+    const end = normalizeEndDate(endDate);
     const today = new Date();
-    
-    if (start > today) {
+
+    if (isNaN(start.getTime()) || isNaN(end.getTime()) || start > today || start > end) {
         return 0;
     }
 
-    const end =
-        normalizeEndDate(endDate);
+    let totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+    let remainingDays = end.getDate() - start.getDate();
 
-    if (
-        isNaN(start.getTime()) ||
-        isNaN(end.getTime())
-    ) {
-
-        return 0;
+    if (remainingDays < 0) {
+        totalMonths -= 1;
+        remainingDays += new Date(end.getFullYear(), end.getMonth(), 0).getDate();
     }
 
-    let months =
-        (end.getFullYear() - start.getFullYear()) * 12;
-
-    months +=
-        end.getMonth() - start.getMonth();
-
-    if (end.getDate() < start.getDate()) {
-
-        months--;
+    const daysInMonth = new Date(end.getFullYear(), end.getMonth() + 1, 0).getDate();
+    if (remainingDays >= daysInMonth / 2) {
+        totalMonths += 1;
     }
 
-    return Math.max(months, 0);
+    return Math.max(totalMonths, 0);
 }
 
-function formatDuration(months) {
+function formatDuration(totalMonths) {
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
 
-    const years =
-        Math.floor(months / 12);
+    const yearStr = years === 1 ? "1 Year" : `${years} Years`;
+    const monthStr = months === 1 ? "1 Month" : `${months} Months`;
 
-    const remainingMonths =
-        months % 12;
-
-    return (
-        `${years} Years ${remainingMonths} Months`
-    );
+    return `${yearStr} ${monthStr}`;
 }
 
 window.addEventListener(
     "load",
-    () => {
+    function () {
 
-        let totalMonths = 0;
+        console.log("Rendering durations");
 
-        const durationElements =
+        var totalMonths = 0;
+
+        var durations =
             document.querySelectorAll(
                 ".job-duration"
             );
 
-        durationElements.forEach(el => {
+        console.log(
+            "Durations found:",
+            durations.length
+        );
 
-            const start =
-                el.dataset.start;
+        if (durations.length === 0) {
 
-            const end =
-                el.dataset.end;
+            return;
+        }
 
-            const months =
+        durations.forEach(function (el) {
+
+            var start =
+                el.getAttribute("data-start");
+
+            var end =
+                el.getAttribute("data-end");
+
+            console.log(
+                "Processing:",
+                start,
+                end
+            );
+
+            var months =
                 calculateMonths(
                     start,
                     end
@@ -101,7 +102,12 @@ window.addEventListener(
                 formatDuration(months);
         });
 
-        const totalExperience =
+        console.log(
+            "Total months:",
+            totalMonths
+        );
+
+        var totalExperience =
             document.getElementById(
                 "total-experience"
             );
@@ -110,10 +116,13 @@ window.addEventListener(
 
             totalExperience.innerText =
                 formatDuration(totalMonths);
+
+            console.log(
+                "Updated total experience"
+            );
         }
     }
 );
-
 </script>
 
 <style>
