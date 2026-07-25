@@ -104,8 +104,8 @@ permalink: /certifications/
           <tbody>
             <tr>
               <td>{{ site.data.author_professional_certifications | size }}</td>
-              <td>{{ site.author_certifications | size }}</td>
-              <td>{{ site.author_badges | size }}</td>
+              <td>{{ site.data.author_certifications | size }}</td>
+              <td>{{ site.data.author_badges | size }}</td>
             </tr>
           </tbody>
         </table>
@@ -149,7 +149,7 @@ permalink: /certifications/
       <h1 class="card-title">Certifications</h1>
       <br />
 
-      {% for cert in site.author_certifications %}
+      {% for cert in site.data.author_certifications %}
       {% if cert.visibility == true %}
       <div class="row align-items-center" style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;">
 
@@ -181,7 +181,7 @@ permalink: /certifications/
       <h1 class="card-title">Badges</h1>
       <br />
 
-      {% for badge in site.author_badges %}
+      {% for badge in site.data.author_badges %}
       {% if badge.visibility == true %}
       <div class="row align-items-center" style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;">
 
