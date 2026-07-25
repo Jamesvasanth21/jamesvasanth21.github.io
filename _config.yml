@@ -35,6 +35,7 @@ author_highlights:
               visibility: true
             - preview_image: "PRBDG-AIML_Presales_Technical_Expert.png"
               visibility: true
+
 # Skills
 author_skills:
             - heading: "Programming Languages"
@@ -421,6 +422,25 @@ author_badges:
               preview_image: "BDG-Professional_Machine_Learning_Engineer_Study_Guide.png"
               specialization: ""
               visibility: true
+
+
+# Professional Profiles
+author_professional_profiles:
+    - text: Google Skills
+      url: https://www.skills.google/public_profiles/a5128179-4c20-4daf-9ba5-f07c4e2dbbca
+      visibility: true 
+    - text: Google Skills - Valtech
+      url: https://partner.skills.google/public_profiles/f4ea8aab-db49-4104-a4a8-e95d29cfd98a
+      visibility: true
+    - text: Credly
+      url: https://www.credly.com/users/james-vasanth/badges#credly
+      visibility: true
+    - text: Kaggle
+      url: https://www.kaggle.com/jamesvasanth
+      visibility: true
+    - text: Google Developer Profile
+      url: https://g.dev/jamesvasanth
+      visibility: true
 
 # social links
 twitter_username: beingjamesvasa1
