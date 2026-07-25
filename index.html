@@ -1,3 +1,585 @@
 ---
-layout: home
+layout: default
 ---
+
+<script>
+console.log("Script initialized");
+
+function normalizeEndDate(endDate) {
+    if (!endDate || String(endDate).toLowerCase() === "present") {
+        return new Date();
+    }
+    const date = new Date(endDate);
+    if (isNaN(date.getTime())) {
+        return new Date();
+    }
+    return date;
+}
+
+function calculateMonths(startDate, endDate) {
+    const start = new Date(startDate);
+    const end = normalizeEndDate(endDate);
+    const today = new Date();
+
+    if (isNaN(start.getTime()) || isNaN(end.getTime()) || start > today || start > end) {
+        return 0;
+    }
+
+    let totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+    let remainingDays = end.getDate() - start.getDate();
+
+    if (remainingDays < 0) {
+        totalMonths -= 1;
+        remainingDays += new Date(end.getFullYear(), end.getMonth(), 0).getDate();
+    }
+
+    const daysInMonth = new Date(end.getFullYear(), end.getMonth() + 1, 0).getDate();
+    if (remainingDays >= daysInMonth / 2) {
+        totalMonths += 1;
+    }
+
+    return Math.max(totalMonths, 0);
+}
+
+function formatDuration(totalMonths) {
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
+
+    const yearStr = years === 1 ? "1 Year" : `${years} Years`;
+    const monthStr = months === 1 ? "1 Month" : `${months} Months`;
+
+    return `${yearStr} ${monthStr}`;
+}
+
+window.addEventListener(
+    "load",
+    function () {
+
+        console.log("Rendering durations");
+
+        var totalMonths = 0;
+
+        var durations =
+            document.querySelectorAll(
+                ".job-duration"
+            );
+
+        console.log(
+            "Durations found:",
+            durations.length
+        );
+
+        if (durations.length === 0) {
+
+            return;
+        }
+
+        durations.forEach(function (el) {
+
+            var start =
+                el.getAttribute("data-start");
+
+            var end =
+                el.getAttribute("data-end");
+
+            console.log(
+                "Processing:",
+                start,
+                end
+            );
+
+            var months =
+                calculateMonths(
+                    start,
+                    end
+                );
+
+            totalMonths += months;
+
+            el.innerText =
+                formatDuration(months);
+        });
+
+        console.log(
+            "Total months:",
+            totalMonths
+        );
+
+        var totalExperience =
+            document.getElementById(
+                "total-experience"
+            );
+
+        if (totalExperience) {
+
+            totalExperience.innerText =
+                formatDuration(totalMonths);
+
+            console.log(
+                "Updated total experience"
+            );
+        }
+    }
+);
+</script>
+
+<style>
+
+.work-card {
+
+    margin-bottom: 20px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.experience-header {
+
+    display: flex;
+
+    align-items: baseline;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.experience-header .card-title {
+
+    margin: 0;
+
+    line-height: 1.1;
+}
+
+.experience-meta {
+
+    font-size: 0.95rem;
+
+    color: rgba(255,255,255,0.68);
+
+    font-weight: 400;
+
+    letter-spacing: 0.2px;
+
+    padding-top: 8px;
+}
+</style>
+
+<div class="col-lg-12">
+
+<div class="row">
+
+    <!-- LEFT SIDEBAR -->
+    <div class="col-lg-4">
+
+        <!-- PROFILE CARD -->
+        <div class="card" id="profile-card">
+
+            <a href="{{ site.baseurl }}/">
+
+                <img
+                    src="{{site.url}}{{site.baseurl}}/assets/img/{{ site.author_logo }}"
+                    class="profile-img"
+                />
+
+            </a>
+
+            <h1 class="profile-name">
+                {{ site.title }}
+            </h1>
+
+            <p class="profile-bio">
+                {{ site.subtitle }}
+            </p>
+
+            {% if site.github_username %}
+            {%- include github_follow_button.html -%}
+            {% endif %}
+
+            <p class="profile-links">
+
+                {% if site.twitter_username %}
+                <a class="social-link" href="http://twitter.com/{{ site.twitter_username }}">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                {% endif %}
+
+                {% if site.facebook_username %}
+                <a class="social-link" href="http://facebook.com/{{ site.facebook_username }}">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                {% endif %}
+
+                {% if site.instagram_username %}
+                <a class="social-link" href="http://instagram.com/{{ site.instagram_username }}">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                {% endif %}
+
+                {% if site.medium_username %}
+                <a class="social-link" href="http://medium.com/@{{ site.medium_username }}">
+                    <i class="fab fa-medium-m"></i>
+                </a>
+                {% endif %}
+
+                {% if site.github_username %}
+                <a class="social-link" href="http://github.com/{{ site.github_username }}">
+                    <i class="fab fa-github"></i>
+                </a>
+                {% endif %}
+
+                {% if site.linkedin_username %}
+                <a class="social-link" href="http://linkedin.com/in/{{ site.linkedin_username }}">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                {% endif %}
+
+            </p>
+
+            {% if site.author_location %}
+            <h6>
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query={{ site.author_location }}"
+                    class="social-link"
+                >
+                    <i class="fas fa-map-marker-alt"></i>
+                    {{ site.author_location }}
+                </a>
+            </h6>
+            {% endif %}
+
+            {% if site.author_email %}
+            <h6>
+                <a href="mailto:{{ site.author_email }}">
+                    <i class="fas fa-envelope"></i>
+                    {{ site.author_email }}
+                </a>
+            </h6>
+            {% endif %}
+
+        </div>
+
+        <!-- SKILLS -->
+        <div class="card">
+
+            <h1>
+                Skills
+            </h1>
+
+            {%- include author_skills.html -%}
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="col-lg-8">
+
+        <!-- ABOUT -->
+        {% if site.author_bio %}
+        <div class="card">
+
+            <h1 class="card-title">
+                About
+            </h1>
+
+            <p>
+                {{ site.author_bio }}
+            </p>
+
+        </div>
+        {% endif %}
+
+        <!-- WORK EXPERIENCE -->
+        {% if site.show_author_work_experiences == true %}
+
+        <div class="card">
+
+            <div class="experience-header">
+
+                <h1 class="card-title">
+                    Work Experience
+                </h1>
+
+                <span class="experience-meta">
+
+                    {{ site.author_work_experiences | size }} Roles
+                    ·
+                    <span id="total-experience"></span>
+
+                </span>
+
+            </div>
+
+            {% for exp in site.author_work_experiences %}
+
+            {% if exp.visibility == true %}
+
+            <div
+                class="work-card"
+                style="
+                    margin-bottom:20px;
+                    padding-bottom:20px;
+                    border-bottom:1px solid #e0e0e0;
+                "
+            >
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-2 col-3">
+
+                        <img
+                            src="{{ site.baseurl }}/assets/images/{{ exp.company_logo }}"
+                            class="img-fluid rounded"
+                            style="
+                                width:90px;
+                                height:90px;
+                                object-fit:contain;
+                            "
+                        />
+
+                    </div>
+
+                    <div class="col-md-10 col-9">
+
+                        <a
+                            href="{{ site.baseurl }}/professional_experience/#{{ exp.company_name | slugify }}"
+                            class="job-link"
+                        >
+
+                            <h3 class="experience-title">
+                                {{ exp.designation }}
+                            </h3>
+
+                            <h6 class="experience-info">
+                                {{ exp.company_name }}
+                            </h6>
+
+                            <p class="experience-desc">
+                                {{ exp.description }}
+                            </p>
+
+                            <p class="experience-desc">
+
+                                {{ exp.duration }}
+
+                                ·
+
+                                <span
+                                    class="job-duration"
+                                    data-start="{{ exp.start_date }}"
+                                    data-end="{{ exp.end_date }}">
+                                </span>
+
+                            </p>
+
+                        </a>
+
+                        <p>
+
+                            <a
+                                href="{{ exp.company_url }}"
+                                target="_blank"
+                            >
+                                Company Website
+                            </a>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+            {% endfor %}
+
+            <a href="{{ site.baseurl }}/professional_experience">
+                View Detailed Professional Experience →
+            </a>
+
+        </div>
+
+        {% endif %}
+
+        <!-- PROJECTS -->
+        {% if site.show_author_project_details == true %}
+
+        <div id="author_projects" class="card">
+
+            <h1 class="card-title">
+                Selected Projects
+            </h1>
+
+            <br />
+
+            {% for project in site.data.projects.projects %}
+
+            {% if project.featured == true %}
+
+            <div class="project-card">
+
+                <h3 class="project-title">
+
+                    <a
+                        href="{{ site.baseurl }}/projects/#{{ project.id }}"
+                        class="project-link"
+                    >
+                        {{ project.title }}
+                    </a>
+
+                </h3>
+
+                <p class="project-desc">
+                    {{ project.description }}
+                </p>
+
+                {% if project.tech %}
+
+                <p class="project-tech">
+
+                    <strong>Tech:</strong>
+                    {{ project.tech | join: ", " }}
+
+                </p>
+
+                {% endif %}
+
+                <div class="project-links">
+
+                    {% if project.project_url %}
+                    <a
+                        class="btn btn-sm btn-outline-primary"
+                        href="{{ project.project_url }}"
+                        target="_blank"
+                    >
+                        View Project
+                    </a>
+                    {% endif %}
+
+                    {% if project.github_url %}
+                    <a
+                        class="btn btn-sm btn-outline-dark"
+                        href="{{ project.github_url }}"
+                        target="_blank"
+                    >
+                        GitHub
+                    </a>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            <hr />
+
+            {% endif %}
+            {% endfor %}
+
+            <a href="{{ site.baseurl }}/projects">
+                View All Projects →
+            </a>
+
+        </div>
+
+        {% endif %}
+
+        <!-- EDUCATION -->
+        {% if site.show_author_education_details == true %}
+
+        <div class="card">
+
+            <h1 class="card-title">
+                Education
+            </h1>
+
+            <br />
+
+            {% for detail in site.author_education_details %}
+
+            {% if detail.visibility == true %}
+
+            <div
+                class="work-card"
+                style="
+                    margin-bottom:20px;
+                    padding-bottom:20px;
+                    border-bottom:1px solid #e0e0e0;
+                "
+            >
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-2 col-3">
+
+                        <img
+                            src="{{ site.baseurl }}/assets/images/{{ detail.college_logo }}"
+                            class="img-fluid rounded"
+                            style="
+                                width:90px;
+                                height:90px;
+                                object-fit:contain;
+                            "
+                        />
+
+                    </div>
+
+                    <div class="col-md-10 col-9">
+
+                        <h4 class="experience-title">
+                            {{ detail.college_degree }}
+                        </h4>
+
+                        <h6 class="experience-info">
+                            {{ detail.college_name }}
+                        </h6>
+
+                        <p class="experience-desc">
+
+                            {{ detail.college_specialization }}
+
+                            ·
+
+                            {{ detail.duration }}
+
+                        </p>
+
+                        <p class="experience-desc">
+
+                            {{ detail.university_name }}
+
+                        </p>
+
+                        <p>
+
+                            <a
+                                href="{{ detail.college_url }}"
+                                target="_blank"
+                            >
+                                Institution Website
+                            </a>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</div>

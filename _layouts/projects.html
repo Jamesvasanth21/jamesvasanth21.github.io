@@ -1,0 +1,174 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<div class="card">
+  <h1 class="card-title">
+    Projects ({{ site.data.projects.projects | size }})
+  </h1>
+
+  <!-- MAIN TAGS -->
+  <div class="tags">
+    <button onclick="resetFilter()">All</button>
+
+    {% assign main_tags = site.data.projects.projects | map: "tags" | map: "main" | uniq %}
+    {% for tag in main_tags %}
+      <button onclick="filterMain('{{ tag }}')">{{ tag }}</button>
+    {% endfor %}
+  </div>
+
+  <!-- SUB TAGS -->
+  <div id="sub-tags"></div>
+  <hr />
+
+  <!-- PROJECT LIST -->
+  <div id="project-list">
+    {% for project in site.data.projects.projects %}
+      <div class="project-item"
+           data-main="{{ project.tags.main }}"
+           data-sub="{{ project.tags.sub | join: ',' }}">
+
+        <h3>{{ project.title }}</h3>
+
+        <p>{{ project.description }}</p>
+
+        <p><strong>Tech:</strong> {{ project.tech | join: ', ' }}</p>
+
+        <a href="{{ project.github_url }}" target="_blank">GitHub</a>
+      </div>
+
+      <hr />
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.tags button, #sub-tags button {
+  margin: 5px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.tags button:hover, #sub-tags button:hover {
+  background: #ddd;
+}
+
+.project-item {
+  margin-bottom: 15px;
+}
+</style>
+
+
+<script>
+
+console.log("🚀 JS FILE LOADED");
+
+window.resetFilter = function() {
+  console.log("🔄 Reset filter triggered");
+
+  const items = document.querySelectorAll(".project-item");
+  console.log("Total items:", items.length);
+
+  items.forEach((item, index) => {
+    console.log(`Showing item ${index}`, item.dataset);
+    item.style.display = "block";
+  });
+
+  document.getElementById("sub-tags").innerHTML = "";
+  console.log("Sub-tags cleared");
+};
+
+window.filterMain = function(tag) {
+  console.log("🎯 filterMain called with tag:", tag);
+
+  const items = document.querySelectorAll(".project-item");
+  const subTags = new Set();
+
+  items.forEach((item, index) => {
+    console.log(`\n🔍 Checking item ${index}`);
+    console.log("data-main:", item.dataset.main);
+    console.log("data-sub:", item.dataset.sub);
+
+    if (item.dataset.main === tag) {
+      console.log("✅ MATCHED MAIN TAG");
+
+      item.style.display = "block";
+
+      if (item.dataset.sub) {
+        const subs = item.dataset.sub.split(',');
+        console.log("Sub tags found:", subs);
+
+        subs.forEach(sub => {
+          const clean = sub.trim();
+          if (clean) {
+            console.log("➕ Adding sub-tag:", clean);
+            subTags.add(clean);
+          }
+        });
+
+      } else {
+        console.log("⚠️ No sub-tags found for this item");
+      }
+
+    } else {
+      console.log("❌ Not matching main tag → hiding");
+      item.style.display = "none";
+    }
+  });
+
+  console.log("📦 Final subTags set:", Array.from(subTags));
+
+  window.renderSubTags(subTags);
+};
+
+window.renderSubTags = function(subTags) {
+  console.log("🎨 Rendering sub-tags");
+
+  const container = document.getElementById("sub-tags");
+  container.innerHTML = "";
+
+  if (subTags.size === 0) {
+    console.log("⚠️ No sub-tags to render");
+    container.innerHTML = "<p>No sub-tags available</p>";
+    return;
+  }
+
+  subTags.forEach(sub => {
+    console.log("🔘 Creating button for:", sub);
+
+    const btn = document.createElement("button");
+    btn.innerText = sub;
+
+    btn.onclick = () => {
+      console.log("👉 Sub-tag clicked:", sub);
+      window.filterSub(sub);
+    };
+
+    container.appendChild(btn);
+  });
+
+  console.log("✅ Sub-tags rendered successfully");
+};
+
+window.filterSub = function(tag) {
+  console.log("🎯 filterSub called with tag:", tag);
+
+  const items = document.querySelectorAll(".project-item");
+
+  items.forEach((item, index) => {
+    console.log(`Checking item ${index}`, item.dataset.sub);
+
+    if (item.dataset.sub && item.dataset.sub.includes(tag)) {
+      console.log("✅ MATCHED SUB TAG → show");
+      item.style.display = "block";
+    } else {
+      console.log("❌ No match → hide");
+      item.style.display = "none";
+    }
+  });
+};
+</script>

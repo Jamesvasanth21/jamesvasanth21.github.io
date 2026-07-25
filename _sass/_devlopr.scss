@@ -204,6 +204,22 @@ h1, h2, h3, h4, h5, h6 {
 a{
     color: var(--link-color) !important;
 }
+
+.job-link {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block;
+}
+
+.section-divider {
+    border: none;
+    height: 2px;
+    background: #e0e0e0;
+    opacity: 1;
+    background-color: #e0e0e0;
+    margin: 16px 0 32px 0;
+}
+
 /* Navigation Header */
 header {
     background-color: var(--main-background-color);
@@ -342,6 +358,12 @@ header {
     }
   }
 
+.project-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
   .search-form {
     margin-bottom:20px;
     &__field {
@@ -386,13 +408,13 @@ header {
     overflow: auto;
     white-space: normal;
     text-align: center;
-    color: lightgrey;
+    color: #fff;
 
     .heading {
        margin-bottom: 16px !important;
        margin-right: 16px !important;
        font-size: 17px;
-       color: lightgrey !important;
+       color: #fff !important;
     }
 
     &__item {
@@ -707,6 +729,21 @@ header {
         font-weight: 600;
     }
 
+}
+
+#skills-table {
+    th {
+        width: 42%;
+        font-weight: 600;
+        vertical-align: top;
+        color: var(--main-text-color);
+        padding-left: 0;
+    }
+
+    td {
+        color: var(--main-text-color);
+        padding-right: 0;
+    }
 }
 
 #author_projects {
@@ -1221,7 +1258,7 @@ footer {
  }
 
  /* Syntax Hightlighter */
- .highlight pre { background-color: #212529; padding: 20px;}
+.highlight pre { background-color: #212529; padding: 20px;}
 .highlight .hll { background-color: #272822; }
 .highlight .c { color: #75715e } /* Comment */
 .highlight .err { color: #960050; background-color: #1e0010 } /* Error */

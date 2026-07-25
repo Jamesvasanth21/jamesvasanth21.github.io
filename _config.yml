@@ -8,74 +8,426 @@ baseurl: "" # the subpath of your site, e.g. /blog
 
 # Navigation
 urls:
-    - text: Home
+    - text: Profile
       url: /
-    - text: About
-      url: /about
-    - text: Blog
-      url: /blog
-    - text: Gallery
-      url: /gallery
-    - text: Shop
-      url : /shop
-    - text: Contact
-      url : /contact
+    - text: Certifications
+      url: /certifications
+    - text: Professional Experience
+      url: /professional_experience
+    - text: Projects
+      url: /projects
 
 
 # Edit Author details (For multi authors check _data/authors.yml)
 
 author_logo: profile.png
 author: John Doe
-author_bio: Hi, my name is John Doe. I built this site using devlopr-jekyll :D
-author_email: "jamesvasasnth789@gmail.com"
-author_location: India
-author_website_url: "https://jamesvasanth.com"
+author_bio: Google Cloud Certified Professional Machine Learning Engineer with 6+ years of experience turning raw data into scalable data platforms and ML-powered insights on GCP. I enjoy tackling complex data challenges—from building and evolving production ETL pipelines for Fortune 500 retail analytics to exploring hybrid forecasting models and contributing to product discovery solutions and search relevance improvements for a global luxury ecommerce platform using catalog ingestion and Vertex AI Search for Commerce. My work has delivered measurable impact, including reducing cloud costs by $2K/month and automating data workflows that cut processing time by 85%. I value collaborative problem-solving and delivering reliable data products that stakeholders trust for decision-making.
+author_email: "jamesvasanth789@gmail.com"
+author_location: Bangalore, India
+author_website_url: "https://jamesvasanth21.github.io"
 typewrite-text: devlopr is a jekyll framework built for developers. You can edit this in _config.yml file
 hero_cover_img: sample_cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
 
+# Author Highlights (can be used to show skills, experience, education, projects or anything you want to highlight about yourself in the homepage)
+author_highlights:
+            - preview_image: "PRBDG-Professional_Machine_learning_Engineer.png"
+              visibility: true
+            - preview_image: "PRBDG-AIML_Presales_Technical_Expert.png"
+              visibility: true
+# Skills
+author_skills:
+            - heading: "Programming Languages"
+              skills: "Java, Python, PySpark"
+              visibility: true
+            - heading: "Scripting & Front-End"
+              skills: "JavaScript, PHP, React"
+              visibility: true
+            - heading: "Database & Query Languages"
+              skills: "SQL, BigQuery"
+              visibility: true
+            - heading: "Data Modeling"
+              skills: "AtScale"
+              visibility: true
+            - heading: "Build & Deployment Tools"
+              skills: "Jenkins, Maven, TeamCity, Spinnaker, GitHub Actions, PCF"
+              visibility: true
+            - heading: "ML & Statistical Methods"
+              skills: "Linear Regression, Logistic Regression, Time Series Forecasting, Hypothesis Testing, PCA, K-Means, RAG Models"
+              visibility: true
+            - heading: "Cloud Platform"
+              skills: "Google Cloud Platform (GCP)"
+              visibility: true
+            - heading: "GCP Services"
+              skills: "App Engine, BigQuery, Cloud Functions, Cloud Run, Composer, KMS, GKE, BQML, Vertex AI, Vertex AI Search for Commerce, Compute Engine, Pub/Sub"
+              visibility: true
+            - heading: "BI & Visualization Tools"
+              skills: "Apache Superset, Grafana, Tableau"
+              visibility: true
+
 # Experiences
 author_work_experiences:
-            - company_name: Google
-              company_logo: google.png
-              company_url: https://google.com
-              designation: Software Engineer
-              description: Worked on various Google Products
+            - company_name: "Valtech"
+              company_logo: "CLogo-Valtech.png"
+              company_url: "https://www.valtech.com/en-in/"
+              designation: Lead Developer
+              duration: "October, 2025 - Present"
+              start_date: "2025-10-22"
+              end_date: "present"
+              description: "Engineered product discovery and search relevance solutions for a global luxury eCommerce platform using catalog ingestion pipelines and Vertex AI Search for Commerce."
               visibility: true
-            - company_name: Microsoft
-              company_logo: microsoft.png
-              company_url: https://microsoft.com
-              designation: Azure Developer
-              description: Worked on various Azure Cloud Products
+            - company_name: "Merkle"
+              company_logo: "CLogo-Merkle.png"
+              company_url: "https://www.merkle.com/"
+              designation: Senior Software Engineer
+              duration: "March, 2022 - October, 2025"
+              start_date: "2022-03-24"
+              end_date: "2025-10-18"
+              description: "Built and evolved production-grade ETL pipelines for Fortune 500 retail analytics, while developing hybrid forecasting models for retail sales using BigQuery ML and various ML models."
+              visibility: true
+            - company_name: "Corporater"
+              company_logo: "CLogo-Corporater.png"
+              company_url: "https://corporater.com/"
+              designation: Implementation and Support Engineer
+              duration: "June, 2019 - March, 2022"
+              start_date: "2019-06-03"
+              end_date: "2022-03-22"
+              description: "Led end-to-end Balanced Scorecard and performance management implementations across MEA and APAC, building automated data pipelines and BI dashboards to drive actionable business insights."
               visibility: true
 
 # Education
 author_education_details:
-              - college_logo: mit.png
-                college_name: MIT
-                college_url: https://mit.org
-                college_degree: CS Engineer
-                description: Bachelor of Technology
-                visibility: true
+              - college_logo: "Logo - SRIT.png"
+                university_name: "Anna University"
+                college_name: "Sri Ramakrishna Institute of Technology"
+                college_specialization: "Computer Science and Engineering"
+                college_degree: "Bachelor of Engineering (B.E.)"
+                duration: "2015-2019"
+                college_url: "https://www.srit.org/"
+                visibility: true              
 
-# Projects
-author_project_details:
-              - project_thumbnail: gamershub.png
-                project_title: Gamers Hub
-                project_description: A Platform built for Gamers and Game Devs
-                project_url: https://gamershub.in
-                visibility: true
-              - project_thumbnail: hack4r.PNG
-                project_title: Hack4r
-                project_description: A Platform built for Hackers and Penetration Testers
-                project_url: https://hack4r.com
-                visibility: true
+
+# Professional Certifications
+author_professional_certifications:
+            - cert_name: Google Cloud Professional Machine Learning Engineer
+              cert_issuer: Google Cloud
+              cert_date: "March 31, 2025" 
+              cert_expiry: "March 31, 2027"
+              cert_url: "https://www.credly.com/badges/fdcd9364-266a-4ea3-bc12-c7ef9512faff/public_url"
+              # preview_image: "PRBDG-Professional_Machine_learning_Engineer.png"
+              preview_image: "CERT-Professional_Machine_learning_Engineer.png"
+              specialization: ""
+              visibility: true
+            - cert_name: AI/ML Pre-sales Technical Expert Badge
+              cert_issuer: Google Cloud
+              cert_date: "January 05, 2026"
+              cert_expiry: "January 05, 2027"
+              cert_url: "https://www.credly.com/badges/556c31c5-9183-49a1-b739-b1f52b67bbe8/public_url"
+              preview_image: "PRBDG-AIML_Presales_Technical_Expert.png"
+              specialization: ""
+              visibility: true
+
+# Certifications
+author_certifications:
+            - cert_name: "Google Cloud Big Data and Machine Learning Fundamentals"
+              cert_issuer: Coursera - Google Cloud
+              cert_date: "December 27, 2023"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/verify/ZM5W6VMLP5XZ"
+              preview_image: "CERT-Google_Cloud_Big_Data_and_Machine_Learning_Fundamentals.png"
+              specialization: "Machine Learning Engineer Specialization"
+              visibility: true
+            - cert_name: "How Google does Machine Learning"
+              cert_issuer: Coursera - Google Cloud
+              cert_date: "October 10, 2023"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/verify/V4CEA6K46BF5"
+              preview_image: "CERT-How_Google_does_Machine_Learning.png"
+              specialization: "Machine Learning Engineer Specialization"
+              visibility: true
+            - cert_name: "Launching into Machine Learning"
+              cert_issuer: Coursera - Google Cloud
+              cert_date: "December 03, 2023"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/verify/DTCZLSXR96QX"
+              preview_image: "CERT-Launching_into_Machine_Learning.png"
+              specialization: "Machine Learning Engineer Specialization"
+              visibility: true
+            - cert_name: "Feature Engineering"
+              cert_issuer: Coursera - Google Cloud
+              cert_date: "May 26, 2024"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/verify/G5RNFWPAZXY2"
+              preview_image: "CERT-Feature_Engineering.png"
+              specialization: "Machine Learning Engineer Specialization"
+              visibility: true
+            - cert_name: "Machine Learning in Enterprise"
+              cert_issuer: Coursera - Google Cloud
+              cert_date: "August 17, 2024"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/certificate/1DALU8RB6OA2"
+              preview_image: "CERT-Machine_Learning_in_Enterprise.png"
+              specialization: "Machine Learning Engineer Specialization"
+              visibility: true
+            - cert_name: "Build, Train and Deploy ML Models with Keras on Google Cloud"
+              cert_issuer: Coursera - Google Cloud
+              cert_date: "February 06, 2024"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/certificate/7LE98ABHBS3Z"
+              preview_image: "CERT-Build_Train_and_Deploy_ML_Models_with_Keras_on_Google_Cloud.png"
+              specialization: "Machine Learning Engineer Specialization"
+              visibility: true
+            - cert_name: "ML Pipelines on Google Cloud"
+              cert_issuer: Coursera - Google Cloud
+              cert_date: "March 08, 2025"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/certificate/Q2335QMNUINS"
+              preview_image: "CERT-ML_Pipelines_on_Google_Cloud.png"
+              specialization: "Machine Learning Engineer Specialization"
+              visibility: true
+            - cert_name: "Learning How to Learn: Powerful mental tools to help you master tough subjects"
+              cert_issuer: Coursera - Deep Teaching Solutions
+              cert_date: "September 25, 2022"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/verify/PRLDL8D4LAYD"
+              preview_image: "CERT-Learning_How_to_Learn.png"
+              specialization: ""
+              visibility: true
+            - cert_name: "The Data Science Course 2022: Complete Data Science Bootcamp"
+              cert_issuer: Udemy
+              cert_date: "March 11, 2022"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.udemy.com/certificate/UC-f2fb0bd3-3b26-4224-ad9d-5733f51edd7a/"
+              preview_image: "CERT-The_Data_Science_Course_2022.png"
+              specialization: ""
+              visibility: true
+            - cert_name: "SQL for Data Science Interviews"
+              cert_issuer: 365 DataScience
+              cert_date: "November 07, 2021"
+              cert_expiry: "No Expiry"
+              cert_url: "https://learn.365datascience.com/certificates/CC-AE02A3833D/"
+              preview_image: "CERT-SQL_for_Data_Science_Interviews.png"
+              specialization: ""
+              visibility: true
+            - cert_name: "Mathematics for Machine Learning: Specialization"
+              cert_issuer: Coursera - Imperial College
+              cert_date: "March 09, 2020"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/specialization/KRTXGTKTUMTC"
+              preview_image: "CERT-Mathematics_for_Machine_Learning_Specialization.png"
+              specialization: "Mathematics for Machine Learning Specialization"
+              visibility: true
+            - cert_name: "Mathematics for Machine Learning: Linear Algebra"
+              cert_issuer: Coursera - Imperial College
+              cert_date: "September 04, 2019"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/certificate/RZ7VGFD2K6X5"
+              preview_image: "CERT-Mathematics_for_Machine_Learning_Linear_Algebra.png"
+              specialization: "Mathematics for Machine Learning Specialization"
+              visibility: true
+            - cert_name: "Mathematics for Machine Learning: Multivariate Calculus"
+              cert_issuer: Coursera - Imperial College
+              cert_date: "December 19, 2019"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/certificate/GM833ALXBE54"
+              preview_image: "CERT-Mathematics_for_Machine_Learning_Multivariate_Calculus.png"
+              specialization: "Mathematics for Machine Learning Specialization"
+              visibility: true
+            - cert_name: "Mathematics for Machine Learning: PCA"
+              cert_issuer: Coursera - Imperial College
+              cert_date: "March 09, 2020"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/certificate/RRDREJD528MP"
+              preview_image: "CERT-Mathematics_for_Machine_Learning_PCA.png"
+              specialization: "Mathematics for Machine Learning Specialization"
+              visibility: true
+            - cert_name: "Introduction To Modern Application Development "
+              cert_issuer: NPTEL
+              cert_date: "November 07, 2021"
+              cert_expiry: "No Expiry"
+              cert_url: "https://learn.365datascience.com/certificates/CC-AE02A3833D/"
+              preview_image: "CERT-Introduction_To_Modern_Application_Development.png"
+              specialization: ""
+              visibility: true
+            - cert_name: "Programming for Everybody (Getting Started with Python)"
+              cert_issuer: Coursera - University of Michigan
+              cert_date: "March 01, 2019"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.coursera.org/account/accomplishments/certificate/WW7XZXWD8AGW"
+              preview_image: "CERT-Programming_for_Everybody_Getting_Started_with_Python.png"
+              specialization: ""
+              visibility: true
+            - cert_name: "Big Data Foundations - Level 1"
+              cert_issuer: IBM
+              cert_date: "December 22, 2018"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.credly.com/badges/65477a36-f8c3-40ac-8226-2c02f8901017/linked_in_profile"
+              preview_image: "CERT-Big_Data_Foundations_Level_1.png"
+              specialization: ""
+              visibility: true
+            - cert_name: "Hadoop Foundations - Level 1"
+              cert_issuer: IBM
+              cert_date: "December 19, 2018"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.credly.com/badges/bc294461-4a64-421b-b00d-0ecc0c60e2de/linked_in_profile"
+              preview_image: "CERT-Hadoop_Foundations_Level_1.png"
+              specialization: ""
+              visibility: true
+            - cert_name: "JavaScript"
+              cert_issuer: SoloLearn
+              cert_date: "December 13, 2017"
+              cert_expiry: "No Expiry"
+              cert_url: "https://www.sololearn.com/Certificate/CT-CHKLRD5G/pdf"
+              preview_image: "CERT-JavaScript.png"
+              specialization: ""
+              visibility: true
+
+
+# Badges
+author_badges:
+            - badge_name: "Implementing Cloud Load Balancing for Compute Engine - Skill Badge"
+              badge_issuer: Google Cloud
+              badge_date: "January 22, 2026"
+              badge_expiry: "No Expiry"
+              badge_url: "https://partner.skills.google/public_profiles/f4ea8aab-db49-4104-a4a8-e95d29cfd98a/badges/21668703"
+              preview_image: "BDG-Implementing_Cloud_Load_Balancing_for_Compute_Engine.png"
+              specialization: ""
+              visibility: true
+            - badge_name: "Discover Business Value for Customers - Skill Badge"
+              badge_issuer: Google Cloud
+              badge_date: "December 29, 2025"
+              badge_expiry: "No Expiry"
+              badge_url: "https://www.credly.com/badges/77aeef28-1d82-4fd1-b6ae-6d453ceca940/public_url"
+              preview_image: "BDG-Discover_Business_Value_for_Customers.png"
+              specialization: "AI/ML Pre-sales Technical Expert Badge"
+              visibility: true
+            - badge_name: "Deliver Effective Product Demos - Skill Badge"
+              badge_issuer: Google Cloud
+              badge_date: "January 05, 2026"
+              badge_expiry: "No Expiry"
+              badge_url: "https://www.credly.com/badges/46940673-070e-4de8-b3d6-71b8ba4c1ad3/public_url"
+              preview_image: "BDG-Deliver_Effective_Product_Demos.png"
+              specialization: "AI/ML Pre-sales Technical Expert Badge"
+              visibility: true
+            - badge_name: "Build AI/ML Models on Google Cloud - Skill Badge"
+              badge_issuer: Google Cloud
+              badge_date: "January 01, 2026"
+              badge_expiry: "No Expiry"
+              badge_url: "https://www.credly.com/badges/48cd8397-ea3e-422d-ac53-61d84f37cf26/public_url"
+              preview_image: "BDG-Build_AI_ML_Models_on_Google_Cloud.png"
+              specialization: "AI/ML Pre-sales Technical Expert Badge"
+              visibility: true
+            - badge_name: "Build search and recommendations applications with AI Applications - Skill Badge"
+              badge_issuer: Google Cloud
+              badge_date: "November 04, 2025"
+              badge_expiry: "No Expiry"
+              badge_url: "https://www.credly.com/badges/4e90e150-672d-43bf-8122-69bec57d4ecb/public_url"
+              preview_image: "BDG-Build_search_and_recommendations_applications_with_AI_Applications.png"
+              specialization: ""
+              visibility: true
+            - badge_name: "Get Started with Pub/Sub Skill Badge - Skill Badge"
+              badge_issuer: Google Cloud
+              badge_date: "November 20, 2025"
+              badge_expiry: "No Expiry"
+              badge_url: "https://www.credly.com/badges/8b60ce23-7084-41aa-86a4-2e5ce34b142b/public_url"
+              preview_image: "BDG-Get_Started_with_Pub_Sub.png"
+              specialization: ""
+              visibility: true
+            - badge_name: "Introduction to AI Applications"
+              badge_issuer: Google Cloud
+              badge_date: "November 04, 2025"
+              badge_expiry: "No Expiry"
+              badge_url: "https://partner.skills.google/public_profiles/f4ea8aab-db49-4104-a4a8-e95d29cfd98a/badges/19910188"
+              preview_image: "BDG-Introduction_to_AI_Applications.png"
+              specialization: ""
+              visibility: true
+            - badge_name: "Google Cloud Fundamentals: Core Infrastructure"
+              badge_issuer: Google Cloud
+              badge_date: "December 04, 2025"
+              badge_expiry: "No Expiry"
+              badge_url: "https://partner.skills.google/public_profiles/f4ea8aab-db49-4104-a4a8-e95d29cfd98a/badges/20650066"
+              preview_image: "BDG-Google_Cloud_Fundamentals_Core_Infrastructure.png"
+              specialization: ""
+              visibility: true
+            - badge_name: "Essential Google Cloud Infrastructure: Core Services"
+              badge_issuer: Google Cloud
+              badge_date: "December 12, 2025"
+              badge_expiry: "No Expiry"
+              badge_url: "https://partner.skills.google/public_profiles/f4ea8aab-db49-4104-a4a8-e95d29cfd98a/badges/20851453"
+              preview_image: "BDG-Essential_Google_Cloud_Infrastructure_Core_Services.png"
+              specialization: ""
+              visibility: true
+            - badge_name: "Elastic Google Cloud Infrastructure: Scaling and Automation"
+              badge_issuer: Google Cloud
+              badge_date: "December 19, 2025"
+              badge_expiry: "No Expiry"
+              badge_url: "https://partner.skills.google/public_profiles/f4ea8aab-db49-4104-a4a8-e95d29cfd98a/badges/21012325"
+              preview_image: "BDG-Elastic_Google_Cloud_Infrastructure_Scaling_and_Automation.png"
+              specialization: ""
+              visibility: true
+            - badge_name: "Vertex AI Search for Commerce Webinars"
+              badge_issuer: Google Cloud
+              badge_date: "December 02, 2025"
+              badge_expiry: "No Expiry"
+              badge_url: "https://partner.skills.google/public_profiles/f4ea8aab-db49-4104-a4a8-e95d29cfd98a/badges/20605018"
+              preview_image: "BDG-Vertex_AI_Search_for_Commerce_Webinars.png"
+              specialization: ""
+              visibility: true
+            - badge_name: "Vertex AI Search for Commerce"
+              badge_issuer: Google Cloud
+              badge_date: "November 26, 2025"
+              badge_expiry: "No Expiry"
+              badge_url: "https://www.skills.google/public_profiles/a5128179-4c20-4daf-9ba5-f07c4e2dbbca/badges/20495143"
+              preview_image: "BDG-Vertex_AI_Search_for_Commerce.png"
+              specialization: ""
+              visibility: true
+            - badge_name: "Build and Deploy Machine Learning Solutions on Vertex AI Skill Badge"
+              badge_issuer: Google Cloud
+              badge_date: "November 09, 2024"
+              badge_expiry: "No Expiry"
+              badge_url: "https://www.credly.com/badges/d9bdccbf-4598-41eb-aed1-9fbce5d5f592/public_url"
+              preview_image: "BDG-Build_and_Deploy_Machine_Learning_Solutions_on_Vertex_AI_Skill_Badge.png"
+              specialization: ""
+              visibility: true
+            - badge_name: "Manage Kubernetes in Google Cloud - Skill Badge"
+              badge_issuer: Google Cloud
+              badge_date: "December 23, 2025"
+              badge_expiry: "No Expiry"
+              badge_url: "https://www.credly.com/badges/7e9e7f9b-6281-488f-9837-bfbbdd62c24d/public_url"
+              preview_image: "BDG-Manage_Kubernetes_in_Google_Cloud_Skill_Badge.png"
+              specialization: ""
+              visibility: true
+            - badge_name: "Implement Cloud Security Fundamentals on Google Cloud - Skill Badge"
+              badge_issuer: Google Cloud
+              badge_date: "December 26, 2025"
+              badge_expiry: "No Expiry"
+              badge_url: "https://www.credly.com/badges/57c7958b-407b-4a91-8820-04fd5d2dc1f1/public_url"
+              preview_image: "BDG-Implement_Cloud_Security_Fundamentals_on_Google_Cloud_Skill_Badge.png"
+              specialization: ""
+              visibility: true
+            - badge_name: "Preparing for your Professional Cloud Architect Journey"
+              badge_issuer: Google Cloud
+              badge_date: "January 12, 2026"
+              badge_expiry: "No Expiry"
+              badge_url: "https://partner.skills.google/public_profiles/f4ea8aab-db49-4104-a4a8-e95d29cfd98a/badges/21474252"
+              preview_image: "BDG-Preparing_for_your_Professional_Cloud_Architect_Journey.png"
+              specialization: ""
+              visibility: true
+            - badge_name: "Professional Machine Learning Engineer Study Guide"
+              badge_issuer: Google Cloud
+              badge_date: "October 28, 2024"
+              badge_expiry: "No Expiry"
+              badge_url: "https://www.skills.google/public_profiles/a5128179-4c20-4daf-9ba5-f07c4e2dbbca/badges/12453404"
+              preview_image: "BDG-Professional_Machine_Learning_Engineer_Study_Guide.png"
+              specialization: ""
+              visibility: true
 
 # social links
-twitter_username: xplor4r
-github_username:  sujaykundu777
-instagram_username: xplor4r
+twitter_username: beingjamesvasa1
+github_username:  Jamesvasanth21
+linkedin_username: james-vasanth-57a673124
+# instagram_username: xplor4r
 # facebook_username: johndoe
-# linkedin_username: johndoe
 # behance_username: johndoe
 # medium_username: johndoe
 # telegram_username: johndoe
@@ -87,20 +439,6 @@ instagram_username: xplor4r
 # disqus_shortname: sujay-kundu
 # hyvor_talk_website_id: 476
 
-# wakatime username (coding activity)
-wakatime_username: sujaykundu777
-
-# mailchimp embedded form url (newsletter):
-mailchimp_form_url: https://sujaykundu.us10.list-manage.com/subscribe/post?u=50bab1c85eae24ecfb0f68361&amp;id=3a2dd721d0
-
-# contact form - (choose formspress or getform)
-# getform_endpoint: 83b703c3-9e47-4df4-ac55-e24d7eb02abc
-formspree_email: johndoe@gmail.com
-
-# releases - widget can be (sidebar, modal or embed)
-olvy_organization: devlopr
-olvy_widget_type: sidebar
-
 # syntax highlighter
 markdown: kramdown
 highlighter: rouge
@@ -108,54 +446,9 @@ permalink: pretty
 
 # Choose what to show ( can be true or false)
 show_author_work_experiences: true
-show_author_education_details: true
 show_author_project_details: true
-
-# pagination of posts
-paginate: 4
-per_page: 4
-paginate_path: "/blog/page/:num/"
-
-# minify
-# compress_html:
-#   clippings: all
-#   comments: ["<!-- ", " -->"]
-#   endings: all
-#   ignore:
-#     envs: ['development']
-
-# Archives
-# jekyll-archives:
-#   enabled:
-#     - categories
-#   layout: archive
-#   permalinks:
-#     category: '/category/:name/'
-
-collections:
-  products:
-    output: true
-  authors:
-    output: true
-
-defaults:
-  -
-    scope:
-      path: "gallery"
-    values:
-      permalink: /:path/:basename:output_ext
-  -
-    scope:
-      path: ""
-      type: authors
-    values:
-      layout: author
-      permalink: /blog/authors/:slug
-  -
-    scope:
-      path: 'assets/**'
-    values:
-      sitemap: false
+show_author_education_details: true
+show_author_highlights: true
 
 # Build settings
 plugins:
