@@ -19,6 +19,7 @@ html[data-theme="dark"] {
     --medium-text-color: hsl(0, 0%, 70%);
     --underline-color: hsl(0, 0%, 50%);
     --social-link-color: #ffffff;
+    --professional-profiles-color:#ffffff;
     --card-background-color: rgb(32, 32, 34);
     --newsletter-background-color: #222324;
     --button-background-color: #111;
@@ -39,6 +40,7 @@ html[data-theme="light"] {
     --sidebar-color: hsl(0, 0%, 90%);
     --underline-color: hsl(0, 0%, 60%);
     --social-link-color: #262222;
+    --professional-profiles-color:#262222;
     --card-background-color: rgb(250, 250, 250);
     --newsletter-background-color: #00000008;
     --button-background-color: #fff;
@@ -63,6 +65,7 @@ html[data-theme="light"] {
         --medium-text-color: hsl(0, 0%, 70%);
         --underline-color: hsl(0, 0%, 50%);
         --social-link-color: #ffffff;
+        --professional-profiles-color:#ffffff;
         --card-background-color: rgb(32, 32, 34);
         --newsletter-background-color: #222324;
         --button-background-color: #111;
@@ -86,6 +89,7 @@ html[data-theme="light"] {
         --sidebar-color: hsl(0, 0%, 90%);
         --underline-color: hsl(0, 0%, 60%);
         --social-link-color: #262222;
+        --professional-profiles-color:#262222;
         --card-background-color: rgb(250, 250, 250);
         --button-background-color: #fff;
     }
@@ -711,6 +715,13 @@ header {
     }
     .social-link {
         color: var(--social-link-color) !important;
+        font-size: 15px;
+        padding: 5px;
+        margin: 2px;
+        text-decoration: none !important;
+    }
+    .professional-profiles {
+        color: var(--professional-profiles-color) !important;
         font-size: 15px;
         padding: 5px;
         margin: 2px;
