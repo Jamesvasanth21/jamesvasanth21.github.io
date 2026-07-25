@@ -108,25 +108,25 @@ author_education_details:
                 visibility: true              
 
 
-# Professional Certifications
-author_professional_certifications:
-            - cert_name: Google Cloud Professional Machine Learning Engineer
-              cert_issuer: Google Cloud
-              cert_date: "March 31, 2025" 
-              cert_expiry: "March 31, 2027"
-              cert_url: "https://www.credly.com/badges/fdcd9364-266a-4ea3-bc12-c7ef9512faff/public_url"
-              # preview_image: "PRBDG-Professional_Machine_learning_Engineer.png"
-              preview_image: "CERT-Professional_Machine_learning_Engineer.png"
-              specialization: ""
-              visibility: true
-            - cert_name: AI/ML Pre-sales Technical Expert Badge
-              cert_issuer: Google Cloud
-              cert_date: "January 05, 2026"
-              cert_expiry: "January 05, 2027"
-              cert_url: "https://www.credly.com/badges/556c31c5-9183-49a1-b739-b1f52b67bbe8/public_url"
-              preview_image: "PRBDG-AIML_Presales_Technical_Expert.png"
-              specialization: ""
-              visibility: true
+# # Professional Certifications
+# author_professional_certifications:
+#             - cert_name: Google Cloud Professional Machine Learning Engineer
+#               cert_issuer: Google Cloud
+#               cert_date: "March 31, 2025" 
+#               cert_expiry: "March 31, 2027"
+#               cert_url: "https://www.credly.com/badges/fdcd9364-266a-4ea3-bc12-c7ef9512faff/public_url"
+#               # preview_image: "PRBDG-Professional_Machine_learning_Engineer.png"
+#               preview_image: "CERT-Professional_Machine_learning_Engineer.png"
+#               specialization: ""
+#               visibility: true
+#             - cert_name: AI/ML Pre-sales Technical Expert Badge
+#               cert_issuer: Google Cloud
+#               cert_date: "January 05, 2026"
+#               cert_expiry: "January 05, 2027"
+#               cert_url: "https://www.credly.com/badges/556c31c5-9183-49a1-b739-b1f52b67bbe8/public_url"
+#               preview_image: "PRBDG-AIML_Presales_Technical_Expert.png"
+#               specialization: ""
+#               visibility: true
 
 # Certifications
 author_certifications:

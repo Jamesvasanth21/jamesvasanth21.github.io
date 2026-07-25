@@ -103,7 +103,7 @@ permalink: /certifications/
           </thead>
           <tbody>
             <tr>
-              <td>{{ site.author_professional_certifications | size }}</td>
+              <td>{{ site.data.author_professional_certifications | size }}</td>
               <td>{{ site.author_certifications | size }}</td>
               <td>{{ site.author_badges | size }}</td>
             </tr>
@@ -117,7 +117,7 @@ permalink: /certifications/
       <h1 class="card-title">Professional Certifications</h1>
       <br />
 
-      {% for cert in site.author_professional_certifications %}
+      {% for cert in site.data.author_professional_certifications %}
       {% if cert.visibility == true %}
       <div class="row align-items-center" style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;">
 
