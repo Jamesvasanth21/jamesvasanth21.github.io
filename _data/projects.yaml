@@ -247,7 +247,6 @@ projects:
       workflows, scalable application structure, and platform-oriented
       engineering design.
     github_url: "https://github.com/Jamesvasanth21/cynosure"
-    projects:
   - id: kaggle_id_1
     title: "Kaggle Competition — 3rd Place"
     category: "ML/DS Kaggle Competition"
@@ -258,12 +257,12 @@ projects:
       - Sentiment Analysis
     featured: true
     description: >
-      Ranked 3rd on the leaderboard in a community Kaggle competition focused onSentiment Analysis hosted by TFUG Bangalore.
-    platform: "Kaggle"
-    rank: "3rd Place"
-    technologies:
+      Ranked 3rd on the leaderboard in a community Kaggle competition focused on 
+      Sentiment Analysis hosted by TFUG Bangalore.
+    tech:
       - Python
       - Pandas
       - Scikit-learn
-    links:
-      kaggle: "https://www.kaggle.com/competitions/tensorflow-user-group-bangalore/overview"
+    kaggle_url: "https://www.kaggle.com/competitions/tensorflow-user-group-bangalore/overview"
+    platform: "Kaggle"
+    rank: "3rd Place"
