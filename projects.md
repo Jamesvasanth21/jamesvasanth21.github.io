@@ -109,6 +109,16 @@ permalink: /projects/
           </a>
           {% endif %}
 
+          {% if project.kaggle_url %}
+          <a
+              class="btn btn-sm btn-outline-dark"
+              href="{{ project.kaggle_url }}"
+              target="_blank"
+          >
+              {{ project.platform }}
+          </a>
+          {% endif %}
+
         </div>
 
       </div>
