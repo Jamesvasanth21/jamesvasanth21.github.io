@@ -2,6 +2,7 @@ categories:
   - "AI & Intelligent Systems"
   - "Data & Cloud Engineering"
   - "Product & Platform Engineering"
+  - "ML/DS Kaggle Competition"
 
 projects:
   - id: ner-sequence-labeling-system
@@ -249,7 +250,7 @@ projects:
     projects:
   - id: kaggle_id_1
     title: "Kaggle Competition — 3rd Place"
-    category: "ML/DS Competition"
+    category: "ML/DS Kaggle Competition"
     tags:
       - Kaggle
       - Data Science
