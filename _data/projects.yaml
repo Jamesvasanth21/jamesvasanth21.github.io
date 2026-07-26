@@ -4,20 +4,14 @@ categories:
   - "Product & Platform Engineering"
 
 projects:
-
   - id: ner-sequence-labeling-system
-
     title: "Production-Oriented Named Entity Recognition System"
-
     category: "AI & Intelligent Systems"
-
     tags:
       - NLP
       - Deep Learning
       - MLOps
-
     featured: true
-
     tech:
       - Python
       - PyTorch
@@ -25,31 +19,22 @@ projects:
       - FastAPI
       - MLflow
       - NLP
-
     description: >
       Implemented an end-to-end sequence labeling system for Named Entity
       Recognition using BiLSTM, BiLSTM-CRF, and BERT architectures. Built
       token preprocessing pipelines, sequence-aware decoding with CRF,
       Macro F1 evaluation for imbalanced classes, and designed scalable
       production deployment architecture with FastAPI and MLflow.
-
     github_url: "https://github.com/Jamesvasanth21/ner-sequence-labeling-system"
-
-
   - id: text2sql
-
     title: "LLM-Powered Text2SQL Analytics Engine"
-
     category: "AI & Intelligent Systems"
-
     tags:
       - Text2SQL
       - LLM
       - Analytics
       - GenAI
-
     featured: true
-
     tech:
       - Python
       - LLM
@@ -57,308 +42,227 @@ projects:
       - Streamlit
       - Pandas
       - GenAI
-
     description: >
       Developed a conversational analytics platform that converts natural
       language into SQL using metadata-aware schema understanding,
       conversational LLM workflows, analytics execution pipelines, and
       contextual insight generation over enterprise datasets.
-
     github_url: "https://github.com/Jamesvasanth21/text2sql"
-
-
   - id: customer-conversion
-
     title: "Audiobook Customer Conversion Prediction"
-
     category: "AI & Intelligent Systems"
-
     tags:
       - Classification
       - Customer Analytics
       - Feature Engineering
-
     featured: true
-
     tech:
       - Python
       - Scikit-learn
       - Pandas
       - Machine Learning
-
     description: >
       Built a supervised machine learning system to predict audiobook
       customer repeat purchases using behavioral engagement patterns,
       feature engineering, preprocessing, and customer activity analysis.
-
     github_url: "https://github.com/Jamesvasanth21/Customer_Conversion"
-
-
   - id: data-science-notes
-
     title: "Data Science Training & Knowledge Repository"
-
     category: "AI & Intelligent Systems"
-
     tags:
       - Training
       - Machine Learning
       - Mentorship
-
     featured: true
-
     tech:
       - Python
       - Jupyter
       - Machine Learning
       - Data Science
-
     description: >
       Created and maintained a structured data science learning repository
       while conducting training sessions for fresh graduates covering
       machine learning, preprocessing, exploratory analysis, and
       practical implementation workflows.
-
     github_url: "https://github.com/Jamesvasanth21/data-science-notes"
-
-
   - id: covid-lilly-app
-
     title: "COVID React Web Application"
-
     category: "Product & Platform Engineering"
-
     tags:
       - React
       - Web App
       - Frontend Development
-
     featured: false
-
     tech:
       - React
       - JavaScript
       - HTML
       - CSS
-
     description: >
       Built a React-based web application using Create React App with
       development, testing, and production build workflows for interactive
       frontend deployment.
-
     github_url: "https://github.com/Jamesvasanth21/covidapp-lilly"
-
-
   - id: patient-tracker
-
     title: "Patient Tracker System"
-
     category: "Product & Platform Engineering"
-
     tags:
       - Healthcare
       - Database
       - Tracking
-
     featured: false
-
     tech:
       - Python
       - SQL
       - Application Development
-
     description: >
       Developed a patient tracking application focused on healthcare
       workflow management, record organization, and structured
       data handling.
-
     github_url: "https://github.com/Jamesvasanth21/patient_tracker"
-
-
   - id: jamesvasanth21-portfolio
-
     title: "ML Engineer Portfolio Website"
-
     category: "Product & Platform Engineering"
-
     tags:
       - Portfolio
       - Frontend
       - Responsive UI
-
     featured: false
-
     tech:
       - HTML
       - CSS
       - JavaScript
       - GitHub Pages
-
     description: >
       Designed and developed a responsive developer portfolio showcasing
       machine learning, GenAI, and software engineering projects with
       structured project presentation and modern frontend design.
-
     github_url: "https://github.com/Jamesvasanth21/jamesvasanth21.github.io"
-
-
   - id: initiate-motion-physio
-
     title: "Initiate Motion Physiotherapy Website"
-
     category: "Product & Platform Engineering"
-
     tags:
       - Business Website
       - SEO
       - Deployment
       - Digital Presence
-
     featured: false
-
     tech:
       - Wix
       - Domain Management
       - Google Business
       - SEO
       - Web Design
-
     description: >
       Designed and launched a production-ready website for a physiotherapy
       clinic focused on improving digital presence, appointment accessibility,
       and local discoverability. Managed website structure, deployment,
       domain configuration, Google Business onboarding, and ongoing SEO
       optimization efforts for business visibility and customer reach.
-
     live_url: "https://www.initiatemotionphysio.com/"
-
-
   - id: data-science-projects
-
     title: "Applied Data Science Projects"
-
     category: "AI & Intelligent Systems"
-
     tags:
       - EDA
       - Machine Learning
       - Analytics
-
     featured: false
-
     tech:
       - Python
       - Pandas
       - Machine Learning
       - Visualization
-
     description: >
       Collection of practical data science and analytics implementations
       involving exploratory analysis, preprocessing, predictive modeling,
       and visualization workflows across multiple datasets.
-
     github_url: "https://github.com/Jamesvasanth21/Data-Science"
-
-
   - id: react-task-tracker
-
     title: "React Task Tracker"
-
     category: "Product & Platform Engineering"
-
     tags:
       - React
       - Web App
       - UI
-
     featured: false
-
     tech:
       - React
       - JavaScript
       - HTML
       - CSS
-
     description: >
       Built a task management application using React with reusable
       UI components, state management, and interactive frontend workflows.
-
     github_url: "https://github.com/Jamesvasanth21/react-task-tracker"
-
-
   - id: library-assistant
-
     title: "Library Assistant System"
-
     category: "Product & Platform Engineering"
-
     tags:
       - Desktop Application
       - Java
       - Management System
-
     featured: false
-
     tech:
       - Java
       - JavaFX
       - SQL
-
     description: >
       Developed a desktop-based library management system for inventory
       operations, issue tracking, and administrative workflows.
-
     github_url: "https://github.com/Jamesvasanth21/Library-Assistant"
-
-
   - id: srit-press
-
     title: "SRIT Press Platform"
-
     category: "Product & Platform Engineering"
-
     tags:
       - Publishing
       - Frontend
       - Content Management
-
     featured: false
-
     tech:
       - HTML
       - CSS
       - JavaScript
       - Web Development
-
     description: >
       Developed a web-based publishing and content management platform
       with frontend workflows and structured content handling.
-
     github_url: "https://github.com/Jamesvasanth21/sritpress"
-
-
   - id: cynosure
-
     title: "Cynosure Web Platform"
-
     category: "Data & Cloud Engineering"
-
     tags:
       - Full Stack
       - Architecture
       - Platform
-
     featured: false
-
     tech:
       - JavaScript
       - Backend
       - Frontend
       - Web Development
-
     description: >
       Worked on a modular web platform involving integrated frontend-backend
       workflows, scalable application structure, and platform-oriented
       engineering design.
-
     github_url: "https://github.com/Jamesvasanth21/cynosure"
+    projects:
+  - id: kaggle_id_1
+    title: "Kaggle Competition — 3rd Place"
+    category: "ML/DS Competition"
+    tags:
+      - Kaggle
+      - Data Science
+      - Machine Learning
+      - Sentiment Analysis
+    featured: true
+    description: >
+      Ranked 3rd on the leaderboard in a community Kaggle competition focused onSentiment Analysis hosted by TFUG Bangalore.
+    platform: "Kaggle"
+    rank: "3rd Place"
+    technologies:
+      - Python
+      - Pandas
+      - Scikit-learn
+    links:
+      kaggle: "https://www.kaggle.com/competitions/tensorflow-user-group-bangalore/overview"
